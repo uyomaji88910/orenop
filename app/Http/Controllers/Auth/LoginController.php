@@ -36,4 +36,10 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    // Add by Ryo Nakajima 2018/07/04 
+    // AuthenticatesUsers => username() -> email to nickname
+    public function username()
+    {
+        return 'nickname';
+    }
 }
