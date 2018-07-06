@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    // add by Ryo Nakajima 2018/07/05
+    public function attends()
+    {
+        return $this->hasMany(Attend::class);
+    }
 }

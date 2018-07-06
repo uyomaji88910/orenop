@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+// add by Ryo Nakajima
+use App\User;
+use App\Attend;
+
+
 
 class LoginController extends Controller
 {
@@ -25,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/'; // Mod by  Ryo Nakajima 06/07 7.2
 
     /**
      * Create a new controller instance.
@@ -36,10 +41,77 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    // Add by Ryo Nakajima 2018/07/04 
-    // AuthenticatesUsers => username() -> email to nickname
+
     public function username()
     {
         return 'nickname';
     }
+    
+    protected function redirectTo()   //REDIRECTTO($USER_ID = 1)
+    {
+
+        
+    
+        //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+
+
+        // add attends table to record
+        $attend = new Attend;
+        $id = \Auth::id();
+        $exist = $attend->confirm($id, $date);
+        
+        $status=$_REQUEST['status'];        
+        
+        if($exist == true){
+            return '/'; // 今後変更する可能性あり。7/6 edit by tiny
+        } else{
+            if ($status == 1){
+                $attend->status = 'attend'; // attend or late or absent
+            }else if($status == 2){
+                $attend->status = 'late';    
+            }else if($status == 3){
+                $attend->status = 'absent';
+            }
+
+            $attend->user_id = \Auth::id(); // user id        
+            $attend->created_at = $date; // Date ex. 2018-07-05         
+            $attend->updated_at = $time;// Time ex. 13:05:22
+            
+            $attend->save();
+
+            return '/';
+                 //$_REQUEST['status'];
+        };
+        
+        /*
+        $attend->status = 'attend'; // attend or late or absent
+        $attend->user_id = \Auth::id(); // user id        
+        $attend->created_at = $date; // Date ex. 2018-07-05         
+        $attend->updated_at = $time;// Time ex. 13:05:22
+        
+        $attend->save();
+        
+        return '/';
+        */
+    }
+    
+    
+    /*
+    public function exists($user_id = null) {
+
+  
+            return (bool)$this->find('count', array(
+                'condi' => array(
+                    $this->alias . '.' . $this->primaryKey => $id
+                ),
+                'recursive' => -1,
+                'callbacks' => false
+            ));
+    }
+    */
+
 }

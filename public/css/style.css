@@ -2,8 +2,8 @@
 
 /* body */
 body {
-    background: #f2f2f2;
-    font-family:montserrat;
+    background: white;
+    font-family:Century Gothic;
 }
 footer {
     margin-top: 40px;
@@ -11,7 +11,9 @@ footer {
 
 /* navbar.blade.php */
 .navbar {
-    background-color: #2aa3a3;
+    background-color: #4682B4;
+    font-family:Century Gothic;
+    font-size:15px;
 }
 .navbar-header img {
     margin-top: 5px;
@@ -32,6 +34,22 @@ footer {
     padding: 20px 40px;
     margin-left:7px;
 }
+.nav-signup{
+    height: 50px;
+    width: auto;
+}
+.nav-login{
+    height: 50px;
+    width: auto;
+}
+.nav-logout{
+    height: 50px;
+    width: auto;
+}
+.attendance{
+    color:#fff;
+}
+
 /* cover */
 .cover {
     margin-top: -20px;
@@ -61,4 +79,22 @@ footer {
 .cover .btn-success {
     background-color: #ed486f;
     border-color: #ed486f;
+}
+/*reginster.blade.php*/
+.signup {
+    height: 100px;
+    width: auto;
+}
+.panel-primary{
+    background-color:#4682B4;
+    height: 40px;
+    font-size:20px;
+}
+/*login.blade.php*/
+.att{
+    height: 100px;
+    width: auto;
+}
+.string{
+    color:white;
 }

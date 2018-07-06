@@ -22,3 +22,11 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+// Attend Function 2018/07/05 add by Ryo Nakajima
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('attends', 'AttendsController', ['only' => ['store', 'delete', 'update']]);
+});
+// add by Ryo Nakajima 2018/07/06 for late and absent
+Route::get('others', function() {
+    return view('others');
+})->name('others.get');
