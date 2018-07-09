@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Attend;
+use App\User;
 class AttendsController extends Controller
 {
     /**
@@ -57,7 +58,14 @@ class AttendsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $attend = Attend::find($id);
+        $user_id = $attend->user_id;
+        $user = User::find($user_id);
+
+        return view('attends.edit', [
+            'attend' => $attend,
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -69,13 +77,19 @@ class AttendsController extends Controller
      */
     public function update(Request $request, $id)
     {
-    /* 後で直します。　kazumi 7/6/2018
-    $message = Message::find($id);
-        $message->content = $request->content;
-        $message->save();
+        //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        // 後で直します。　kazumi 7/6/2018
+        $attend = Attend::find($id);
+        $attend->status = $request->status;
+        $attend->updated_at = $time;
+        $attend->save();
 
-        return redirect('/');
-    */
+        return redirect()->back();
+    
         
     }
 

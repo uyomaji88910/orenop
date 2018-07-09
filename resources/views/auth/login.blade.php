@@ -8,7 +8,6 @@
             <center class="panel-primary"><p class='string'>Attendance</p></center>
             <div class="panel-body">
 {!! Form::open(['route' => 'login.post']) !!}
-                    <?php $_POST['status'] = 'おめでとう';?>
                     <div class="form-group">
                         {!! form::label('nickname', 'NickName') !!}
                         {!! form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
