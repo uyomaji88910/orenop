@@ -47,7 +47,14 @@ class AttendsController extends Controller
      */
     public function show($id)
     {
-        //
+        $attend = Attend::find($id);
+        $user_id = $attend->user_id;
+        $user = User::find($user_id);
+
+        return view('attends.show', [
+            'attend' => $attend,
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -103,7 +110,6 @@ class AttendsController extends Controller
     {
         //
     }
-    
     
     
 }

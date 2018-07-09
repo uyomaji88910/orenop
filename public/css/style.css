@@ -11,7 +11,8 @@ footer {
 
 /* navbar.blade.php */
 .navbar {
-    background-color: #4682B4;
+    background-image: -webkit-linear-gradient(left, #91EEA8, #91A5EE);
+   /* background-color: #4682B4;*/
     font-family:Century Gothic;
     font-size:15px;
 }
@@ -98,3 +99,7 @@ footer {
 .string{
     color:white;
 }
+/*welcome.blade.php
+.text-center{
+    background-image: linear-gradient(-90deg, #98DD9F, #98A8DD);
+}*/
