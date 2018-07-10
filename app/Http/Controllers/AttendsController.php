@@ -14,7 +14,40 @@ class AttendsController extends Controller
      */
     public function index()
     {
-        //
+         //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+    
+    
+    //attends function
+         $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                                      ->select('users.nickname','attends.updated_at', 'attends.created_at')
+                                      ->where('status','=','attend')->where('attends.created_at','=',$date)
+                                      ->orderBy('attends.updated_at', 'DESC')->get();
+    
+    //late function
+         $lates = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                                      ->select('users.nickname','attends.updated_at', 'attends.created_at')
+                                      ->where('status','=','late')->where('attends.created_at','=',$date)
+                                      ->orderBy('attends.updated_at', 'DESC')->get();
+    //absent function
+         $absents = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                                      ->select('users.nickname','attends.updated_at', 'attends.created_at')
+                                      ->where('status','=','absent')->where('attends.created_at','=',$date)
+                                      ->orderBy('attends.updated_at', 'DESC')->get();
+    //notattends list        
+        $notattends = \DB::select("SELECT users.nickname FROM users LEFT JOIN (SELECT user_id, status, created_at FROM attends where created_at = CURDATE()) AS today ON users.id = today.user_id WHERE status IS NULL;");
+
+
+
+   // added by Den 07/09/2018
+   
+   return view('attends.index', [
+              'lates'=>$lates,]);
+
+   
     }
 
     /**

@@ -24,7 +24,7 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 // Attend Function 2018/07/05 add by Ryo Nakajima
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('attends', 'AttendsController', ['only' => ['edit','show', 'update']]);
+    Route::resource('attends', 'AttendsController', ['only' => ['index','edit','show', 'update']]);
 // Otsukaresama page 2018/07/09 add by Tiny
 //Route::get('attends', function() {
    // return view('attends.otsukare');

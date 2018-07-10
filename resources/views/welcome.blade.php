@@ -3,7 +3,7 @@
     @section('content')
     <div class="center jumbotron">
         <div class="text-center">
-            <h1>Welcome to the orenop</h1>
+            <a href="#" class="hvr-wobble-vertical"><h1>Welcome to the orenop</h1></a>
         </div>
     </div>
 

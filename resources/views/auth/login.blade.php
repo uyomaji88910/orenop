@@ -21,8 +21,7 @@
                          {!! form::select('status', array('1'=>'Attend')); !!} <!add hidden-form by chee 7/6>
                     </div>     
                     <div class="text-center">
-                        {!! form::submit('P', ['class' => 'btn btn-success']) !!}
-                    
+                        {!! form::submit('', ['class' => 'btn btn-success']) !!}
                     </div>
                 {!! form::close() !!}
             </div>
