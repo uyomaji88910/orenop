@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>{{$attend->created_at}}:{{ $user->nickname }} のステータス</h1>
+<span class="badge badge-danger"> <h1>Today({{$attend->created_at}})  <br>{{ $user->nickname }} 's Status</h1>  </span>
+    
     <h2>Nickname : {{ $user->nickname }}</h2>
     <h2>Status   : {{ $attend->status }}</h2>
     <h2>Time     : {{ $attend->updated_at }}</h2>

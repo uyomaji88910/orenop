@@ -26,11 +26,14 @@ class AttendsController extends Controller
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
                                       ->where('status','=','attend')->where('attends.created_at','=',$date)
                                       ->orderBy('attends.updated_at', 'DESC')->get();
-    
+        $count = $this->counts();
+        //var_dump($count);
+        //exit;
     // added by Den 07/09/2018
    
    return view('attends.index', [
               'attends'=>$attends,
+              'count'=>$count,
                ]);
 
    
@@ -49,13 +52,13 @@ class AttendsController extends Controller
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
                                       ->where('status','=','late')->where('attends.created_at','=',$date)
                                       ->orderBy('attends.updated_at', 'DESC')->get();
-    
+        $count = $this->counts();
    // added by Den 07/09/2018
    
    return view('attends.late', [
               
               'lates'=>$lates,
-              
+              'count'=>$count,
               ]);
 
    
@@ -174,11 +177,13 @@ class AttendsController extends Controller
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
                                       ->where('status','=','absent')->where('attends.created_at','=',$date)
                                       ->orderBy('attends.updated_at', 'DESC')->get();
+        $count = $this->counts();
    
    // added by Den 07/09/2018
    
    return view('attends.absent', [
               'absents'=>$absents,
+              'count'=>$count,
               ]);
 
    
@@ -193,7 +198,12 @@ class AttendsController extends Controller
     
     
     //notattends list        
-        $notattends = \DB::select("SELECT users.nickname FROM users LEFT JOIN (SELECT user_id, status, created_at FROM attends where created_at = CURDATE()) AS today ON users.id = today.user_id WHERE status IS NULL;");
+        $notattends = \DB::select("SELECT users.nickname FROM users 
+                                    LEFT JOIN (SELECT user_id, status, created_at 
+                                    FROM attends where created_at = CURDATE()) AS today 
+                                    ON users.id = today.user_id WHERE status IS NULL;");
+                                    
+        $count = $this->counts();
 
 
 
@@ -201,6 +211,7 @@ class AttendsController extends Controller
    
    return view('attends.notattend', [
                'notattends'=>$notattends,
+               'count'=>$count,
               ]);
 
    
