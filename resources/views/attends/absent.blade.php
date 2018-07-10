@@ -15,8 +15,8 @@
         <th class="text-center">Date</th>
     </tr>
    
-     @if (count($attends) > 0)
-          @include('attends.lists',['lists'=>$attends])
+     @if (count($absents) > 0)
+          @include('attends.lists',['lists'=>$absents])
      @endif      
 
 </table>

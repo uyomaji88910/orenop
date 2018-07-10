@@ -30,8 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
    // return view('attends.otsukare');
 //})->name('otsukare.get');
 
-    
-    
+ Route::get('lists/late', 'AttendsController@late')->name('attends.late');
+ Route::get('lists/absent', 'AttendsController@absent')->name('attends.absent');
+ Route::get('lists/notattend', 'AttendsController@notattend')->name('attends.notattend');
 });
 // add by Ryo Nakajima 2018/07/06 for late and absent
 Route::get('others', function() {

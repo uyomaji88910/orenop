@@ -12,11 +12,10 @@
 <table class="table">
     <tr>
         <th class="text-center">Nickname</th>
-        <th class="text-center">Date</th>
     </tr>
    
-     @if (count($attends) > 0)
-          @include('attends.lists',['lists'=>$attends])
+     @if (count($notattends) > 0)
+          @include('attends.notplist',['lists'=>$notattends])
      @endif      
 
 </table>
