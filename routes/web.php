@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome1');
 });
 
 // User registration
@@ -22,19 +22,16 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
-// Attend Function 2018/07/05 add by Ryo Nakajima
-Route::group(['middleware' => 'auth'], function () {
-    Route::resource('attends', 'AttendsController', ['only' => ['index','edit','show', 'update']]);
-// Otsukaresama page 2018/07/09 add by Tiny
-//Route::get('attends', function() {
-   // return view('attends.otsukare');
-//})->name('otsukare.get');
-
- Route::get('lists/late', 'AttendsController@late')->name('attends.late');
- Route::get('lists/absent', 'AttendsController@absent')->name('attends.absent');
- Route::get('lists/notattend', 'AttendsController@notattend')->name('attends.notattend');
-});
 // add by Ryo Nakajima 2018/07/06 for late and absent
 Route::get('others', function() {
     return view('others');
 })->name('others.get');
+// Attend Function 2018/07/05 add by Ryo Nakajima
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('attends', 'AttendsController', ['only' => ['edit','show', 'update']]);
+    // list 
+    Route::get('lists/attend', 'AttendsController@attend')->name('lists.attend');
+    Route::get('lists/late', 'AttendsController@late')->name('lists.late');
+    Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
+    Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
+});

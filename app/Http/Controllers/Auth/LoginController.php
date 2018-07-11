@@ -67,7 +67,7 @@ class LoginController extends Controller
         $status=$_REQUEST['status'];        
         
         if($exist == true){
-            return '/'; // 今後変更する可能性あり。7/6 edit by tiny
+            return '/attends/show'; // 今後変更する可能性あり。7/6 edit by tiny
         } else{
             if ($status == 1){
                 $attend->status = 'attend'; // attend or late or absent
@@ -76,42 +76,14 @@ class LoginController extends Controller
             }else if($status == 3){
                 $attend->status = 'absent';
             }
-
+            
             $attend->user_id = \Auth::id(); // user id        
             $attend->created_at = $date; // Date ex. 2018-07-05         
             $attend->updated_at = $time;// Time ex. 13:05:22
             
             $attend->save();
-
-            return '/';
-                 //$_REQUEST['status'];
+            $text = '/attends/'. $id;
+            return $text;
         };
-        
-        /*
-        $attend->status = 'attend'; // attend or late or absent
-        $attend->user_id = \Auth::id(); // user id        
-        $attend->created_at = $date; // Date ex. 2018-07-05         
-        $attend->updated_at = $time;// Time ex. 13:05:22
-        
-        $attend->save();
-        
-        return '/';
-        */
     }
-    
-    
-    /*
-    public function exists($user_id = null) {
-
-  
-            return (bool)$this->find('count', array(
-                'condi' => array(
-                    $this->alias . '.' . $this->primaryKey => $id
-                ),
-                'recursive' => -1,
-                'callbacks' => false
-            ));
-    }
-    */
-
 }
