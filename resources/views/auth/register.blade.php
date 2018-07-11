@@ -20,8 +20,8 @@
                     </div>
                     
 　　　　　　　　　　　<div class="form-group"> <!プルダウンした>
-                    {!! Form::label('team_class', 'Team Alphabet') !!}
-                       {!! Form::select('team_alphabet', array('A'=>'A', 'B'=>'B', 'C'=>'C')); !!}
+                    {!! Form::label('team_class', 'class') !!}
+                       {!! Form::select('team_class', array('A'=>'A', 'B'=>'B', 'C'=>'C')); !!}
                     </div>
 
                     <div class="form-group">
