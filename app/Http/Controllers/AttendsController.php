@@ -155,7 +155,7 @@ class AttendsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //$id=attendsのid
     {
         $attend = Attend::find($id);
         $user_id = $attend->user_id;

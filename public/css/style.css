@@ -5,9 +5,10 @@ body {
     background:white;
     font-family:Century Gothic;
 }
+/*footer*/
 #footer{
 
-    bottom: 0;
+    /*bottom: 0;
     width: 100%;
     height: 100px;*/
     bottom: 0;
@@ -19,8 +20,6 @@ body {
 /* navbar.blade.php */
 .navbar {
     background-image: linear-gradient(-90deg, #B8E297, #2099DF);
-    /*background-image: -webkit-linear-gradient(left, #91EEA8, #91A5EE);
-   /* background-color: #4682B4;*/
     font-family:Century Gothic;
     font-size:15px;
 }
@@ -36,6 +35,32 @@ body {
     height: 70px;
     width: 100px;
 }
+.navbar {
+    border-color:transparent;
+}
+/*navbar-icons*/
+.nav-signup{
+    height: 50px;
+    width: auto;
+    z-index: 20;
+}
+.nav-login{
+    height: 50px;
+    width: auto;
+    z-index: 20;
+}
+.nav-logout{
+    height: 50px;
+    width: auto;
+    z-index: 20;
+}
+.attendance{
+    color:#fff;
+    z-index: 20;
+}
+
+
+/*welcome1.blade.php/orenop-logo*/
 .title{
     font-family:montserrat;
     color:#fff;
@@ -43,32 +68,6 @@ body {
     padding: 20px 40px;
     margin-left:7px;
     pointer-events: none;
-
-}
-.nav-signup{
-    height: 50px;
-    width: auto;
-    z-index: 20;
-
-}
-.nav-login{
-    height: 50px;
-    width: auto;
-    z-index: 20;
-
-}
-.nav-logout{
-    height: 50px;
-    width: auto;
-    z-index: 20;
-
-}
-.attendance{
-    color:#fff;
-    z-index: 20;
-}
-.navbar {
-    border-color:transparent;
 }
 
 /* cover */
@@ -101,6 +100,7 @@ body {
     background-color: #ed486f;
     border-color: #ed486f;
 }
+
 /*reginster.blade.php*/
 .signup {
     height: 100px;
@@ -120,23 +120,34 @@ body {
     color:white;
 }
 
-
-/*welcome.blade.php
+/*
 .text-center{
     background-image: linear-gradient(-90deg, #98DD9F, #98A8DD);
 }
-.allscreen{
+*/
+
+/*welcome1.blade.php*/
+/*.allscreen{
     background: linear-gradient(-90deg, #B8E297, #2099DF);
-}
-test*/
-.allscreen{
-    background: linear-gradient(-90deg, #B8E297, #2099DF);
-}
+}*/
 .top-logo{
     height: auto;
     width: 100px;
 }
+.form-group{
+  color:white;
+  font-family:montserrat;
+}
+/*edit.blade.php- labelに色を追加 & badgeに色を追加*/
+.label{
+  background-color:#4eb5e5;
+}
+.badge{
+ background-color:#4eb5e5;
+}
 
+
+/*hvr-wobble-vertical-上下に動く*/
 @-webkit-keyframes hvr-wobble-vertical {
   16.65% {
     -webkit-transform: translateY(8px);
@@ -206,18 +217,12 @@ test*/
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-/*edit.blade.php*/
-.label{
-  background-color:#4eb5e5;
-}
-.badge{
- background-color:#4eb5e5;
-}
-/*****gradation for background******/
+
+/*****welcome1.blade.phpの背景グラデーションgradation for background******/
  @import url(https://fonts.googleapis.com/css?family=Bitter);
     body {
       margin: 0;
-      font-family: 'Bitter', serif;
+      font-family: 'Century Gothic', serif;
       text-align: center;
     }
     .holder,
@@ -314,16 +319,8 @@ test*/
       font-size: 20px;
       margin-top: 26px;
     }
-.label{
-  background-color:#4eb5e5;
-}
-.badge{
- background-color:#4eb5e5;
-}
-.form-group{
-  color:white;
-  font-family:montserrat;
-}
+
+
 
 
 /*

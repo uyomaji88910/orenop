@@ -82,7 +82,9 @@ class LoginController extends Controller
             $attend->updated_at = $time;// Time ex. 13:05:22
             
             $attend->save();
-            $text = '/attends/'. $id;
+            
+            $attend_id = $attend->id;
+            $text = '/attends/'. $attend_id;
             return $text;
         };
     }
