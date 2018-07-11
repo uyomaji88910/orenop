@@ -13,14 +13,15 @@
                         {!! Form::text('nickname', old('nickname'), ['class' => 'form-control']) !!} <!edit by hayato 7/4>
                     </div>
 
-　　　　　　　　　　　<div class="form-group"> <!プルダウンにしたい>
+　　　　　　　　　　　<div class="form-group"> <!プルダウンにした>
                     {!! Form::label('team_number', 'number') !!}
-                        {!! Form::text('team_number', old('team_number'), ['class' => 'form-control']) !!}
+                        {!! Form::select('team_number', array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6', '7'=>'7', '8'=>'8', '9'=>'9', '10'=>'10', '11'=>'11', '12'=>'12', '2
+                    13'=>'13', '14'=>'14', '15'=>'15')); !!}
                     </div>
                     
-　　　　　　　　　　　<div class="form-group"> <!プルダウンしたい>
+　　　　　　　　　　　<div class="form-group"> <!プルダウンした>
                     {!! Form::label('team_class', 'Team Alphabet') !!}
-                        {!! Form::text('team_class', old('team_class'), ['class' => 'form-control']) !!}
+                       {!! Form::select('team_alphabet', array('A'=>'A', 'B'=>'B', 'C'=>'C')); !!}
                     </div>
 
                     <div class="form-group">
