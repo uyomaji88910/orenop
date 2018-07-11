@@ -18,7 +18,8 @@
                         <li><a href="{{ route('login') }}" class="attendance"><img src="images/nav-att.png" class='nav-login'>  Attendance</a></li> <!edit by Den 7/4>
                         <li><a href="{{ route('signup.get') }}"><img src="images/signup-white.png" class='nav-signup'>Sign Up</a></li>
                         <li><a href="{{ route('logout.get') }}"><img src="images/nav-logout.png" class='nav-logout'> Logout</a></li>
-
+                        <li><a href="{{ route('lists.attend') }}"> List</a></li>
+            　          
             　       </ul>
                 </div>    
         </div>    

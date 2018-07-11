@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/logout'; //SignUpしたらログアウトします by chee
 
     /**
      * Create a new controller instance.

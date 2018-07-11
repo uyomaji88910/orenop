@@ -67,7 +67,7 @@ class LoginController extends Controller
         $status=$_REQUEST['status'];        
         
         if($exist == true){
-            return '/attends/show'; // 今後変更する可能性あり。7/6 edit by tiny
+            return '/attends'; // 今後変更する可能性あり。7/6 edit by tiny
         } else{
             if ($status == 1){
                 $attend->status = 'attend'; // attend or late or absent

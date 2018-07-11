@@ -40,6 +40,7 @@ class AttendsController extends Controller
         return view('lists.attend', [
               'attends'=>$attends,
               'count'=>$count,
+              'date'=>$date,
                ]);
         
         
@@ -66,6 +67,8 @@ class AttendsController extends Controller
             
             'lates'=>$lates,
             'count'=>$count,
+            'date'=>$date,
+       
         ]);
         
         
@@ -92,6 +95,7 @@ class AttendsController extends Controller
         return view('lists.absent', [
             'absents'=>$absents,
             'count'=>$count,
+            'date'=>$date,
         ]);
         
         
@@ -120,6 +124,7 @@ class AttendsController extends Controller
         return view('lists.notattend', [
             'notattends'=>$notattends,
             'count'=>$count,
+            'date'=>$date,
         ]);
         
         

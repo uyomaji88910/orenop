@@ -3,7 +3,7 @@
 /* body */
 body {
     background:white;
-    font-family:Century Gothic;
+    font-family:Montserrat;
 }
 /*footer*/
 #footer{
@@ -22,6 +22,7 @@ body {
     background-image: linear-gradient(-90deg, #B8E297, #2099DF);
     font-family:Century Gothic;
     font-size:15px;
+    border-color:transparent;
 }
 .navbar-header img {
     margin-top: 5px;
@@ -34,9 +35,6 @@ body {
     margin-top:5px;
     height: 70px;
     width: 100px;
-}
-.navbar {
-    border-color:transparent;
 }
 /*navbar-icons*/
 .nav-signup{
@@ -57,17 +55,6 @@ body {
 .attendance{
     color:#fff;
     z-index: 20;
-}
-
-
-/*welcome1.blade.php/orenop-logo*/
-.title{
-    font-family:montserrat;
-    color:#fff;
-    font-size:35px;
-    padding: 20px 40px;
-    margin-left:7px;
-    pointer-events: none;
 }
 
 /* cover */
@@ -135,8 +122,12 @@ body {
     width: 100px;
 }
 .form-group{
+  color:;
+  font-family: Montserrat;
+}
+.welcome{
   color:white;
-  font-family:montserrat;
+  font-family: Montserrat;
 }
 /*edit.blade.php- labelに色を追加 & badgeに色を追加*/
 .label{
@@ -145,6 +136,16 @@ body {
 .badge{
  background-color:#4eb5e5;
 }
+/*welcome1.blade.php/orenop-logo*/
+.title{
+    font-family:Montserrat;
+    color:#fff;
+    font-size:35px;
+    padding: 20px 40px;
+    margin-left:7px;
+    pointer-events: none;
+}
+
 
 
 /*hvr-wobble-vertical-上下に動く*/
@@ -322,196 +323,6 @@ body {
 
 
 
-
-/*
-@-webkit-keyframes hvr-wobble-vertical {
-  16.65% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  33.3% {
-    -webkit-transform: translateY(-6px);
-    transform: translateY(-6px);
-  }
-  49.95% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  66.6% {
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
-  83.25% {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-@keyframes hvr-wobble-vertical {
-  16.65% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  33.3% {
-    -webkit-transform: translateY(-6px);
-    transform: translateY(-6px);
-  }
-  49.95% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  66.6% {
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
-  83.25% {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-.hvr-wobble-vertical {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-}
-.hvr-wobble-vertical:hover, .hvr-wobble-vertical:focus, .hvr-wobble-vertical:active {
-  -webkit-animation-name: hvr-wobble-vertical;
-  animation-name: hvr-wobble-vertical;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-/*
-
-@-webkit-keyframes hvr-wobble-top {
-  16.65% {
-    -webkit-transform: skew(-12deg);
-    transform: skew(-12deg);
-  }
-  33.3% {
-    -webkit-transform: skew(10deg);
-    transform: skew(10deg);
-  }
-  49.95% {
-    -webkit-transform: skew(-6deg);
-    transform: skew(-6deg);
-  }
-  66.6% {
-    -webkit-transform: skew(4deg);
-    transform: skew(4deg);
-  }
-  83.25% {
-    -webkit-transform: skew(-2deg);
-    transform: skew(-2deg);
-  }
-  100% {
-    -webkit-transform: skew(0);
-    transform: skew(0);
-  }
-}
-@keyframes hvr-wobble-top {
-  16.65% {
-    -webkit-transform: skew(-12deg);
-    transform: skew(-12deg);
-  }
-  33.3% {
-    -webkit-transform: skew(10deg);
-    transform: skew(10deg);
-  }
-  49.95% {
-    -webkit-transform: skew(-6deg);
-    transform: skew(-6deg);
-  }
-  66.6% {
-    -webkit-transform: skew(4deg);
-    transform: skew(4deg);
-  }
-  83.25% {
-    -webkit-transform: skew(-2deg);
-    transform: skew(-2deg);
-  }
-  100% {
-    -webkit-transform: skew(0);
-    transform: skew(0);
-  }
-}
-.hvr-wobble-top {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-}
-.hvr-wobble-top:hover, .hvr-wobble-top:focus, .hvr-wobble-top:active {
-  -webkit-animation-name: hvr-wobble-top;
-  animation-name: hvr-wobble-top;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-*/
-
-/*
-@-webkit-keyframes  {
-  10% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg);
-  }
-  20% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg);
-  }
-  30% {
-    -webkit-transform: translateX(3px) rotate(2deg);
-    transform: translateX(3px) rotate(2deg);
-  }
-  40% {
-    -webkit-transform: translateX(-3px) rotate(-2deg);
-    transform: translateX(-3px) rotate(-2deg);
-  }
-  50% {
-    -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg);
-  }
-  60% {
-    -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg);
-  }
-  70% {
-    -webkit-transform: translateX(2px) rotate(1deg);
-    transform: translateX(2px) rotate(1deg);
-  }
-  80% {
-    -webkit-transform: translateX(-2px) rotate(-1deg);
-    transform: translateX(-2px) rotate(-1deg);
-  }
-  90% {
-    -webkit-transform: translateX(1px) rotate(0);
-    transform: translateX(1px) rotate(0);
-  }
-  100% {
-    -webkit-transform: translateX(-1px) rotate(0);
-    transform: translateX(-1px) rotate(0);
-  }
-}
-*/
 @keyframes hvr-buzz-out {
   10% {
     -webkit-transform: translateX(3px) rotate(2deg);

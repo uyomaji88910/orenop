@@ -22,12 +22,12 @@
                 
              <div class="col-xs-offset-3 col-xs-6">
                 {!! Form::open(['route' => 'login.post']) !!}
-                    <div class="form-group">
+                    <div class="form-group welcome">
                         {!! form::label('nickname', 'NickName') !!}
                         {!! form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group welcome">
                         {!! form::label('password', 'PassWord') !!}
                         {!! form::password('password', ['class' => 'form-control']) !!}
                     </div>
@@ -35,7 +35,8 @@
                          {!! form::select('status', array('1'=>'Attend')); !!} <!add hidden-form by chee 7/6>
                     </div>     
                     <div class="text-center">
-                        {!! form::submit('', ['class' => 'btn btn-success']) !!}
+                        {!! form::submit('Attendance', ['class' => 'btn']) !!}
+                        
                     </div>
                 {!! form::close() !!}
                 </body>

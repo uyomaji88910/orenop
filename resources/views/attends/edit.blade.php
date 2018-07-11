@@ -14,7 +14,7 @@
         {!! Form::label('status', 'ステータス:') !!}
 　　　　　{!! Form::select('status', array('Attend'=>'Attend', 'Late'=>'Late', 'Absent'=>'Absent')); !!}
  
-        {!! Form::submit('更新') !!}
+        {!! Form::submit('UPDATE') !!}
 
     {!! Form::close() !!}
     
