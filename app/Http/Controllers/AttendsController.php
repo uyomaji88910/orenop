@@ -104,29 +104,38 @@ class AttendsController extends Controller
     {
         //タイムスタンプを取得
         $timestamp = time();
-        // date()で日時を出力
+        // date()で日時を出力 //view用のdate()
         $date = date( "Y-m-d" , $timestamp ) ;
-        $time = date( "H:i:s" , $timestamp ) ;
-        
-        
+
+                  
         //notattends list        
-        $notattends = \DB::select("SELECT users.nickname FROM users 
-                                    LEFT JOIN (SELECT user_id, status, created_at 
-                                    FROM attends where created_at = CURDATE()) AS today 
-                                    ON users.id = today.user_id WHERE status IS NULL;");
         
+        $notattends = \DB::table('users')
+                 ->select('users.nickname')
+                 ->leftJoin('attends as today', function($query){ //Today listのためのdate()
+                    $timestamp = time();
+                    $date = date( "Y-m-d" , $timestamp ) ;
+                    $query->on('users.id', '=', 'today.user_id')
+                          ->where('today.created_at','=',$date);
+                 })
+                 ->whereNull('status')
+                 ->get();
+
+
+                                            
+        
+                                  //  "SELECT users.nickname FROM users 
+                                    //LEFT JOIN (SELECT user_id, status, created_at 
+                                    //FROM attends where created_at = CURDATE()) AS today 
+                                    //ON users.id = today.user_id WHERE status IS NULL;"       
         $count = $this->counts();
         
-        
-        
         // added by Den 07/09/2018
-        
         return view('lists.notattend', [
             'notattends'=>$notattends,
             'count'=>$count,
             'date'=>$date,
         ]);
-        
         
     }     
     
