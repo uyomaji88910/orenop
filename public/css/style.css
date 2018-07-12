@@ -5,9 +5,10 @@ body {
     background:white;
     font-family:Montserrat;
 }
+
+
 /*footer*/
 #footer{
-
     /*bottom: 0;
     width: 100%;
     height: 100px;*/
@@ -16,6 +17,7 @@ body {
     position: absolute;
     color:white;
 }
+
 
 /* navbar.blade.php */
 .navbar {
@@ -36,6 +38,8 @@ body {
     height: 70px;
     width: 100px;
 }
+
+
 /*navbar-icons*/
 .nav-signup{
     height: 50px;
@@ -57,78 +61,41 @@ body {
     z-index: 20;
 }
 
-/* cover */
-.cover {
-    margin-top: -20px;
-    margin-bottom: 20px;
-    width: 100%;
-    height: 300px;
-    background: url("/images/cover-bg.jpg") center center no-repeat;
-    background-size: cover;
+
+/*Form-Panel*/
+.panel-primary{
+    font-size:15px;
 }
-.cover .cover-inner {
-    height: 100%;
-    margin: auto;
-    display: table;
-}
-.cover .cover-inner .cover-contents {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    position: relative;
-}
-.cover .cover-inner .cover-contents h1 {
-    margin: 0 0 20px 0;
-    color: #fff;
+.panel-body{
+  font-family:century gothic;
+  padding: 0.5em 1em;
+    margin: 2em 0;
     font-weight: bold;
-    letter-spacing: 0.15em;
+    color: black;/*文字色*/
+    background: #FFF;
+    border: solid 7px #4eb5e5;/*線*/
+    border-radius: 10px;/*角の丸み*/
 }
-.cover .btn-success {
-    background-color: #ed486f;
-    border-color: #ed486f;
-}
+
 
 /*reginster.blade.php*/
-.signup {
+.signup {    /*iconimage*/
     height: 100px;
     width: auto;
 }
-.panel-primary{
-    background-color:#4682B4;
-    height: 40px;
-    font-size:20px;
-}
+
+
 /*login.blade.php*/
-.att{
+.att{    /*iconimage*/
     height: 100px;
     width: auto;
 }
-.string{
+.string{    /*formの文字*/
     color:white;
+    font-size:25px;
+    font-family:Ludica Sans Unicode;
 }
 
-/*
-.text-center{
-    background-image: linear-gradient(-90deg, #98DD9F, #98A8DD);
-}
-*/
-
-/*welcome1.blade.php*/
-/*.allscreen{
-    background: linear-gradient(-90deg, #B8E297, #2099DF);
-}*/
-.top-logo{
-    height: auto;
-    width: 100px;
-}
-.form-group{
-  color:;
-  font-family: Montserrat;
-}
-.welcome{
-  color:white;
-  font-family: Montserrat;
-}
 /*edit.blade.php- labelに色を追加 & badgeに色を追加*/
 .label{
   background-color:#4eb5e5;
@@ -136,15 +103,9 @@ body {
 .badge{
  background-color:#4eb5e5;
 }
-/*welcome1.blade.php/orenop-logo*/
-.title{
-    font-family:Montserrat;
-    color:#fff;
-    font-size:35px;
-    padding: 20px 40px;
-    margin-left:7px;
-    pointer-events: none;
-}
+
+
+
 
 
 
@@ -219,6 +180,35 @@ body {
   animation-iteration-count: 1;
 }
 
+
+
+
+
+/*welcome1.blade.php/orenop-logo*/
+.title{
+    font-family:Montserrat;
+    color:#fff;
+    font-size:35px;
+    padding: 20px 40px;
+    margin-left:7px;
+    pointer-events: none;
+}
+/*welcome1.blade.php*/
+/*.allscreen{
+    background: linear-gradient(-90deg, #B8E297, #2099DF);
+}*/
+.top-logo{
+    height: auto;
+    width: 100px;
+}
+.form-group{
+  color:;
+  font-family: Montserrat;
+}
+.welcome{
+  color:white;
+  font-family: Montserrat;
+}
 /*****welcome1.blade.phpの背景グラデーションgradation for background******/
  @import url(https://fonts.googleapis.com/css?family=Bitter);
     body {

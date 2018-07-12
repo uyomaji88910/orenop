@@ -15,9 +15,9 @@
             </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ route('signup.get') }}"><img src="images/signup-white.png" class='nav-signup'>Sign Up</a></li>
-                        <li><a href="{{ route('logout.get') }}"><img src="images/nav-logout.png" class='nav-logout'> Logout</a></li>
-                        <li><a href="{{ route('lists.attend') }}" class="attendance"><img src="images/nav-att.png" class='nav-login'> List</a></li>
+                        <li><a href="{{ route('signup.get') }}"><img src= "{{ asset("/images/signup-white.png") }}" class='nav-signup'>Sign Up</a></li>
+                        <li><a href="{{ route('logout.get') }}"><img src="{{ asset("/images/nav-logout.png") }}" class='nav-logout'> Logout</a></li>
+                        <li><a href="{{ route('lists.attend') }}" class="attendance"><img src="{{ asset("/images/nav-att.png") }}" class='nav-login'> List</a></li>
             　          
             　       </ul>
                 </div>    

@@ -30,6 +30,8 @@ class LoginController extends Controller
      *
      * @var string
      */
+    
+     
     protected $redirectTo = '/'; // Mod by  Ryo Nakajima 06/07 7.2
 
     /**
@@ -62,12 +64,14 @@ class LoginController extends Controller
         // add attends table to record
         $attend = new Attend;
         $id = \Auth::id();
+        $status=$_REQUEST['status']; 
         $exist = $attend->confirm($id, $date);
-        
-        $status=$_REQUEST['status'];        
-        
         if($exist == true){
-            return '/attends'; // 今後変更する可能性あり。7/6 edit by tiny
+            $user_id= $attend->today_id($id, $date);
+            $attend->id = \Auth::id(); // user id     
+            $attend_id = $attend->id;
+           
+            return '/attends/'. $attend_id .'/edit/'; // 今後変更する可能性あり。7/6 edit by tiny
         } else{
             if ($status == 1){
                 $attend->status = 'attend'; // attend or late or absent
@@ -84,7 +88,7 @@ class LoginController extends Controller
             $attend->save();
             
             $attend_id = $attend->id;
-            $text = '/attends/'. $attend_id;
+            $text = '/attends/'. $attend_id .'/edit/';
             return $text;
         };
     }

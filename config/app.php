@@ -227,5 +227,11 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    
+//IPアドレス設定    
+  //  'admin' => [
+  //  'allowipaddresses' => ['127.0.0.1', '133.237.7.89'],
+//],
+
 
 ];

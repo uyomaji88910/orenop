@@ -26,4 +26,14 @@ class Attend extends Model
             ])->exists();
         return $exist;
     }
+    public function today_id($id, $date)
+    {
+        $user_id = $this->where([
+            ['user_id', $id],
+            ['created_at', $date],
+            ])
+            ->get()[0]->id;
+        return $user_id;
+    }
+    
 }
