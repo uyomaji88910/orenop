@@ -69,11 +69,11 @@ class LoginController extends Controller
             return $text;
         } else{
             if ($status == 1){
-                $attend->status = 'attend'; // attend or late or absent
+                $attend->status = 'Attend'; // attend or late or absent
             }else if($status == 2){
-                $attend->status = 'late';    
+                $attend->status = 'Late';    
             }else if($status == 3){
-                $attend->status = 'absent';
+                $attend->status = 'Absent';
             }
             
             $attend->user_id = \Auth::id(); // user id        

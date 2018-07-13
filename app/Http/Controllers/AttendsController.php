@@ -31,7 +31,7 @@ class AttendsController extends Controller
         //attends function
         $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                  ->select('users.nickname','attends.updated_at', 'attends.created_at')
-                 ->where('status','=','attend')->where('attends.created_at','=',$date)
+                 ->where('status','=','Attend')->where('attends.created_at','=',$date)
                  ->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         //var_dump($count);
@@ -61,7 +61,7 @@ class AttendsController extends Controller
         //late function
         $lates = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                ->select('users.nickname','attends.updated_at', 'attends.created_at')
-               ->where('status','=','late')->where('attends.created_at','=',$date)
+               ->where('status','=','Late')->where('attends.created_at','=',$date)
                ->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         // added by Den 07/09/2018
@@ -92,7 +92,7 @@ class AttendsController extends Controller
         
         $absents = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                  ->select('users.nickname','attends.updated_at', 'attends.created_at')
-                 ->where('status','=','absent')->where('attends.created_at','=',$date)
+                 ->where('status','=','Absent')->where('attends.created_at','=',$date)
                  ->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         
