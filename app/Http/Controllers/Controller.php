@@ -25,21 +25,21 @@ class Controller extends BaseController
         //attends function
          $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
-                                      ->where('status','=','attend')->where('attends.created_at','=',$date)
+                                      ->where('status','=','Attend')->where('attends.created_at','=',$date)
                                       ->orderBy('attends.updated_at', 'DESC')->get();
         $count_attend = $attends->count();
         
          //late function
          $lates = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
-                                      ->where('status','=','late')->where('attends.created_at','=',$date)
+                                      ->where('status','=','Late')->where('attends.created_at','=',$date)
                                       ->orderBy('attends.updated_at', 'DESC')->get();
          $count_late = $lates->count();
          
          
          $absents = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
-                                      ->where('status','=','absent')->where('attends.created_at','=',$date)
+                                      ->where('status','=','Absent')->where('attends.created_at','=',$date)
                                       ->orderBy('attends.updated_at', 'DESC')->get();
          $count_absent = $absents->count();
          
