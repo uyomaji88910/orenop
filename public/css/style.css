@@ -18,6 +18,12 @@ body {
     color:white;
 }
 
+.bkmoji{
+  color:black;
+  font-family: Montserrat;
+  font-size: 30px;
+  margin-top:-13px;
+}
 
 /* navbar.blade.php */
 .navbar {
@@ -33,6 +39,7 @@ body {
 }
 .navbar-brand {
     background:url("/images/egg-white.png") no-repeat left center;
+    background-repeat: no-repeat;
     background-size: contain;
     margin-top:5px;
     height: 70px;
@@ -87,8 +94,9 @@ body {
 
 /*login.blade.php*/
 .att{    /*iconimage*/
-    height: 100px;
+    height: 150px;
     width: auto;
+    margin-top: 10px;
 }
 .string{    /*formの文字*/
     color:white;
@@ -104,7 +112,19 @@ body {
  background-color:#4eb5e5;
 }
 
-
+/*login.blade.php 時間表記*/
+#time{
+  margin-top: 20px;
+  font-family: Courier;
+  font-size:50px;
+}
+.timestring{
+  margin-right: 30px;
+  margin-left: 0px;
+}
+.timestrings{
+  margin-left: 30px;
+}
 
 
 
