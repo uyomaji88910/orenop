@@ -48,18 +48,14 @@ class LoginController extends Controller
     {
         return 'nickname';
     }
-    
-    protected function redirectTo()   //REDIRECTTO($USER_ID = 1)
+    //REDIRECTTO($USER_ID = 1)
+    protected function redirectTo()   
     {
-
-        
-    
         //タイムスタンプを取得
         $timestamp = time();
         // date()で日時を出力
         $date = date( "Y-m-d" , $timestamp ) ;
         $time = date( "H:i:s" , $timestamp ) ;
-
 
         // add attends table to record
         $attend = new Attend;
@@ -68,10 +64,9 @@ class LoginController extends Controller
         $exist = $attend->confirm($id, $date);
         if($exist == true){
             $user_id= $attend->today_id($id, $date);
-            $attend->id = \Auth::id(); // user id     
-            $attend_id = $attend->id;
-           
-            return '/attends/'. $attend_id .'/edit/'; // 今後変更する可能性あり。7/6 edit by tiny
+            $attend->user_id = \Auth::id(); // user id     
+            $text = '/attends/' . $attend->user_id . '/edit/'; // edit byu Ryo Nakajima 2018/07/13
+            return $text;
         } else{
             if ($status == 1){
                 $attend->status = 'attend'; // attend or late or absent
@@ -84,11 +79,9 @@ class LoginController extends Controller
             $attend->user_id = \Auth::id(); // user id        
             $attend->created_at = $date; // Date ex. 2018-07-05         
             $attend->updated_at = $time;// Time ex. 13:05:22
-            
             $attend->save();
             
-            $attend_id = $attend->id;
-            $text = '/attends/'. $attend_id .'/edit/';
+            $text = '/attends/' . $attend->user_id; // edit byu Ryo Nakajima 2018/07/13
             return $text;
         };
     }

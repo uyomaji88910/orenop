@@ -15,10 +15,17 @@
             </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ route('signup.get') }}"><img src= "{{ asset("/images/signup-white.png") }}" class='nav-signup'>Sign Up</a></li>
-                        <li><a href="{{ route('logout.get') }}"><img src="{{ asset("/images/nav-logout.png") }}" class='nav-logout'> Logout</a></li>
-                        <li><a href="{{ route('lists.attend') }}" class="attendance"><img src="{{ asset("/images/nav-att.png") }}" class='nav-login'> List</a></li>
-            　          
+                        @if (Auth::check())
+                            <?php $id = \Auth::user()->id ?>
+                            <li><a href="{{ route('attends.edit', [$id]) }}"><img src="{{ asset("/images/edit.png") }}" class='nav-logout'> Edit</a></li>
+                            <li><a href="{{ route('logout.get') }}"><img src="{{ asset("/images/nav-logout.png") }}" class='nav-logout'> Logout</a></li>
+                            <li><a href="{{ route('lists.attend') }}" class="attendance"><img src="{{ asset("/images/nav-att.png") }}" class='nav-login'> List</a></li>
+                         
+                        @else
+                            <li><a href="{{ route('signup.get') }}"><img src= "{{ asset("/images/signup-white.png") }}" class='nav-signup'>Sign Up</a></li>
+                            <li><a href="{{ route('logout.get') }}"><img src="{{ asset("/images/nav-logout.png") }}" class='nav-logout'> Logout</a></li>
+                            <li><a href="{{ route('lists.attend') }}" class="attendance"><img src="{{ asset("/images/nav-att.png") }}" class='nav-login'> List</a></li>
+            　           @endif
             　       </ul>
                 </div>    
         </div>    

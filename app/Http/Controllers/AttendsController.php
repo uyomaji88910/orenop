@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Attend;
 use App\User;
+
 class AttendsController extends Controller
 {
     /**
@@ -36,6 +37,8 @@ class AttendsController extends Controller
         //var_dump($count);
         //exit;
         // added by Den 07/09/2018
+        //cotroller.phpで指定したやつそのままもってくることができる！！！！！！！by Tiny 20180713 
+        $today_id = $this->edit_id();
         
         return view('lists.attend', [
               'attends'=>$attends,
@@ -62,6 +65,9 @@ class AttendsController extends Controller
                ->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         // added by Den 07/09/2018
+        
+    
+        $today_id = $this->edit_id();
         
         return view('lists.late', [
             
@@ -92,6 +98,9 @@ class AttendsController extends Controller
         
         // added by Den 07/09/2018
    
+         $id= \Auth::user()->id;
+        $today_id = $this->today_id($id,$date);
+        
         return view('lists.absent', [
             'absents'=>$absents,
             'count'=>$count,
@@ -130,6 +139,8 @@ class AttendsController extends Controller
                                     //ON users.id = today.user_id WHERE status IS NULL;"       
         $count = $this->counts();
         
+        $id= \Auth::user()->id;
+        $today_id = $this->today_id($id,$date);
         // added by Den 07/09/2018
         return view('lists.notattend', [
             'notattends'=>$notattends,
@@ -169,12 +180,17 @@ class AttendsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) //$id=attendsのid
+    public function show($id) //$id=userのid
     {
-        $attend = Attend::find($id);
-        $user_id = $attend->user_id;
-        $user = User::find($user_id);
+                //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力 //view用のdate()
+        $date = date( "Y-m-d" , $timestamp ) ;
         
+        $user = User::find($id);
+        
+        $today_id = $this->today_id($id,$date);
+        $attend = Attend::find($today_id);        
         return view('attends.show', [
             'attend' => $attend,
             'user' => $user,
@@ -189,9 +205,11 @@ class AttendsController extends Controller
      */
     public function edit($id)
     {
-        $attend = Attend::find($id);
+        $today_id= $this->edit_id();
+        $attend = Attend::find($today_id);
         $user_id = $attend->user_id;
         $user = User::find($user_id);
+
         
         if (\Auth::user()->id === $user_id){ // need restrict date or time gate $date == \Attends::->date
             return view('attends.edit', [
@@ -217,11 +235,16 @@ class AttendsController extends Controller
         // date()で日時を出力
         $date = date( "Y-m-d" , $timestamp ) ;
         $time = date( "H:i:s" , $timestamp ) ;
-        $attend = Attend::find($id);
+
+        
+        $today_id= $this->edit_id();
+        $attend = Attend::find($today_id);
         $user_id = $attend->user_id;
+        $user = User::find($user_id);
+        
         
         if (\Auth::user()->id === $user_id){ // need restrict date or time gate
-            $attend = Attend::find($id);
+            $attend = Attend::find($today_id);
             $attend->status = $request->status;
             $attend->updated_at = $time;
             $attend->save();

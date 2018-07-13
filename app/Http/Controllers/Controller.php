@@ -6,10 +6,13 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use App\Attend;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    
+    
     
     function counts() {
         //タイムスタンプを取得
@@ -58,5 +61,30 @@ class Controller extends BaseController
             'count_absent' => $count_absent,
             'count_notattend' => $count_notattend,
             ];
+    }
+    
+    function today_id ($id, $date)
+    {     $attend = new Attend;
+          $today_id = $attend->where([
+            ['user_id', $id],
+            ['created_at', $date],
+            ])
+            ->get()[0]->id;
+        return $today_id;
+    }
+    
+    function edit_id (){
+        
+        $id= \Auth::user()->id;
+        $timestamp = time();
+        $date = date( "Y-m-d" , $timestamp ) ;
+            
+        $today_id= $this->today_id($id, $date);
+            
+           
+        //added by tiny
+        
+            return $today_id;
+            
     }
 }
