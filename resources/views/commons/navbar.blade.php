@@ -9,7 +9,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><br>
+                <a class="navbar-brand hvr-buzz-outs" href="/"><br>
                     <span class="title"></span>
                 </a> <! edit by chee 7/4 cssで編集済>
             </div>
