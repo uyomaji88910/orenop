@@ -6,6 +6,7 @@
         <body class="main">
                 <body>
                     <h1 id="time"></h1>
+                       
                         <script class="col-xs-offset-6 col-xs-5">
                             time();
                             function time(){
@@ -15,10 +16,11 @@
                             setInterval('time()',1000);
                         </script>
                         <div class="timestrings"><span class="timestring">Hour</span><span class="timestring"> Minute</span><span class="timestring">Second</span></div>
-                </body>
-            <center><a herf="/"><img src="/images/egg-bk.png" class="att hvr-buzz-out"></a></center>
+               
+               </body>
+            <center><a herf="/"><img src="/images/orenop-toka.png" class="att"></a></center>
                 
-            <center class="bkmoji">orenop</center><br>
+
                     <h1 class='label label-primary string'>Attendance</h1>
                     <div class="panel-body">
                         {!! Form::open(['route' => 'login.post']) !!}
@@ -37,7 +39,10 @@
                             </div>
                             
                             <div class="text-center">
-                                {!! form::submit('P', ['class' => 'btn_img']) !!}
+                               
+                                
+                                <input type ="image" name="submit" width="30" height="auto" src="/images/egg-bk.png" class="hvr-buzz-out" alt=" 送信">
+
                             </div>
                         {!! form::close() !!}
                     </div>
@@ -45,6 +50,9 @@
     </div>    
 </div>
          {!! link_to_route('others.get', '欠席/遅刻の方はこちら') !!}
+         <br><br>
+         {!! link_to_route('ghr.login', 'GHRの方はこちら') !!}
+         <br><br>
 
 
 @endsection

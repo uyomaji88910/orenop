@@ -61,12 +61,19 @@ class LoginController extends Controller
         $attend = new Attend;
         $id = \Auth::id();
         $status=$_REQUEST['status']; 
+        $nickname=$_REQUEST['nickname'];
         $exist = $attend->confirm($id, $date);
         if($exist == true){
             $user_id= $attend->today_id($id, $date);
             $attend->user_id = \Auth::id(); // user id     
             $text = '/attends/' . $attend->user_id . '/edit/'; // edit byu Ryo Nakajima 2018/07/13
             return $text;
+            
+        } else if($nickname == 'GHR') {
+            return '/ghr/attend';
+            
+        
+        
         } else{
             if ($status == 1){
                 $attend->status = 'Attend'; // attend or late or absent
