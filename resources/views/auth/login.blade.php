@@ -5,21 +5,20 @@
     <div class="col-xs-offset-0 col-xs-5">
         <body class="main">
                 <body>
-                    <h1 id="time"></h1>
-                       
-                        <script class="col-xs-offset-6 col-xs-5">
-                            time();
-                            function time(){
-                                var now = new Date();
-                                document . getElementById("time") . innerHTML = now . toLocaleTimeString();
-                            }
-                            setInterval('time()',1000);
-                        </script>
-                        <div class="timestrings"><span class="timestring">Hour</span><span class="timestring"> Minute</span><span class="timestring">Second</span></div>
-               
+                    <center><a herf="/"><img src="/images/orenop-toka.png" class="att"></a></center>
+                        <h1 id="time"></h1>
+                            <script class="col-xs-offset-6 col-xs-5">
+                                time();
+                                function time(){
+                                    var now = new Date();
+                                    document . getElementById("time") . innerHTML = now . toLocaleTimeString();
+                                }
+                                setInterval('time()',1000);
+                            </script>
+                            <div class="timestrings"><span class="timestring">Hour</span><span class="timestring"> Minute</span><span class="timestring">Second</span></div>
                </body>
-            <center><a herf="/"><img src="/images/orenop-toka.png" class="att"></a></center>
                 
+                <br>
 
                     <h1 class='label label-primary string'>Attendance</h1>
                     <div class="panel-body">

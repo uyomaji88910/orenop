@@ -36,14 +36,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('lists/late', 'AttendsController@late')->name('lists.late');
     Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
     Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
+    
    
-    // GHR  middeware あとでいれる。or if文
-    Route::get('ghr/attend', 'GhrController@attend')->name('ghr.attend');
-    Route::get('ghr/late', 'GhrController@late')->name('ghr.late');
-    Route::get('ghr/absent', 'GhrController@absent')->name('ghr.absent');
-    Route::get('ghr/notattend', 'GhrController@notattend')->name('ghr.notattend');
+    // GHR   ミドルウェアの中のミドルウェアやで！！！！
+    Route::group(['middleware' => 'auth_ghr'], function () {
+        Route::get('ghr/attend', 'GhrController@attend')->name('ghr.attend');
+        Route::get('ghr/late', 'GhrController@late')->name('ghr.late');
+        Route::get('ghr/absent', 'GhrController@absent')->name('ghr.absent');
+        Route::get('ghr/notattend', 'GhrController@notattend')->name('ghr.notattend');
+    });
+        
+        
 });
-
 // add by Ryo Nakajima 2018/07/06 for late and absent
 Route::get('others', function() {
     return view('others');
