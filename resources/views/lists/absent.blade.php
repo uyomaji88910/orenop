@@ -11,12 +11,11 @@
     <tr>
         <th class="text-center">Team</th>
         <th class="text-center">Nickname</th>
-        <th class="text-center">Reason</th>
         <th class="text-center">Time</th>
     </tr>
    
      @if (count($absents) > 0)
-          @include('lists.lists_others',['lists'=>$absents])
+          @include('lists.lists',['lists'=>$absents])
      @endif      
 
 </table>

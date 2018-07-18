@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Attend;
 use App\User;
-
 class AttendsController extends Controller
 {
     /**
@@ -17,7 +14,6 @@ class AttendsController extends Controller
     {
         // empty
     }
-
     // route ~/lists/attend 2018/07/11
     public function attend()
     {
@@ -46,7 +42,6 @@ class AttendsController extends Controller
         
         
     }
-
     // route ~/lists/late 2018/07/11    
     public function late()
     {
@@ -105,7 +100,6 @@ class AttendsController extends Controller
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
         $date = date( "Y-m-d" , $timestamp ) ;
-
                   
         //notattends list        
         
@@ -121,8 +115,6 @@ class AttendsController extends Controller
                  ->where('users.nickname', '!=', 'GHR')
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
                  ->get();
-
-
                                             
         
                                   //  "SELECT users.nickname FROM users 
@@ -178,7 +170,6 @@ class AttendsController extends Controller
         
         $user = User::find($id);
         
-        $today_id = $this->today_id($id,$date);
         $attend = Attend::find($today_id);        
         return view('attends.show', [
             'attend' => $attend,
@@ -198,7 +189,6 @@ class AttendsController extends Controller
         $attend = Attend::find($today_id);
         $user_id = $attend->user_id;
         $user = User::find($user_id);
-
         
         if (\Auth::user()->id === $user_id){ // need restrict date or time gate $date == \Attends::->date
             return view('attends.edit', [
@@ -209,7 +199,6 @@ class AttendsController extends Controller
             return redirect()->back(); // 2018/07/10 edit by Ryo Nakajima //
         }
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -224,7 +213,6 @@ class AttendsController extends Controller
         // date()で日時を出力
         $date = date( "Y-m-d" , $timestamp ) ;
         $time = date( "H:i:s" , $timestamp ) ;
-
         
         $today_id= $this->edit_id();
         $attend = Attend::find($today_id);
@@ -236,6 +224,9 @@ class AttendsController extends Controller
             $attend = Attend::find($today_id);
             $attend->status = $request->status;
             $attend->updated_at = $time;
+            if ($request->status == 'Late' || $request->status == 'Absent') {
+                $attend->reason = $request->reason;
+            }
             $attend->save();
             return redirect()->back();
         } else {
@@ -245,7 +236,6 @@ class AttendsController extends Controller
     
         
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -258,5 +248,4 @@ class AttendsController extends Controller
     }
     
     
-
 }
