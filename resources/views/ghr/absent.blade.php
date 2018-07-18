@@ -9,14 +9,14 @@
 
 <table class="table">
     <tr>
-        <th class="text-center">Nickname</th>
         <th class="text-center">Team</th>
+        <th class="text-center">Nickname</th>
         <th class="text-center">Reason</th>
         <th class="text-center">Time</th>
     </tr>
    
      @if (count($absents) > 0)
-          @include('ghr.lists',['lists'=>$absents])
+          @include('ghr.lists_others',['lists'=>$absents])
      @endif      
 
 </table>

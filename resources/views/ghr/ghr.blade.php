@@ -3,7 +3,7 @@
     @section('content')
 <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
-        <center><img src='images/att.png' class="att"></center><br>
+        <center><img src={{ asset("images/att.png")}} class="att"></center><br>
                  <h1 class='label label-primary string'>For GHR</h1>
                 <div class="panel-body">
     {!! Form::open(['route' => 'login.post']) !!}

@@ -30,16 +30,14 @@ class AttendsController extends Controller
         
         //attends function
         $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at')
+                 ->select('users.nickname','attends.updated_at', 'attends.created_at','users.team_number', 'users.team_class')
                  ->where('status','=','Attend')->where('attends.created_at','=',$date)
-                 ->orderBy('attends.updated_at', 'DESC')->get();
+                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         //var_dump($count);
         //exit;
         // added by Den 07/09/2018
         //cotroller.phpで指定したやつそのままもってくることができる！！！！！！！by Tiny 20180713 
-        $today_id = $this->edit_id();
-        
         return view('lists.attend', [
               'attends'=>$attends,
               'count'=>$count,
@@ -60,14 +58,11 @@ class AttendsController extends Controller
         
         //late function
         $lates = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-               ->select('users.nickname','attends.updated_at', 'attends.created_at')
+               ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class')
                ->where('status','=','Late')->where('attends.created_at','=',$date)
-               ->orderBy('attends.updated_at', 'DESC')->get();
+               ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         // added by Den 07/09/2018
-        
-    
-        $today_id = $this->edit_id();
         
         return view('lists.late', [
             
@@ -91,15 +86,10 @@ class AttendsController extends Controller
         
         
         $absents = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at')
+                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class')
                  ->where('status','=','Absent')->where('attends.created_at','=',$date)
-                 ->orderBy('attends.updated_at', 'DESC')->get();
+                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
-        
-        // added by Den 07/09/2018
-   
-         $id= \Auth::user()->id;
-        $today_id = $this->today_id($id,$date);
         
         return view('lists.absent', [
             'absents'=>$absents,
@@ -120,7 +110,7 @@ class AttendsController extends Controller
         //notattends list        
         
         $notattends = \DB::table('users')
-                 ->select('users.nickname')
+                 ->select('users.nickname', 'users.team_number', 'users.team_class')
                  ->leftJoin('attends as today', function($query){ //Today listのためのdate()
                     $timestamp = time();
                     $date = date( "Y-m-d" , $timestamp ) ;
@@ -128,6 +118,8 @@ class AttendsController extends Controller
                           ->where('today.created_at','=',$date);
                  })
                  ->whereNull('status')
+                 ->where('users.nickname', '!=', 'GHR')
+                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
                  ->get();
 
 
@@ -138,9 +130,6 @@ class AttendsController extends Controller
                                     //FROM attends where created_at = CURDATE()) AS today 
                                     //ON users.id = today.user_id WHERE status IS NULL;"       
         $count = $this->counts();
-        
-        $id= \Auth::user()->id;
-        $today_id = $this->today_id($id,$date);
         // added by Den 07/09/2018
         return view('lists.notattend', [
             'notattends'=>$notattends,

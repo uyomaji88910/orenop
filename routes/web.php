@@ -31,13 +31,6 @@ Route::post('ghr/login', 'Auth\LoginController@login')->name('ghr_login.post');
 //Attend Function 2018/07/05 add by Ryo Nakajima
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('attends', 'AttendsController', ['only' => ['show', 'edit', 'update']]); // add Ryo Nakajima 2018/07/13
-    // list 
-    Route::get('lists/attend', 'AttendsController@attend')->name('lists.attend');
-    Route::get('lists/late', 'AttendsController@late')->name('lists.late');
-    Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
-    Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
-    
-   
     // GHR   ミドルウェアの中のミドルウェアやで！！！！
     Route::group(['middleware' => 'auth_ghr'], function () {
         Route::get('ghr/attend', 'GhrController@attend')->name('ghr.attend');
@@ -45,9 +38,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('ghr/absent', 'GhrController@absent')->name('ghr.absent');
         Route::get('ghr/notattend', 'GhrController@notattend')->name('ghr.notattend');
     });
-        
-        
 });
+
+   // list 
+    Route::get('lists/attend', 'AttendsController@attend')->name('lists.attend');
+    Route::get('lists/late', 'AttendsController@late')->name('lists.late');
+    Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
+    Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
 // add by Ryo Nakajima 2018/07/06 for late and absent
 Route::get('others', function() {
     return view('others');

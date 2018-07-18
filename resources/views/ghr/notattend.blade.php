@@ -9,7 +9,8 @@
 
 <table class="table">
     <tr>
-        <th class="text-center"><u>Nickname</u></th>
+        <th class="text-center">Team</th>
+        <th class="text-center">Nickname</th>
     </tr>
    
      @if (count($notattends) > 0)

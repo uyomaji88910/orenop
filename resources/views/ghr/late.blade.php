@@ -9,12 +9,14 @@
 
 <table class="table">
     <tr>
+        <th class="text-center">Team</th>
         <th class="text-center">Nickname</th>
+        <th class="text-center">Reason</th>
         <th class="text-center">Time</th>
     </tr>
    
      @if (count($lates) > 0)
-          @include('ghr.lists',['lists'=>$lates])
+          @include('ghr.lists_others',['lists'=>$lates])
      @endif      
 
 </table>

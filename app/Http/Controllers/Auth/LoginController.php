@@ -70,7 +70,7 @@ class LoginController extends Controller
             return $text;
             
         } else if($nickname == 'GHR') {
-            return '/ghr/attend';
+            return '/ghr/absent';
             
         
         
@@ -78,9 +78,11 @@ class LoginController extends Controller
             if ($status == 1){
                 $attend->status = 'Attend'; // attend or late or absent
             }else if($status == 2){
-                $attend->status = 'Late';    
+                $attend->status = 'Late';
+                $attend->reason = $_REQUEST['reason'];
             }else if($status == 3){
                 $attend->status = 'Absent';
+                $attend->reason = $_REQUEST['reason'];
             }
             
             $attend->user_id = \Auth::id(); // user id        
