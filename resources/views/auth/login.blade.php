@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xs-offset-0 col-xs-5">
+    <div class="col-xs-offset-4 col-xs-4">
         <body class="main">
                 <body>
                     <center><a herf="/"><img src="/images/orenop-toka.png" class="att"></a></center>

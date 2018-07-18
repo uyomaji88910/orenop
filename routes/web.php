@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('ghr/late', 'GhrController@late')->name('ghr.late');
         Route::get('ghr/absent', 'GhrController@absent')->name('ghr.absent');
         Route::get('ghr/notattend', 'GhrController@notattend')->name('ghr.notattend');
+        Route::get('ghr/attend/download', 'GhrController@csv')->name('ghr.csv');
+        
     });
 });
 
