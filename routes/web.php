@@ -51,6 +51,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
     Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
 // add by Ryo Nakajima 2018/07/06 for late and absent
+
+//ip address の試作
+Route::group(['middleware' => 'auth_ip'], function () {
 Route::get('others', function() {
     return view('others');
 })->name('others.get');
+});
