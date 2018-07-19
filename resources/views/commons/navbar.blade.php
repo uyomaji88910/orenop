@@ -26,6 +26,14 @@
                             @if  (Auth::user()->nickname == 'GHR')
                             <li><a href="#">GHR</a></li>
                             <li><a href="{{ route('ghr.absent') }}" class="attendance"><img src="{{ asset("/images/nav-att.png") }}" class='nav-login'> List</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{ asset("/images/dl2.png") }}" class='nav-login'>DL<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('ghr.csv') }}">Today</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('ghr.csv_month') }}">Month</a></li>
+                            </ul>
+                        </li>
                             <li><a href="{{ route('logout.get') }}"><img src="{{ asset("/images/nav-logout.png") }}" class='nav-logout'> Logout</a></li>
                             @else
                             <li><a href="{{ route('attends.edit', [$id]) }}"><img src="{{ asset("/images/edit.png") }}" class='nav-logout'>{{ Auth::user()->nickname }}'s edit</a></li>

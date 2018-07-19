@@ -2,7 +2,7 @@
 
 @section('content')
 <h1><span class="label label-primary"> Today({{$date}})のリスト</span>
-<a href="{{ route('ghr.csv')}}"><i class="fas fa-file-download"></i></a></h1>
+</h1>
 <br>
 @include('ghr.listbar')
 
