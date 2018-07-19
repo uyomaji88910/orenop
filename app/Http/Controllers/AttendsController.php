@@ -163,6 +163,7 @@ class AttendsController extends Controller
      */
     public function show($id) //$id=userのid
     {
+        $today_id= $this->edit_id();
                 //タイムスタンプを取得
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
