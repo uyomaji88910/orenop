@@ -12,9 +12,13 @@
 
                 @if (Auth::check())
                 <?php $id = \Auth::user()->id ;?>
-                <a class="navbar-brand hvr-buzz-outs" href="{{ route('attends.edit', [$id]) }}"><br>
+                    @if  (Auth::user()->nickname == 'GHR')
+                        <a class="navbar-brand hvr-buzz-outs" href="{{ route('ghr.absent') }}"><br>
+                    @else
+                        <a class="navbar-brand hvr-buzz-outs" href="{{ route('attends.edit', [$id]) }}"><br>
+                    @endif
                 @else
-                <a class="navbar-brand hvr-buzz-outs" href="/"><br>
+                    <a class="navbar-brand hvr-buzz-outs" href="/"><br>
                 @endif
                     <span class="title"></span></a> <! edit by chee 7/4 cssで編集済>
                     

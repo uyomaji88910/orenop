@@ -241,63 +241,46 @@ class GhrController extends Controller
         return redirect()->back();
     }
     
+    
     public function csv() // to downlord attends' info 2018/07/18 Kaede
     {
        //タイムスタンプを取得
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
         $date = date( "Y-m-d" , $timestamp ) ;
+        
         $filename = "test.csv";
         $handle = fopen($filename, 'w+');
-        $absents =  \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class') //add attends.reason by chee 7/17
-                 ->where('status','=','Absent')->where('attends.created_at','=',$date)
-                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
-        $notattends = \DB::table('users')
-                 ->select('users.nickname','users.team_number', 'users.team_class')
-                 ->leftJoin('attends as today', function($query){ //Today listのためのdate()
-                    $timestamp = time();
-                    $date = date( "Y-m-d" , $timestamp ) ;
-                    $query->on('users.id', '=', 'today.user_id')
-                          ->where('today.created_at','=',$date);
-                 })
-                 ->whereNull('status')
-                 ->where('users.nickname', '!=', 'GHR')
-                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
-                 ->get()->toArray();
-       
-       // var_dump($absents);
-        //exit;
+    
+        $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                    ->select('attends.created_at', 'attends.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
+                    ->where('attends.created_at','=',$date)->where('users.nickname', '!=', 'GHR')
+                    ->orderBy('attends.status', 'ASC')->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
        
        
         $head = array(
-            'Name',
-            'Time',
             'Date',
+            'Time',
+            'Team Number',
+            'Team Class',
+            'Nickname',
+            'Status',
             'Reason',
-            'Class Number',
-            'Class (A, B, C)'
+            'Arrival time'
             );
         fputcsv($handle, $head);
         //var_dump($absents);
       
-        foreach($absents as $row){
+        foreach($td_attends as $row){
             $row->reason = mb_convert_encoding($row->reason, 'SJIS-win', 'UTF-8');
-            
+            $row->nickname = mb_convert_encoding($row->nickname, 'SJIS-win', 'UTF-8');
             $test = (array) $row;
             //var_dump($test);
             fputcsv($handle, $test);
             //exit;
         }
         
-        //var_dump($rows);
-        //exit;
-                //foreach($rows as $row){
-                     // $test = json_encode($row);
-                      //var_dump($test);
-                      //exit;
-                    //fputcsv($handle, $absents);
-                //}
+       
             
         
         fclose($handle);
@@ -308,70 +291,52 @@ class GhrController extends Controller
     }
 
 
-    public function csv_month() // to downlord attends' info 2018/07/18 Kaede
+    public function csv_month() // to downlord attends' info 2018/07/19 Tiny yeeeeeeeyyyyyy
     {
-       //タイムスタンプを取得
+  //タイムスタンプを取得
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
-        $date = date( "Y-m-d" , $timestamp ) ;
+        $date = date( "Y-m-00" , $timestamp ) ;
+
         $filename = "test.csv";
         $handle = fopen($filename, 'w+');
-        $absents =  \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class') //add attends.reason by chee 7/17
-                 ->where('status','=','Absent')->where('attends.created_at','=',$date)
-                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
-        $notattends = \DB::table('users')
-                 ->select('users.nickname','users.team_number', 'users.team_class')
-                 ->leftJoin('attends as today', function($query){ //Today listのためのdate()
-                    $timestamp = time();
-                    $date = date( "Y-m-d" , $timestamp ) ;
-                    $query->on('users.id', '=', 'today.user_id')
-                          ->where('today.created_at','=',$date);
-                 })
-                 ->whereNull('status')
-                 ->where('users.nickname', '!=', 'GHR')
-                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
-                 ->get()->toArray();
-       
-       // var_dump($absents);
-        //exit;
+    
+        $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                    ->select('attends.created_at', 'attends.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
+                    ->where('attends.created_at','>=',$date)->where('users.nickname', '!=', 'GHR')
+                    ->orderBy('attends.status', 'ASC')->orderBy('attends.created_at', 'ASC')->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
        
        
         $head = array(
-            'Name',
-            'Time',
             'Date',
+            'Time',
+            'Team Number',
+            'Team Class',
+            'Nickname',
+            'Status',
             'Reason',
-            'Class Number',
-            'Class (A, B, C)'
+            'Arrival time'
             );
         fputcsv($handle, $head);
         //var_dump($absents);
       
-        foreach($absents as $row){
+        foreach($td_attends as $row){
             $row->reason = mb_convert_encoding($row->reason, 'SJIS-win', 'UTF-8');
-            
+            $row->nickname = mb_convert_encoding($row->nickname, 'SJIS-win', 'UTF-8');
             $test = (array) $row;
             //var_dump($test);
             fputcsv($handle, $test);
             //exit;
         }
         
-        //var_dump($rows);
-        //exit;
-                //foreach($rows as $row){
-                     // $test = json_encode($row);
-                      //var_dump($test);
-                      //exit;
-                    //fputcsv($handle, $absents);
-                //}
+       
             
         
         fclose($handle);
         $headers = array(
             'Content-Type' => 'text/csv',
         );
-        return response()->download($filename, 'Attendance_info'.date("d-m-Y").'.csv', $headers);
+        return response()->download($filename, 'Attendance_info'.date("Y-m").'月分'.'.csv', $headers);
     }
 
 
