@@ -23,7 +23,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::check())
                            
-                            @if  ($id == 24)
+                            @if  (Auth::user()->nickname == 'GHR')
+                            <li><a href="#">GHR</a></li>
                             <li><a href="{{ route('ghr.absent') }}" class="attendance"><img src="{{ asset("/images/nav-att.png") }}" class='nav-login'> List</a></li>
                             <li><a href="{{ route('logout.get') }}"><img src="{{ asset("/images/nav-logout.png") }}" class='nav-logout'> Logout</a></li>
                             @else
