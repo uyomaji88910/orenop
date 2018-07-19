@@ -16,8 +16,8 @@
                 @else
                 <a class="navbar-brand hvr-buzz-outs" href="/"><br>
                 @endif
-                    <span class="title"></span>
-                </a> <! edit by chee 7/4 cssで編集済>
+                    <span class="title"></span></a> <! edit by chee 7/4 cssで編集済>
+                    
             </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">

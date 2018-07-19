@@ -53,7 +53,7 @@ class GhrController extends Controller
         
         //late function
         $lates = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-               ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class')
+               ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class', 'attends.arrival_time', 'attends.id')
                ->where('status','=','Late')->where('attends.created_at','=',$date)
                ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
@@ -210,6 +210,35 @@ class GhrController extends Controller
     public function login() 
     {
         return view('ghr.ghr');
+    }
+    
+    // for insert arrival_time to late @auth GHR ### add by Ryo Nakajima 2018/07/19
+    public function arrival(Request $request)
+    {
+        $id = $_REQUEST['id'];
+        $attend = Attend::find($id);
+        
+        //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        $attend -> arrival_time = $time;
+        $attend -> save();
+        return redirect()->back();
+    }
+    
+        public function notarrival(Request $request)
+    {
+        $id = $_REQUEST['id'];
+        $attend = Attend::find($id);
+        
+        
+        $attend -> arrival_time = NULL;
+       // var_dump($attend);
+       // exit;
+        $attend -> save();
+        return redirect()->back();
     }
     
     public function csv() // to downlord attends' info 2018/07/18 Kaede
