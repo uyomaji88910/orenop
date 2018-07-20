@@ -27,8 +27,12 @@ class IPAddressCheck
             array_push ( $ip_array ,$push_array );
         }
             $judge_ip = in_array($ip, $ip_array);
-        if (!$judge_ip && $status == 1){
+            $judge1 = !$judge_ip && $status == 1;
+            $judge2 = !$judge_ip && $status == 'Attend';
+            $judge3 = $judge1 || $judge2;
             
+            
+        if ($judge3){
             return redirect()->back();
         }
         else {

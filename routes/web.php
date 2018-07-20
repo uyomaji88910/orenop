@@ -20,9 +20,9 @@ Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('sign
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 // Login authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::group(['middleware' => 'auth_ip'], function () { // auth IP 
+Route::group(['middleware' => 'auth_ip'], function () {
     Route::post('login', 'Auth\LoginController@login')->name('login.post');
-});
+});    
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 // GHR login
 Route::get('ghr/login', 'GhrController@login')->name('ghr.login');
@@ -32,7 +32,7 @@ Route::post('ghr/login', 'Auth\LoginController@login')->name('ghr_login.post');
 
 //Attend Function 2018/07/05 add by Ryo Nakajima
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('attends', 'AttendsController', ['only' => ['show', 'edit', 'update']]); // add Ryo Nakajima 2018/07/13
+    Route::resource('attends', 'AttendsController', ['only' => ['show', 'edit', 'update']]);//->middleware('auth_ip')->only('edit'); // add Ryo Nakajima 2018/07/13
     // GHR   ミドルウェアの中のミドルウェアやで！！！！
     Route::group(['middleware' => 'auth_ghr'], function () {
         Route::get('ghr/attend', 'GhrController@attend')->name('ghr.attend');
@@ -55,7 +55,6 @@ Route::group(['middleware' => 'auth'], function () {
 // add by Ryo Nakajima 2018/07/06 for late and absent
 
 //ip address の試作
-
 Route::get('others', function() {
     return view('others');
 })->name('others.get');
