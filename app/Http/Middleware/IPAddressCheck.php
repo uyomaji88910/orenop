@@ -15,9 +15,10 @@ class IPAddressCheck
      */
     public function handle($request, Closure $next)
     {
-        $test1 = $_SERVER['REMOTE_ADDR'];
+        $test1 = $_SERVER['HTTP_X_FORWARDED_FOR'];
         $test = \Request::ip();
         $rakuten_ip = '133.237.7.89';
+        var_dump($_SERVER);
         var_dump($test1) . PHP_EOL;
         var_dump($test);
         print $rakuten_ip;
