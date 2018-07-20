@@ -32,7 +32,10 @@ Route::post('ghr/login', 'Auth\LoginController@login')->name('ghr_login.post');
 
 //Attend Function 2018/07/05 add by Ryo Nakajima
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('attends', 'AttendsController', ['only' => ['show', 'edit', 'update']]);//->middleware('auth_ip')->only('edit'); // add Ryo Nakajima 2018/07/13
+    Route::resource('attends', 'AttendsController', ['only' => ['show', 'edit']]); // add Ryo Nakajima 2018/07/13
+    Route::group(['middleware' => 'auth_ip'], function () {   
+        Route::put('attends/{attend}/edit', 'AttendsController@update')->name('attends.update');
+    });
     // GHR   ミドルウェアの中のミドルウェアやで！！！！
     Route::group(['middleware' => 'auth_ghr'], function () {
         Route::get('ghr/attend', 'GhrController@attend')->name('ghr.attend');
