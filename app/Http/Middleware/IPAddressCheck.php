@@ -16,14 +16,14 @@ class IPAddressCheck
     public function handle($request, Closure $next)
     {
         $test = \Request::ip();
-        $rakuten_ip = '10.49.97.17'
-        print $test;
+        $rakuten_ip = '127.0.0.1';
+        print $test . PHP_EOL;
         print $rakuten_ip;
-        if ($test == $rakuten_ip)
+        if ($test == $rakuten_ip){
         
         //print $_SERVER['REMOTE_ADDR'];
         var_dump('yes');
-        exit;
+        }
         else {
         var_dump('no');
         }
