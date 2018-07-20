@@ -15,15 +15,18 @@ class IPAddressCheck
      */
     public function handle($request, Closure $next)
     {
-        $test1 = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        $test = \Request::ip();
-        $rakuten_ip = '133.237.7.89';
-        var_dump($_SERVER);
-        var_dump($test1) . PHP_EOL;
-        var_dump($test);
-        print $rakuten_ip;
-        if ($test1 == $rakuten_ip){
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        //$test = \Request::ip();
+        $ip_array = array ('133.237.7.64');
         
+        for ($i = 65; $i <= 95 ; $i++) {
+            $push_array = '133.237.7.' . $i;
+            array_push ( $ip_array ,$push_array );
+        }
+        var_dump($ip);
+        var_dump($ip_array);
+        //print $rakuten_ip;
+        if (in_array($ip, $ip_array)){
         var_dump('yes');
         }
         else {
@@ -31,5 +34,6 @@ class IPAddressCheck
         }
         exit;
         return $next($request);
+    
     }
 }
