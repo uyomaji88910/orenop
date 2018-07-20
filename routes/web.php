@@ -20,7 +20,9 @@ Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('sign
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 // Login authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::group(['middleware' => 'auth_ip'], function () { // auth IP 
+    Route::post('login', 'Auth\LoginController@login')->name('login.post');
+});
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 // GHR login
 Route::get('ghr/login', 'GhrController@login')->name('ghr.login');
@@ -53,8 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 // add by Ryo Nakajima 2018/07/06 for late and absent
 
 //ip address の試作
-Route::group(['middleware' => 'auth_ip'], function () {
+
 Route::get('others', function() {
     return view('others');
 })->name('others.get');
-});

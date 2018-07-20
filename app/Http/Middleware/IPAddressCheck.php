@@ -19,21 +19,20 @@ class IPAddressCheck
         //$test = \Request::ip();
         $ip_array = array ('133.237.7.64');
         
+        //status とってくる
+        $status=$_REQUEST['status'];
+        
         for ($i = 65; $i <= 95 ; $i++) {
             $push_array = '133.237.7.' . $i;
             array_push ( $ip_array ,$push_array );
         }
-        var_dump($ip);
-        var_dump($ip_array);
-        //print $rakuten_ip;
-        if (in_array($ip, $ip_array)){
-        var_dump('yes');
+
+        if (in_array($ip, $ip_array, false) && $status == 1){
+            
+            return redirect()->back();
         }
         else {
-        var_dump('no');
         }
-        exit;
         return $next($request);
-    
     }
 }
