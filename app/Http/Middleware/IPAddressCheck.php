@@ -15,13 +15,13 @@ class IPAddressCheck
      */
     public function handle($request, Closure $next)
     {
+        $test1 = $_SERVER['REMOTE_ADDR'];
         $test = \Request::ip();
-        $rakuten_ip = '127.0.0.1';
-        print $test . PHP_EOL;
+        $rakuten_ip = '133.237.7.89';
+        print $test1 . PHP_EOL;
         print $rakuten_ip;
-        if ($test == $rakuten_ip){
+        if ($test1 == $rakuten_ip){
         
-        //print $_SERVER['REMOTE_ADDR'];
         var_dump('yes');
         }
         else {
