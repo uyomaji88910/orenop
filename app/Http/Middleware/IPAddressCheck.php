@@ -20,14 +20,14 @@ class IPAddressCheck
         $ip_array = array ('133.237.7.64');
         
         //status とってくる
-        $status=$_REQUEST['status'];
+        $status = $_REQUEST['status'];
         
         for ($i = 65; $i <= 95 ; $i++) {
             $push_array = '133.237.7.' . $i;
             array_push ( $ip_array ,$push_array );
         }
-
-        if (in_array($ip, $ip_array, false) && $status == 1){
+            $judge_ip = in_array($ip, $ip_array);
+        if (!$judge_ip && $status == 1){
             
             return redirect()->back();
         }
