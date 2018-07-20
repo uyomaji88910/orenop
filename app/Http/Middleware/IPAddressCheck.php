@@ -18,7 +18,8 @@ class IPAddressCheck
         $test1 = $_SERVER['REMOTE_ADDR'];
         $test = \Request::ip();
         $rakuten_ip = '133.237.7.89';
-        print $test1 . PHP_EOL;
+        var_dump($test1) . PHP_EOL;
+        var_dump($test);
         print $rakuten_ip;
         if ($test1 == $rakuten_ip){
         
