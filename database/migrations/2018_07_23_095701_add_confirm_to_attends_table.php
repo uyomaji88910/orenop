@@ -26,7 +26,7 @@ class AddConfirmToAttendsTable extends Migration
     public function down()
     {
         Schema::table('attends', function (Blueprint $table) {
-            $table->dropColum('confirm');
+            $table->dropColumn('confirm');
         });
     }
 }

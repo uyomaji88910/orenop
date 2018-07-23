@@ -1,4 +1,9 @@
-<!-- css for navbar -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
     font-family: 'Montserrat';
@@ -38,7 +43,7 @@ body {
     margin-left: 50px;
 }
 .nav-logo{
-    height:120px;
+    height:100px;
     width:auto;
 }
 .nav-humberger{
@@ -52,21 +57,15 @@ body {
   .sidenav a {font-size: 18px;}
 }
 </style>
+</head>
 
 
-<!-- content of navbar -->
+<body>
+
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a herf="/"><img src="/images/orenop-toka.png" class="nav-logo"></a>
-  @if (Auth::check())
-                <?php $id = \Auth::user()->id ;?>
-                <a class="navbar-brand hvr-buzz-outs" href="{{ route('attends.edit', [$id]) }}">Home</a><br>
-                @else
-                <a class="navbar-brand hvr-buzz-outs" href="/">Home</a><br>
-                @endif
-                <span class="title"></span>
     @if (Auth::check())
-     <?php $id = \Auth::user()->id ;?>
         @if  (Auth::user()->nickname == 'GHR')
           <a href="#">GHR</a>
           <a href="{{ route('ghr.absent') }}" class="attendance">List</a>
@@ -88,16 +87,23 @@ body {
         <a href="{{ route('signup.get') }}">Sign Up</a>
         <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
     @endif
+
 </div>
 
-
-<!-- navbar closure -->
 <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="nav-humberger">&#9776; </span>
+
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
 }
+
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 </script>
+     
+</body>
+</html> 
+
+
+ 
