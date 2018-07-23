@@ -2,27 +2,38 @@
 
 /* body */
 body {
-    background:white;
-    font-family:montserrat;
+    background:#4EAFC8;
+    font-family:'Montserrat';
 }
+
+
+/*footer*/
 #footer{
+    /*bottom: 0;
+    width: 100%;
+    height: 100px;*/
     bottom: 0;
     height: 5em;
-    position: absolute;
+    position: relative;
     color:white;
-    /*
-    width: 100%;	
-    height: 100px;*/	
+}
 
+.bkmoji{
+  color:black;
+  font-family: 'Montserrat';
+  font-size: 30px;
+  margin-top:-13px;
 }
 
 /* navbar.blade.php */
-.navbar {
+/*.navbar {
     background-image: linear-gradient(-90deg, #B8E297, #2099DF);
-    font-family:montserrat;
+    font-family:'Montserrat';
     font-size:15px;
-    position: absolute;
+    border-color:transparent;
 }
+
+
 .navbar-header img {
     margin-top: 5px;
     height: 40px;
@@ -30,20 +41,20 @@ body {
 }
 .navbar-brand {
     background:url("/images/egg-white.png") no-repeat left center;
+    background-repeat: no-repeat;
     background-size: contain;
     margin-top:5px;
-    height: 50px;
-    width: auto;
+    height: 70px;
+    width: 100px;
 }
-.title{
-    font-family:montserrat;
-    color:#fff;
-    font-size:35px;
-    padding: 20px 40px;
-    margin-left:7px;
-    pointer-events: none;
-}
-.nav-signup{
+
+
+/*navbar-icons*/
+.navbar{
+  float:right;
+  position:fixed;
+  margin-rigth:0px;
+}.nav-signup{
     height: 50px;
     width: auto;
     z-index: 20;
@@ -62,84 +73,185 @@ body {
     color:#fff;
     z-index: 20;
 }
-.navbar {
-    border-color:transparent;
+
+
+/*Form-Panel*/
+.panel-primary{
+    font-size:15px;
+}
+.panel-body{
+  font-family:'Montserrat';
+  padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: black;/*文字色*/
+    background: #FFF;
+    border: solid 3px #4eb5e5;/*線*/
+    border-radius: 10px;/*角の丸み*/
 }
 
-/* cover */
-.cover {
-    margin-top: -20px;
-    margin-bottom: 20px;
-    width: 100%;
-    height: 300px;
-    background: url("/images/cover-bg.jpg") center center no-repeat;
-    background-size: cover;
-}
-.cover .cover-inner {
-    height: 100%;
-    margin: auto;
-    display: table;
-}
-.cover .cover-inner .cover-contents {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    position: relative;
-}
-.cover .cover-inner .cover-contents h1 {
-    margin: 0 0 20px 0;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 0.15em;
-}
-.cover .btn-success {
-    background-color: #ed486f;
-    border-color: #ed486f;
-}
+
 /*reginster.blade.php*/
-.signup {
+.signup {    /*iconimage*/
     height: 100px;
     width: auto;
 }
-.panel-primary{
-    background-color:#4682B4;
-    height: 40px;
-    font-size:20px;
-}
+
+
 /*login.blade.php*/
-.att{
-    height: 100px;
+.att{    /*iconimage*/
+    height: 150px;
     width: auto;
+    margin-top: 10px;
 }
-.string{
+.string{    /*formの文字*/
     color:white;
+    font-size:25px;
+    font-family:'Montserrat';
 }
-/*welcome.blade.php*/
-.allscreen{
-    background: linear-gradient(-90deg, #B8E297, #2099DF);
-}
-.top-logo{
-    height: auto;
-    width: 100px;
-}
-/*edit.blade.php*/
+
+/*edit.blade.php- labelに色を追加 & badgeに色を追加*/
 .label{
   background-color:#4eb5e5;
 }
 .badge{
  background-color:#4eb5e5;
 }
-/*welcome.php*/
-.form-group{
-  color:white;
-  font-family:montserrat;
+.edit{
+  font-size:20px;
 }
 
-/*****gradation for background******/
+/*login.blade.php 時間表記*/
+#time{
+  margin-top: 20px;
+  font-family: 'Montserrat';
+  font-size:50px;
+  color:#fff;
+}
+.timestring{
+  margin-right: 30px;
+  margin-left: 0px;
+  color:#fff;
+}
+.timestrings{
+  margin-left: 30px;
+}
+.nav-nickname{
+  font-size:35px;
+  color:white;
+}
+.panel-body{
+  width:80%;
+}
+
+
+
+
+/*hvr-wobble-vertical-上下に動く*/
+@-webkit-keyframes hvr-wobble-vertical {
+  16.65% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes hvr-wobble-vertical {
+  16.65% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.hvr-wobble-vertical {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-wobble-vertical:hover, .hvr-wobble-vertical:focus, .hvr-wobble-vertical:active {
+  -webkit-animation-name: hvr-wobble-vertical;
+  animation-name: hvr-wobble-vertical;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+
+
+
+
+/*welcome1.blade.php/orenop-logo*/
+.title{
+    font-family:'Montserrat';
+    color:#fff;
+    font-size:35px;
+    padding: 20px 40px;
+    margin-left:7px;
+    pointer-events: none;
+}
+/*welcome1.blade.php*/
+/*.allscreen{
+    background: linear-gradient(-90deg, #B8E297, #2099DF);
+}*/
+.top-logo{
+    height: auto;
+    width: 100px;
+}
+.form-group{
+  color:;
+  font-family: 'Montserrat';
+}
+.welcome{
+  color:white;
+  font-family: 'Montserrat';
+}
+/*****welcome1.blade.phpの背景グラデーションgradation for background******/
  @import url(https://fonts.googleapis.com/css?family=Bitter);
     body {
       margin: 0;
-      font-family: 'Bitter', serif;
+      font-family: ''Roboto Condensed', 'thin', sans-serif;
       text-align: center;
     }
     .holder,
@@ -237,7 +349,8 @@ body {
       margin-top: 26px;
     }
 
-/*welcome1.blade.php*/
+
+
 @keyframes hvr-buzz-out {
   10% {
     -webkit-transform: translateX(3px) rotate(2deg);
@@ -294,77 +407,6 @@ body {
   animation-duration: 0.75s;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-
-/*welcome.blade.php*/
-@-webkit-keyframes hvr-wobble-vertical {
-  16.65% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  33.3% {
-    -webkit-transform: translateY(-6px);
-    transform: translateY(-6px);
-  }
-  49.95% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  66.6% {
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
-  83.25% {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-@keyframes hvr-wobble-vertical {
-  16.65% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  33.3% {
-    -webkit-transform: translateY(-6px);
-    transform: translateY(-6px);
-  }
-  49.95% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  66.6% {
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
-  }
-  83.25% {
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-.hvr-wobble-vertical {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-}
-.hvr-wobble-vertical:hover, .hvr-wobble-vertical:focus, .hvr-wobble-vertical:active {
-  -webkit-animation-name: hvr-wobble-vertical;
-  animation-name: hvr-wobble-vertical;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
