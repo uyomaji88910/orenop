@@ -171,7 +171,7 @@ class AttendsController extends Controller
         
         $user = User::find($id);
         
-        $attend = Attend::find($today_id);        
+        $attend = Attend::find($today_id);   
         return view('attends.show', [
             'attend' => $attend,
             'user' => $user,

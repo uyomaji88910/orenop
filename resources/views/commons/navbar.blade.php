@@ -1,15 +1,33 @@
 <!edit by chee 7/4>
 <header>
-    <nav class="navbar navbar-inverse navbar-static-top">   
+   <!-- <nav class="navbar navbar-inverse navbar-static-top">   
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+             <!---<div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                        <span class="sr-only">Toggle navigation</span> 
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                </button>
-
+                </button>-->
+            <!--<div class="globalNavigation-module-01 col-md-2 col-sm-12 col-xs-12 active">
+            <div class="nav_txt p1-ENtextTransform-uppercase">menu</div>
+                <div class="n_hamburger02 anm01">
+                    <span class="bg-black"></span>
+                    <span class="bg-black"></span>
+                    <span class="bg-black"></span>
+                </div>
+                <ul class="Navigation textTransform-uppercase alignCenter flexbox direction-column flexAlign-center flexContent-center bg-white">
+                    <li><a class="link link-animeline pjax" href="/">::before "top"</a></li>
+                </ul>
+            </div>-->
+            <div class="sidenav">
+              <a href="#">About</a>
+              <a href="#">Services</a>
+              <a href="#">Clients</a>
+              <a href="#">Contact</a>
+            </div>        
+            
+            
                 @if (Auth::check())
                 <?php $id = \Auth::user()->id ;?>
                     @if  (Auth::user()->nickname == 'GHR')

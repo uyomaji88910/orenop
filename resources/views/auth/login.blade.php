@@ -55,5 +55,4 @@
          {!! link_to_route('ghr.login', 'GHRの方はこちら') !!}
          <br><br>
 
-
 @endsection

@@ -48,6 +48,23 @@ body {
 
 
 /*navbar-icons*/
+.sidenav {
+    float: left;
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+
+
+
 .nav-signup{
     height: 50px;
     width: auto;
