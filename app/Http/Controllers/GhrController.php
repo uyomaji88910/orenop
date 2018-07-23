@@ -216,11 +216,11 @@ class GhrController extends Controller
     public function confirm(Request $request)
     {
         $id = $_REQUEST['id'];
+        
+        $confirm = $_REQUEST['confirm'];
+        
         $attend = Attend::find($id);
-        
-        $message = 'Confirmed';
-        
-        $attend -> confirm = $message;
+        $attend -> confirm = $confirm;
         $attend -> save();
         return redirect()->back();
     }

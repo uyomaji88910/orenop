@@ -20,12 +20,12 @@
                     <li><a class="link link-animeline pjax" href="/">::before "top"</a></li>
                 </ul>
             </div>-->
-            <div class="sidenav">
+            <div class="sidenav navbar-fixed-right">
               <a href="#">About</a>
               <a href="#">Services</a>
               <a href="#">Clients</a>
               <a href="#">Contact</a>
-            </div>        
+                   
             
             
                 @if (Auth::check())
@@ -68,6 +68,7 @@
             　           @endif
             　       </ul>
                 </div>    
-        </div>    
+            </div>    
+        </div> 
     </nav>
 </header>

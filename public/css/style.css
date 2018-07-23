@@ -49,7 +49,7 @@ body {
 
 /*navbar-icons*/
 .sidenav {
-    float: left;
+    float: right;
     height: 100%;
     width: 160px;
     position: fixed;

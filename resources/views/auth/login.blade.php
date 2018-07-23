@@ -5,7 +5,7 @@
     <center class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
         <body class="main">
                 <body>
-                    <center><a herf="/"><img src="/images/orenop-toka.png" class="att"></a></center>
+                    <center><a herf="/"><img src="/images/logo_egg.png" class="att"></a></center>
                         <h1 id="time"></h1>
                             <!--<script class="col-xs-offset-6 col-xs-5">-->
                             <script>
