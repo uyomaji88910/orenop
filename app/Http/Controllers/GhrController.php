@@ -272,9 +272,8 @@ class GhrController extends Controller
     {
        //タイムスタンプを取得
         $timestamp = time();
-        // date()で日時を出力 //view用のdate()
+        // date()で日���を出力 //view用のdate()
         $date = date( "Y-m-d" , $timestamp ) ;
-        
         $filename = "test.csv";
         $handle = fopen($filename, 'w+');
     
@@ -282,7 +281,6 @@ class GhrController extends Controller
                     ->select('attends.created_at', 'attends.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
                     ->where('attends.created_at','=',$date)->where('users.nickname', '!=', 'GHR')
                     ->orderBy('attends.status', 'ASC')->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
-       
        
         $head = array(
             'Date',
@@ -295,20 +293,13 @@ class GhrController extends Controller
             'Arrival time'
             );
         fputcsv($handle, $head);
-        //var_dump($absents);
       
         foreach($td_attends as $row){
             $row->reason = mb_convert_encoding($row->reason, 'SJIS-win', 'UTF-8');
             $row->nickname = mb_convert_encoding($row->nickname, 'SJIS-win', 'UTF-8');
             $test = (array) $row;
-            //var_dump($test);
             fputcsv($handle, $test);
-            //exit;
         }
-        
-       
-            
-        
         fclose($handle);
         $headers = array(
             'Content-Type' => 'text/csv',
@@ -319,19 +310,17 @@ class GhrController extends Controller
 
     public function csv_month() // to downlord attends' info 2018/07/19 Tiny yeeeeeeeyyyyyy
     {
-  //タイムスタンプを取得
+        //タイムスタンプを取得
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
         $date = date( "Y-m-00" , $timestamp ) ;
-
         $filename = "test.csv";
         $handle = fopen($filename, 'w+');
-    
+
         $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                     ->select('attends.created_at', 'attends.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
-                    ->where('attends.created_at','>=',$date)->where('users.nickname', '!=', 'GHR')
+                    ->where('attends.created_at','>',$date)->where('users.nickname', '!=', 'GHR')
                     ->orderBy('attends.status', 'ASC')->orderBy('attends.created_at', 'ASC')->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
-       
        
         $head = array(
             'Date',
@@ -344,19 +333,13 @@ class GhrController extends Controller
             'Arrival time'
             );
         fputcsv($handle, $head);
-        //var_dump($absents);
       
         foreach($td_attends as $row){
             $row->reason = mb_convert_encoding($row->reason, 'SJIS-win', 'UTF-8');
             $row->nickname = mb_convert_encoding($row->nickname, 'SJIS-win', 'UTF-8');
             $test = (array) $row;
-            //var_dump($test);
             fputcsv($handle, $test);
-            //exit;
         }
-        
-       
-            
         
         fclose($handle);
         $headers = array(

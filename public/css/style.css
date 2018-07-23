@@ -3,7 +3,7 @@
 /* body */
 body {
     background:#4EAFC8;
-    font-family:'Roboto', thin;
+    font-family:'Montserrat';
 }
 
 
@@ -20,18 +20,20 @@ body {
 
 .bkmoji{
   color:black;
-  font-family: 'Roboto', thin;
+  font-family: 'Montserrat';
   font-size: 30px;
   margin-top:-13px;
 }
 
 /* navbar.blade.php */
-.navbar {
+/*.navbar {
     background-image: linear-gradient(-90deg, #B8E297, #2099DF);
-    font-family:'Roboto', thin;
+    font-family:'Montserrat';
     font-size:15px;
     border-color:transparent;
 }
+
+
 .navbar-header img {
     margin-top: 5px;
     height: 40px;
@@ -48,24 +50,11 @@ body {
 
 
 /*navbar-icons*/
-.sidenav {
-    float: right;
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
-
-
-
-
-.nav-signup{
+.navbar{
+  float:right;
+  position:fixed;
+  margin-rigth:0px;
+}.nav-signup{
     height: 50px;
     width: auto;
     z-index: 20;
@@ -91,7 +80,7 @@ body {
     font-size:15px;
 }
 .panel-body{
-  font-family:'Roboto', thin;
+  font-family:'Montserrat';
   padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
@@ -118,7 +107,7 @@ body {
 .string{    /*formの文字*/
     color:white;
     font-size:25px;
-    font-family:'Roboto', thin;
+    font-family:'Montserrat';
 }
 
 /*edit.blade.php- labelに色を追加 & badgeに色を追加*/
@@ -135,7 +124,7 @@ body {
 /*login.blade.php 時間表記*/
 #time{
   margin-top: 20px;
-  font-family: 'Roboto', thin;
+  font-family: 'Montserrat';
   font-size:50px;
   color:#fff;
 }
@@ -235,7 +224,7 @@ body {
 
 /*welcome1.blade.php/orenop-logo*/
 .title{
-    font-family:'Roboto', thin;
+    font-family:'Montserrat';
     color:#fff;
     font-size:35px;
     padding: 20px 40px;
@@ -252,17 +241,17 @@ body {
 }
 .form-group{
   color:;
-  font-family: 'Roboto', thin;
+  font-family: 'Montserrat';
 }
 .welcome{
   color:white;
-  font-family: 'Roboto', thin;
+  font-family: 'Montserrat';
 }
 /*****welcome1.blade.phpの背景グラデーションgradation for background******/
  @import url(https://fonts.googleapis.com/css?family=Bitter);
     body {
       margin: 0;
-      font-family: ''Roboto', 'thin', sans-serif;
+      font-family: ''Roboto Condensed', 'thin', sans-serif;
       text-align: center;
     }
     .holder,

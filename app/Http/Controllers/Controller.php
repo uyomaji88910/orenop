@@ -45,7 +45,7 @@ class Controller extends BaseController
          
          $all_user = \DB::table('users')->count();
         
-        $count_notattend = $all_user - $count_attend - $count_late - $count_absent;
+        $count_notattend = $all_user - $count_attend - $count_late - $count_absent - 1;
          
         //notattends list
         /*
