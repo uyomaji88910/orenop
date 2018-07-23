@@ -14,6 +14,8 @@
         <th class="text-center">Reason</th>
         <th class="text-center">Report Time</th>
         <th class="text-center">Arrival Time</th>
+        <th class="text-center"></th>
+        <th class="text-center">Confirmation</th>
     </tr>
    
      @if (count($lates) > 0)

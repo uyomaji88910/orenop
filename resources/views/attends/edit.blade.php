@@ -8,6 +8,12 @@
     <h2 class="text-left"><b>Status</b>   : {{ $attend->status }}</h2>
     <h2 class="text-left"><b>Time</b>     : {{ $attend->updated_at }}</h2>
     <h2 class="text-left"><b>Reason</b>   : {{ $attend->reason }}</h2>
+    @isset($attend->confirm)
+    <h2 class="text-left"><b>Confirm</b>   : {{ $attend->confirm }}</h2>
+    @else
+    <h2 class="text-left"><b>Confirm</b>   : GHR確認中</h2>
+    @endisset
+
     <br>
     <p class="label edit">Edit</p><br>
     <div class="panel-body">

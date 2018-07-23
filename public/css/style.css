@@ -2,8 +2,8 @@
 
 /* body */
 body {
-    background:white;
-    font-family:Montserrat;
+    background:#4EAFC8;
+    font-family:'Roboto', thin;
 }
 
 
@@ -20,7 +20,7 @@ body {
 
 .bkmoji{
   color:black;
-  font-family: Montserrat;
+  font-family: 'Roboto', thin;
   font-size: 30px;
   margin-top:-13px;
 }
@@ -28,7 +28,7 @@ body {
 /* navbar.blade.php */
 .navbar {
     background-image: linear-gradient(-90deg, #B8E297, #2099DF);
-    font-family:Century Gothic;
+    font-family:'Roboto', thin;
     font-size:15px;
     border-color:transparent;
 }
@@ -74,7 +74,7 @@ body {
     font-size:15px;
 }
 .panel-body{
-  font-family:century gothic;
+  font-family:'Roboto', thin;
   padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
@@ -101,7 +101,7 @@ body {
 .string{    /*formの文字*/
     color:white;
     font-size:25px;
-    font-family:Ludica Sans Unicode;
+    font-family:'Roboto', thin;
 }
 
 /*edit.blade.php- labelに色を追加 & badgeに色を追加*/
@@ -118,12 +118,14 @@ body {
 /*login.blade.php 時間表記*/
 #time{
   margin-top: 20px;
-  font-family: Courier;
+  font-family: 'Roboto', thin;
   font-size:50px;
+  color:#fff;
 }
 .timestring{
   margin-right: 30px;
   margin-left: 0px;
+  color:#fff;
 }
 .timestrings{
   margin-left: 30px;
@@ -216,7 +218,7 @@ body {
 
 /*welcome1.blade.php/orenop-logo*/
 .title{
-    font-family:Montserrat;
+    font-family:'Roboto', thin;
     color:#fff;
     font-size:35px;
     padding: 20px 40px;
@@ -233,17 +235,17 @@ body {
 }
 .form-group{
   color:;
-  font-family: Montserrat;
+  font-family: 'Roboto', thin;
 }
 .welcome{
   color:white;
-  font-family: Montserrat;
+  font-family: 'Roboto', thin;
 }
 /*****welcome1.blade.phpの背景グラデーションgradation for background******/
  @import url(https://fonts.googleapis.com/css?family=Bitter);
     body {
       margin: 0;
-      font-family: 'Century Gothic', serif;
+      font-family: ''Roboto', 'thin', sans-serif;
       text-align: center;
     }
     .holder,

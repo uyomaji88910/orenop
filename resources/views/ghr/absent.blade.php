@@ -14,6 +14,7 @@
         <th class="text-center">Nickname</th>
         <th class="text-center">Reason</th>
         <th class="text-center">Time</th>
+        <th class="text-center">Confirmation</th>
     </tr>
    
      @if (count($absents) > 0)

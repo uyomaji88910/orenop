@@ -53,7 +53,7 @@ class GhrController extends Controller
         
         //late function
         $lates = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-               ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class', 'attends.arrival_time', 'attends.id')
+               ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class', 'attends.arrival_time', 'attends.id', 'attends.confirm')
                ->where('status','=','Late')->where('attends.created_at','=',$date)
                ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
@@ -80,7 +80,7 @@ class GhrController extends Controller
         
         
         $absents = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class') //add attends.reason by chee 7/17
+                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class', 'attends.confirm', 'attends.id') //add attends.reason by chee 7/17
                  ->where('status','=','Absent')->where('attends.created_at','=',$date)
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
@@ -212,7 +212,33 @@ class GhrController extends Controller
         return view('ghr.ghr');
     }
     
-    // for insert arrival_time to late @auth GHR ### add by Ryo Nakajima 2018/07/19
+    // for insert confirm button to late @auth GHR ### add by Ryo Nakajima 2018/07/19
+    public function confirm(Request $request)
+    {
+        $id = $_REQUEST['id'];
+        $attend = Attend::find($id);
+        
+        $message = 'Confirmed';
+        
+        $attend -> confirm = $message;
+        $attend -> save();
+        return redirect()->back();
+    }
+    
+        public function notconfirm(Request $request)
+    {
+        $id = $_REQUEST['id'];
+        $attend = Attend::find($id);
+        
+        
+        $attend -> confirm = NULL;
+       // var_dump($attend);
+       // exit;
+        $attend -> save();
+        return redirect()->back();
+    }
+    
+       // for insert arrival_time to late @auth GHR ### add by Ryo Nakajima 2018/07/19
     public function arrival(Request $request)
     {
         $id = $_REQUEST['id'];
@@ -240,7 +266,7 @@ class GhrController extends Controller
         $attend -> save();
         return redirect()->back();
     }
-    
+   
     
     public function csv() // to downlord attends' info 2018/07/18 Kaede
     {
