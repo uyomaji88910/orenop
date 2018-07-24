@@ -48,17 +48,23 @@
         </body>
     </center>    
 </div>
+  <center>
     <font color="white">
-        <div class="links string">
-            <a href="http://orenop.herokuapp.com/others" class="link underline">OTHER</a>
-        </div>
-        <div class="links string">
-            <a href="http://orenop.herokuapp.com/ghr/login" class="link underline">GHR</a>
-        </div>
+        <span class="links string-login long">
+            <a class="link underline_long" href="{{ route('others.get') }}" style="text-decoration: none;"><h4>Late/Absent</h4></a>
+        </span><span class="hidden"></span>
+  </center>
+  <center>
+         <span class="links string-login">
+            <a href="{{ route('second.get') }}" class="link underline"  style="text-decoration: none;" ><h4>Re:Login</h4></a>
+        </span>
+ 
+        <span class="links string-login">
+            <a class="link underline" href="{{ route('ghr.login') }}" style="text-decoration: none;"><h4>For GHR</h4></a>
+        </span>
     </font>
+  </center>
         
-        
-        {!! link_to_route('others.get', '欠席/遅刻の方はこちら') !!}
-        {!! link_to_route('ghr.login', 'GHRの方はこちら') !!}
+    
 
 @endsection

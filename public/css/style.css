@@ -335,7 +335,10 @@ $button--radius: 50px;*/
 }
 
 /*Link*/
-
+.underline{
+  width:15px;
+  height:auto;
+}
 .links {
   width: 90%;
   margin: 0 auto;
@@ -382,8 +385,40 @@ $button--radius: 50px;*/
   position: absolute;
   top: 34px;
   left: 0;
+  color:white;
+}
+.underline_long:hover:after {
+  width: 140%;
+  height: 2px;
+  display: block;
+  background-color: #fff;
+  content: " ";
+  position: absolute;
+  top: 34px;
+  left: 0;
+  color:white;
 }
 
+a.underline {/*リンクされた文字*/
+    color:white;
+    text-decoration:none;
+}
+a:link.underline {/*未訪問のリンク*/
+    color:white;
+    text-decoration:none;
+}
+a:visited.underline {/*訪問後のリンク*/
+    color:white;
+    text-decoration:none;
+}
+a:hover.underline {/*マウスをのせたとき*/
+    color:white;
+    text-decoration:none;
+}
+a:active.underline {/*クリック中*/
+    color:white;
+    text-decoration:none;
+}
 
 
 

@@ -1,4 +1,3 @@
-
 <ul class="nav nav-tabs">
  <li role="presentation" class="{{ Request::is('ghr/absent') ? 'active' : '' }}"><a href="{{ route('ghr.absent') }}">Absents <span class="badge"> {{$count['count_absent']}}</span></a></li>
  <li role="presentation" class="{{ Request::is('ghr/late') ? 'active' : '' }}"><a href="{{ route('ghr.late') }}">Lates <span class="badge"> {{$count['count_late']}}</span></a></li>

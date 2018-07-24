@@ -64,7 +64,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
 // add by Ryo Nakajima 2018/07/06 for late and absent
 
-//ip address の試作
+//欠席遅刻のかたはこちら
 Route::get('others', function() {
     return view('others');
 })->name('others.get');
+// 2度目以降の方はこちら
+Route::get('second_login', function() {
+    return view('second_login');
+})->name('second.get');
