@@ -6,6 +6,7 @@
         <body class="main">
                 <body>
                     <center><a herf="/"><img src="/images/logo_egg.png" class="att"></a></center>
+                    <h1 id="time"></h1>
                     <!--<script class="col-xs-offset-6 col-xs-5">-->
                     <script>
                         time();
@@ -38,7 +39,10 @@
                             {!! form::select('status', array('1'=>'Attend')); !!} <!add hidden-form by chee 7/6>
                         </div>
                         <div class="text-center">
-                            <input type ="image" name="submit" width="30" height="auto" src="/images/egg-bk.png" class="hvr-buzz-out" alt=" 送信">
+                           <!-- <input type ="image" name="submit" width="30" height="auto" src="/images/egg-bk.png" class="hvr-buzz-out" alt=" 送信">-->
+                            <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Submit</button></div>  
+      
+ 
                         </div>
                     </form>
                {!! form::close() !!}

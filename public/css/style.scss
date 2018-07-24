@@ -1,0 +1,65 @@
+
+/*/ button style
+$button--white--color: #FFFFFF; 
+$button--font--size: 15px;
+$button--icon--padding--left--right: 20px; 
+$button--default--bgcolor: #F7F7F7;
+$button--default--color: #555555;
+$button--primary--bgcolor: #5CCFE9;
+$button--secondary--bgcolor: #5A68C6;
+$button--success--bgcolor: #36C398;
+$button--danger--bgcolor: #EE352E;
+$button--warning--bgcolor: #FFD331;
+$button--radius: 50px;*/
+
+/* button style*/
+.css--button{
+  transition: background 300ms, color 300ms, box-shadow 300ms; 
+  background: #F7F7F7;
+  font-size:  15px;
+  color: #555555;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  a:hover{
+    @extend .css--button--background--hover--effect;
+  }
+}
+
+/*button border*/
+.border--button{
+  background: transparent;
+  box-shadow: 0px 0px 0px 1px inset;
+}
+/*button radius*/
+.radius--button{
+  border-radius: 50px;
+}
+/*primary button*/
+.primary--button{
+  background: #5CCFE9;
+  color: #FFFFFF;
+
+  a:hover{
+    @extend .css--button--background--hover--effect;
+    color: #5CCFE9;
+  }
+}
+.primary--border--button{
+  @extend .border--button;
+  color: #5CCFE9;
+  
+  a:hover{
+    background: #5CCFE9;
+    color: #FFFFFF;
+    box-shadow: 0px 0px 0px 1px #5CCFE9 inset;
+  }
+}

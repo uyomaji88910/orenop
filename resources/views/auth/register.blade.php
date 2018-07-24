@@ -2,7 +2,7 @@
 
     @section('content')
 <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
+    <div class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
         <center><img src="{{ asset("/images/signup-logo.png") }}" class=signup></center>    <!add by chee 7/5>   <!add by chee 7/5>
             <br>
             <p class='label label-primary string'>Sign Up</p>

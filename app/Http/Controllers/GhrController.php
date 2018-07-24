@@ -313,13 +313,13 @@ class GhrController extends Controller
         //タイムスタンプを取得
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
-        $date = date( "Y-m-00" , $timestamp ) ;
+        $date = date( "Y-m-01" , $timestamp ) ;
         $filename = "test.csv";
         $handle = fopen($filename, 'w+');
 
         $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                     ->select('attends.created_at', 'attends.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
-                    ->where('attends.created_at','>',$date)->where('users.nickname', '!=', 'GHR')
+                    ->where('attends.created_at','>=',$date)->where('users.nickname', '!=', 'GHR')
                     ->orderBy('attends.status', 'ASC')->orderBy('attends.created_at', 'ASC')->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
        
         $head = array(

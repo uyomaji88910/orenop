@@ -10,10 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('auth/login');
 });
+*/
+
+// logout when the user logged in
+Route::get('/', 'AttendsController@index')->name('index');
 
 // User registration
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');

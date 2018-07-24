@@ -69,9 +69,11 @@ Date,Time,"Team Number","Team Class",Nickname,Status,Reason,"Arrival time"
 2018-07-20,12:33:06,14,A,kazumin,Attend,,
 2018-07-20,14:29:43,15,C,tiny,Attend,,
 2018-07-21,14:39:56,2,a,hayato,Attend,,
+2018-07-23,14:47:55,1,a,c,Attend,,
 2018-07-23,05:05:05,2,a,hayato,attend,,
 2018-07-23,10:59:09,13,C,unico,Attend,,
-2018-07-24,05:05:05,2,a,hayato,attend,,
+2018-07-24,11:58:52,1,a,c,Attend,,
+2018-07-24,08:52:04,1,B,chee,Attend,,
 2018-07-05,05:58:38,2,a,hayato,late,,
 2018-07-05,14:22:44,14,A,kazumin,Late,,
 2018-07-06,15:33:39,8,c,taico,late,,
@@ -91,3 +93,5 @@ Date,Time,"Team Number","Team Class",Nickname,Status,Reason,"Arrival time"
 2018-07-20,16:42:08,3,c,zima,Late,ちこく,
 2018-07-23,10:45:46,2,A,hayato2,Late,足けがしました！！！,
 2018-07-23,10:05:03,14,A,kazumin,Late,ねむみ,
+2018-07-24,09:51:01,2,a,hayato,Late,私用のため休暇をいただきます。,09:52:21
+2018-07-24,09:52:59,3,c,zima,Late,ねむみ,

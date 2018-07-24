@@ -31,24 +31,24 @@ body {
 /*nav-bar*/
 .sidenav {
     height: 100%;
-    width: 0;
+    width: 200;
     position: fixed;
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color: #fff;
     overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+   /* transition: 0.5s;*/
+    padding-top: 20px;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 6px 6px 6px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
-    transition: 0.3s;
+    /*transition: 0.3s;*/
 }
 
 .sidenav a:hover {
@@ -240,6 +240,70 @@ body {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+
+/*/ button style
+$button--white--color: #FFFFFF; 
+$button--font--size: 15px;
+$button--icon--padding--left--right: 20px; 
+$button--default--bgcolor: #F7F7F7;
+$button--default--color: #555555;
+$button--primary--bgcolor: #5CCFE9;
+$button--secondary--bgcolor: #5A68C6;
+$button--success--bgcolor: #36C398;
+$button--danger--bgcolor: #EE352E;
+$button--warning--bgcolor: #FFD331;
+$button--radius: 50px;*/
+
+.css--button--background--hover--effect, .primary--button:hover, .css--button:hover {
+  background: transparent;
+  box-shadow: 0px 0px 0px 1px inset;
+}
+
+.css--button {
+  transition: background 300ms, color 300ms, box-shadow 300ms;
+  background: #F7F7F7;
+  font-size: 15px;
+  color: #555555;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+}
+/*button border*/
+.border--button, .primary--border--button {
+  background: transparent;
+  box-shadow: 0px 0px 0px 2px inset;
+}
+
+/*button radius*/
+.radius--button {
+  border-radius: 50px;
+}
+
+/*primary button*/
+.primary--button {
+  background: #5CCFE9;
+  color: #FFFFFF;
+}
+.primary--button:hover {
+  color: #5CCFE9;
+}
+
+.primary--border--button {
+  color: #5CCFE9;
+}
+.primary--border--button:hover {
+  background: #5CCFE9;
+  color: #FFFFFF;
+  box-shadow: 0px 0px 0px 1px #5CCFE9 inset;
+}
+
 /*# Licenses
 
 Hover.css is made available under a free personal/open source or paid commercial licenses depending on your requirements. To compare licenses please visit the [Ian Lunn Design Limited Store](https://ianlunn.co.uk/store/licenses/) and [purchase a commercial license here](https://ianlunn.co.uk/store/hover-css/).

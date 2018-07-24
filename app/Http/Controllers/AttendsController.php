@@ -12,7 +12,12 @@ class AttendsController extends Controller
      */
     public function index()
     {
-        // empty
+        if (\Auth::check()){
+            return redirect ('logout');
+        }
+        else{
+            return view ('auth.login');
+        }
     }
     // route ~/lists/attend 2018/07/11
     public function attend()

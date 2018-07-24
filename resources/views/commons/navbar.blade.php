@@ -2,13 +2,11 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a herf="/"><img src="/images/orenop-toka.png" class="nav-logo"></a>
-  @if (Auth::check())
-                <?php $id = \Auth::user()->id ;?>
-                <a class="navbar-brand hvr-buzz-outs" href="{{ route('attends.edit', [$id]) }}">Home</a><br>
-                @else
+            @if (Auth::check())
+            @else
                 <a class="navbar-brand hvr-buzz-outs" href="/">Home</a><br>
-                @endif
-                <span class="title"></span>
+            @endif
+              
     @if (Auth::check())
      <?php $id = \Auth::user()->id ;?>
         @if  (Auth::user()->nickname == 'GHR')
