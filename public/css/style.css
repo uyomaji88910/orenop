@@ -23,7 +23,7 @@ body {
 }
 .bkmoji{
     color:black;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat','MS PGothic';
     font-size: 30px;
     margin-top:-13px;
 }
@@ -82,7 +82,7 @@ body {
     font-size:15px;
 }
 .panel-body{
-  font-family:'Montserrat';
+  font-family:'Montserrat', 'MS PGothic';
   padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
@@ -110,7 +110,7 @@ body {
 .string{    /*formの文字*/
     color:white;
     font-size:25px;
-    font-family:'Montserrat';
+    font-family:'Montserrat', 'MS PGothic';
 }
 
 /*edit.blade.php- labelに色を追加 & badgeに色を追加*/
@@ -128,7 +128,7 @@ body {
 /*login.blade.php 時間表記*/
 #time{
   margin-top: 20px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', 'MS PGothic';
   font-size:50px;
   color:#fff;
 }
@@ -157,7 +157,7 @@ body {
 
 /*welcome1.blade.php/orenop-logo*/
 .title{
-    font-family:'Montserrat';
+    font-family:'Montserrat', 'MS PGothic';
     color:#fff;
     font-size:35px;
     padding: 20px 40px;
@@ -173,11 +173,11 @@ body {
     width: 100px;
 }
 .form-group{
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', 'MS PGothic';
 }
 .welcome{
   color:white;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', 'MS PGothic';
 }
 
 /*Table*/
@@ -335,47 +335,56 @@ $button--radius: 50px;*/
 }
 
 /*Link*/
-.h5 {
-  float: left;
-  width: 50%;
-  height: 44px;
-  margin: 30px 0;
-  line-height: 24px;
-  text-align: center;
-  font-weight: normal;
-}
-@media screen and (max-width: 768px) {
-  .h5 {
-    width: 100%;
-  }
-}
 
-a, a > span {
-  position: relative;
-  color: inherit;
+.links {
+  width: 90%;
+  margin: 0 auto;
+}
+.link {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+  height: 34px;
+  line-height: 36px;
+  text-transform: uppercase;
   text-decoration: none;
-  line-height: 24px;
-}
-a:before, a:after, a > span:before, a > span:after {
-  content: "";
-  position: absolute;
-  transition: transform 0.5s ease;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 10px;
+  position: relative;
+  text-decoration:none;
 }
 
-.effect-1 {
-  padding-top: 10px;
+
+.underline {
+  border: 2px solid transparent;
 }
-.effect-1:before {
-  left: 0;
-  bottom: 0;
+.underline:after {
+  width: 0%;
+  height: 2px;
+  display: block;
+  background-color: #fff;
+  content: " ";
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  -webkit-transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.underline:hover:after {
   width: 100%;
   height: 2px;
-  background: #0883a4;
-  transform: scaleX(0);
+  display: block;
+  background-color: #fff;
+  content: " ";
+  position: absolute;
+  top: 34px;
+  left: 0;
 }
-.effect-1:hover:before {
-  transform: scaleX(1);
-}
+
+
 
 
 /*# Licenses

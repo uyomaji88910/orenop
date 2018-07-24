@@ -48,13 +48,17 @@
         </body>
     </center>    
 </div>
-        <font color="">
-        <h5 class="effect-1">
-         {!! link_to_route('others.get', '欠席/遅刻の方はこちら') !!}
-        </h5>
-         <br><br>
-         {!! link_to_route('ghr.login', 'GHRの方はこちら') !!}
-         <br><br>
-        </font>
+    <font color="white">
+        <div class="links string">
+            <a href="http://orenop.herokuapp.com/others" class="link underline">OTHER</a>
+        </div>
+        <div class="links string">
+            <a href="http://orenop.herokuapp.com/ghr/login" class="link underline">GHR</a>
+        </div>
+    </font>
+        
+        
+        {!! link_to_route('others.get', '欠席/遅刻の方はこちら') !!}
+        {!! link_to_route('ghr.login', 'GHRの方はこちら') !!}
 
 @endsection

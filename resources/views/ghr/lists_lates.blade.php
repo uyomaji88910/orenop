@@ -27,8 +27,8 @@
                 <td>{!! Form::open(['route' => 'ghr.confirm']) !!}
                 {!! Form::hidden('id', $list->id) !!}
                 {!! form::select('confirm', array(
-                'お疲れ様です。ご報告ありがとうございます。お越しの際はGHRスタッフデスクにお越しください。'=>'お疲れ様です。ご報告ありがとうございます。お越しの際はGHRスタッフデスクにお越しください。',
-                'お疲れ様です。ご報告ありがとうございます。ゆっくり休んでください。'=>'お疲れ様です。ご報告ありがとうございます。ゆっくり休んでください。')); !!}
+                'お疲れ様です。ご報告ありがとうございます。出社の際はGHRスタッフデスクにお越しください。'=>'【日本語】お疲れ様です。ご報告ありがとうございます。出社の際はGHRスタッフデスクにお越しください。',
+                'Thank you for letting us know. Please come to the GHR desk when you come to work.'=>'【English】Thank you for letting us know. Please come to the GHR desk when you come to work.   ')); !!}
                 {!! Form::submit('Confirmed!', ['class' => 'btn btn-primary']) !!}
                 {!! Form::close() !!}</td>
                  
