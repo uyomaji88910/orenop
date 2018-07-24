@@ -27,8 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/logout'; //SignUpしたらログアウトします by chee
-
+    protected $redirectTo = '/logout';    //SignUpしたらログアウトします by chee
     /**
      * Create a new controller instance.
      *
@@ -70,5 +69,10 @@ class RegisterController extends Controller
             'team_class' => $data['team_class'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    protected function redirectTo()
+    {
+        \Auth::logout();
+        return 'welcome';
     }
 }

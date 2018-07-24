@@ -226,7 +226,7 @@ class AttendsController extends Controller
         $user = User::find($user_id);
         
         
-        if (\Auth::user()->id === $user_id){ // need restrict date or time gate
+        if (\Auth::user()->id == $user_id){ // need restrict date or time gate
             $attend = Attend::find($today_id);
             $attend->status = $request->status;
             $attend->updated_at = $time;
@@ -248,10 +248,9 @@ class AttendsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function yoroshiku()
     {
-        //
+        return view('attends.yoroshiku');
     }
-    
-    
 }
+

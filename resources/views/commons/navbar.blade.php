@@ -25,6 +25,8 @@
           <a href="{{ route('attends.edit', [$id]) }}">{{ Auth::user()->nickname }}'s edit</a>
           <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
           <a href="{{ route('logout.get') }}">Logout</a>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <center>Status<br><br><center class='label label-primary string'>{{$attend->status}}</center></center>
         @endif
     @else
         <a href="{{ route('signup.get') }}">Sign Up</a>

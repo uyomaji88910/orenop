@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 // logout when the user logged in
 Route::get('/', 'AttendsController@index')->name('index');
+Route::get('welcome', 'AttendsController@yoroshiku')->name('yoroshiku.get');// signup後遷移する場所
 
 // User registration
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');

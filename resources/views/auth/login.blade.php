@@ -21,7 +21,7 @@
                 
                 <br>
 
-            <h1 class='label label-primary string'>Attendance</h1>
+            <h1 class='label label-primary string'>Input Your Attendance</h1>
             <div class="panel-body">
                 <div class='col-xs-offset-0 col-xs-12'>
                     {!! Form::open(['route' => 'login.post']) !!}
@@ -39,10 +39,7 @@
                             {!! form::select('status', array('1'=>'Attend')); !!} <!add hidden-form by chee 7/6>
                         </div>
                         <div class="text-center">
-                           <!-- <input type ="image" name="submit" width="30" height="auto" src="/images/egg-bk.png" class="hvr-buzz-out" alt=" 送信">-->
                             <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Submit</button></div>  
-      
- 
                         </div>
                     </form>
                {!! form::close() !!}
@@ -51,9 +48,13 @@
         </body>
     </center>    
 </div>
+        <font color="">
+        <h5 class="effect-1">
          {!! link_to_route('others.get', '欠席/遅刻の方はこちら') !!}
+        </h5>
          <br><br>
          {!! link_to_route('ghr.login', 'GHRの方はこちら') !!}
          <br><br>
+        </font>
 
 @endsection
