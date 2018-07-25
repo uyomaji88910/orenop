@@ -69,7 +69,7 @@
 <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="nav-humberger">&#9776; </span>
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "15%";
+    document.getElementById("mySidenav").style.width = "200px";
 }
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";

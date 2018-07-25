@@ -73,13 +73,10 @@ Route::get('second_login', function() {
     return view('second_login');
 })->name('second.get');
 //help
-Route::get('help_users', function() {
-    return view('help_users');
-})->name('help_users.get');
-Route::get('help_ghr', function() {
-    return view('help_ghr');
-})->name('help_ghr.get');
+Route::get('help_users', 'AttendsController@help_users')->name('help_users.get');// help_users
+Route::get('help_ghr', 'AttendsController@help_ghr')->name('help_ghr.get');// help_users
 //About orenop
-Route::get('aboutus', function() {
-    return view('aboutus');
-})->name('aboutus.get');
+//Route::get('aboutus', function() {
+//    return view('aboutus');
+//})->name('aboutus.get');
+Route::get('aboutus', 'AttendsController@aboutus')->name('aboutus.get');// aboutus

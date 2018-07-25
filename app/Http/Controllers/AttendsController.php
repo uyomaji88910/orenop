@@ -275,7 +275,90 @@ class AttendsController extends Controller
      */
     public function yoroshiku()
     {
-        return view('attends.yoroshiku');
+        //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        
+       
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
+        
+        return view('attends.yoroshiku', [
+            'attend' => $attend,
+        ]);
+    }
+    
+    public function help_users()
+    {
+         //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        
+       
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
+        
+        return view('help_users', [
+            'attend' => $attend,
+        ]);
+    }
+    
+    public function help_ghr()
+    {
+         //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        
+       
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
+        
+        return view('help_ghr', [
+            'attend' => $attend,
+        ]);
+    }
+    
+    public function aboutus()
+    {
+         //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        
+       
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
+        
+        return view('aboutus', [
+            'attend' => $attend,
+        ]);
     }
 }
 
