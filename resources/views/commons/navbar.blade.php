@@ -16,20 +16,52 @@
               </ul>
           </div>
           <a href="{{ route('logout.get') }}">Logout</a>
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br>
+          <a href="{{ route('aboutus.get') }}">About Orenop</a>
+          <div class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                    <a href="{{ route('help_users.get') }}">For Users</a>
+                    <li role="separator" class="divider"></li>
+                    <a href="{{ route('help_ghr.get') }}">For GHR</a>
+              </ul>
+          </div>
+          <br><br><br><br><br><br><br>
           <center><br><br><center class='label label-primary string'>admin</center></center>
         @else
           <a href="{{ route('attends.edit', [$id]) }}">{{ Auth::user()->nickname }}'s edit</a>
           <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
           <a href="{{ route('logout.get') }}">Logout</a>
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br>
+          <a href="{{ route('aboutus.get') }}">About Orenop</a>
+         <div class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                    <a href="{{ route('help_users.get') }}">For Users</a>
+                    <li role="separator" class="divider"></li>
+                    <a href="{{ route('help_ghr.get') }}">For GHR</a>
+              </ul>
+          </div>
+          <br><br><br><br><br><br><br>
           <center>Status<br><br><center class='label label-primary string'>{{$attend->status}}</center></center>
         @endif
     @else
         <a href="/">Home</a>
         <a href="{{ route('signup.get') }}">Sign Up</a>
         <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
+        <br><br><br>
+        <a href="{{ route('aboutus.get') }}">About Orenop</a>
+        <div class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                    <a href="{{ route('help_users.get') }}">For Users</a>
+                    <li role="separator" class="divider"></li>
+                    <a href="{{ route('help_ghr.get') }}">For GHR</a>
+              </ul>
+          </div>
+
     @endif
+   
 </div>
 
 

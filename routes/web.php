@@ -73,7 +73,13 @@ Route::get('second_login', function() {
     return view('second_login');
 })->name('second.get');
 //help
-Route::get('help', function() {
-    return view('help');
-})->name('help.get');
-
+Route::get('help_users', function() {
+    return view('help_users');
+})->name('help_users.get');
+Route::get('help_ghr', function() {
+    return view('help_ghr');
+})->name('help_ghr.get');
+//About orenop
+Route::get('aboutus', function() {
+    return view('aboutus');
+})->name('aboutus.get');
