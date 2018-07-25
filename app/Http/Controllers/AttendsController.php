@@ -35,13 +35,20 @@ class AttendsController extends Controller
                  ->where('status','=','Attend')->where('attends.created_at','=',$date)
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
-        //var_dump($count);
-        //exit;
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
+    
+
         // added by Den 07/09/2018
         //cotroller.phpで指定したやつそのままもってくることができる！！！！！！！by Tiny 20180713 
         return view('lists.attend', [
               'attends'=>$attends,
               'count'=>$count,
+              'attend'=>$attend,
               'date'=>$date,
                ]);
         
@@ -63,13 +70,17 @@ class AttendsController extends Controller
                ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         // added by Den 07/09/2018
-        
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
         return view('lists.late', [
-            
             'lates'=>$lates,
             'count'=>$count,
+            'attend'=>$attend,
             'date'=>$date,
-       
         ]);
         
         
@@ -91,9 +102,16 @@ class AttendsController extends Controller
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
         return view('lists.absent', [
             'absents'=>$absents,
             'count'=>$count,
+            'attend'=>$attend,
             'date'=>$date,
         ]);
         
@@ -128,9 +146,16 @@ class AttendsController extends Controller
                                     //ON users.id = today.user_id WHERE status IS NULL;"       
         $count = $this->counts();
         // added by Den 07/09/2018
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
         return view('lists.notattend', [
             'notattends'=>$notattends,
             'count'=>$count,
+            'attend'=>$attend,
             'date'=>$date,
         ]);
         

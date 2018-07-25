@@ -2,11 +2,11 @@
 
     @section('content')
 <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
-        <center><img src='images/att.png' class="att"></center><br>
-                 <h1 class='label label-primary string'>Absent or Late</h1>
+    <center class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
+                 <h1 class='label label-primary string balloon1'>Absent or Late</h1>
                 <div class="panel-body">
-    {!! Form::open(['route' => 'login.post']) !!}
+                <div class='col-xs-offset-0 col-xs-12'>
+                {!! Form::open(['route' => 'login.post']) !!}
                     <div class="form-group">
                     {!! form::label('nickname', 'NickName') !!}
                         {!! form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
@@ -25,10 +25,10 @@
                     {!! form::label('reason', 'Reason') !!}
                         {!! form::text('reason', old('reason'), ['class' => 'form-control']) !!}
                     </div>
-                    <div class="text-right">
-                    {!! form::submit('Submit', ['class' => 'btn btn-danger']) !!}     
+                    <div class="text-center">
+                    <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Submit</button></div>  
                     </div>
-
+                    </form>
                     {!! form::close() !!}
             </div>
         </div>

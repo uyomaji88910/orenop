@@ -21,7 +21,7 @@
                 
                 <br>
 
-            <h1 class='label label-primary string'>Input Your Attendance</h1>
+            <h1 class='label label-primary string balloon1'>Input Your Attendance</h1>
             <div class="panel-body">
                 <div class='col-xs-offset-0 col-xs-12'>
                     {!! Form::open(['route' => 'login.post']) !!}

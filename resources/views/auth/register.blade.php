@@ -4,7 +4,7 @@
 <center class="col-xs-offset-0 col-xs-12 col-md-offset-2 col-md-8">
     <body class="main">
     <span class="glyphicon glyphicon-user" style="font-size:50px"></span><br><br>
-        <div class='label label-primary string'>Sign Up</div>
+        <div class='label label-primary string balloon1'>Create Your Accuount</div>
             <div class="panel-body">
             <div class='col-xs-offset-0 col-xs-12'>
 
