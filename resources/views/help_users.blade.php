@@ -27,6 +27,8 @@
       
     <left class = 'col-md-offset-0 col-md-12'>
     <img src="/images/users1.jpg">
+    <img src="/images/users2.jpg">
+    <img src="/images/users3.jpg">
     <img src="/images/users4.jpg">
     </left>
         <div class="container">
