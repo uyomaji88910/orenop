@@ -281,7 +281,30 @@ class GhrController extends Controller
                     ->select('attends.created_at', 'attends.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
                     ->where('attends.created_at','=',$date)->where('users.nickname', '!=', 'GHR')
                     ->orderBy('attends.status', 'ASC')->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
-       
+        
+        
+        $td_attends_np = \DB::table('users')
+                     //->select('a', 'users.nickname','users.team_number', 'users.team_class')
+                     ->select('today.created_at', 'today.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'today.status', 'today.reason', 'today.arrival_time')
+                     ->leftJoin('attends as today', function($query){ //Today listのためのdate()
+                        $timestamp = time();
+                        $date = date( "Y-m-d" , $timestamp ) ;
+                        $query->on('users.id', '=', 'today.user_id')
+                              ->where('today.created_at','=',$date);
+                     })
+                     ->whereNull('status')
+                     ->where('users.nickname', '!=', 'GHR')
+                     ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
+                     ->get()->toArray();
+                     
+        foreach($td_attends_np as $np_row) {
+            $np_row->created_at = $date;
+            $np_row->status = 'No Status';
+        }
+        
+
+        $td_attends += $td_attends_np;
+    
         $head = array(
             'Date',
             'Time',
