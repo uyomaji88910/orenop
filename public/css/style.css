@@ -31,7 +31,7 @@ body {
 /*nav-bar*/
 .sidenav {
     height: 100%;
-    width: 200;
+    width: 15%;
     position: fixed;
     z-index: 1;
     top: 0;

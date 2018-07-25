@@ -2,11 +2,7 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a herf="/"><img src="/images/orenop-toka.png" class="nav-logo"></a>
-            @if (Auth::check())
-            @else
-                <a class="navbar-brand hvr-buzz-outs" href="/">Home</a><br>
-            @endif
-              
+            
     @if (Auth::check())
      <?php $id = \Auth::user()->id ;?>
         @if  (Auth::user()->nickname == 'GHR')
@@ -29,6 +25,7 @@
           <center>Status<br><br><center class='label label-primary string'>{{$attend->status}}</center></center>
         @endif
     @else
+        <a href="/">Home</a>
         <a href="{{ route('signup.get') }}">Sign Up</a>
         <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
     @endif
@@ -39,7 +36,7 @@
 <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="nav-humberger">&#9776; </span>
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "15%";
 }
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
