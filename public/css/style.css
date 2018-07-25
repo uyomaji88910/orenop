@@ -532,6 +532,14 @@ a:active.underline {/*クリック中*/
 span.links{
   color: #000;
 }
+
+.tab-col{
+  background-color:#eee;
+}
+
+.active{
+ color:white;
+}
 /*# Licenses
 
 Hover.css is made available under a free personal/open source or paid commercial licenses depending on your requirements. To compare licenses please visit the [Ian Lunn Design Limited Store](https://ianlunn.co.uk/store/licenses/) and [purchase a commercial license here](https://ianlunn.co.uk/store/hover-css/).
