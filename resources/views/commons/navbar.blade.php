@@ -6,7 +6,6 @@
     @if (Auth::check())
      <?php $id = \Auth::user()->id ;?>
         @if  (Auth::user()->nickname == 'GHR')
-          <a href="#">GHR</a>
           <a href="{{ route('ghr.absent') }}" class="attendance">List</a>
           <div class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DL<span class="caret"></span></a>
@@ -17,6 +16,8 @@
               </ul>
           </div>
           <a href="{{ route('logout.get') }}">Logout</a>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <center><br><br><center class='label label-primary string'>admin</center></center>
         @else
           <a href="{{ route('attends.edit', [$id]) }}">{{ Auth::user()->nickname }}'s edit</a>
           <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
