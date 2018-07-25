@@ -297,14 +297,17 @@ class GhrController extends Controller
                      ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
                      ->get()->toArray();
                      
+                     
+                     
+                     
         foreach($td_attends_np as $np_row) {
             $np_row->created_at = $date;
             $np_row->status = 'No Status';
         }
         
 
-        $td_attends += $td_attends_np;
-    
+        $td_attends = array_merge($td_attends, $td_attends_np);
+        
         $head = array(
             'Date',
             'Time',
