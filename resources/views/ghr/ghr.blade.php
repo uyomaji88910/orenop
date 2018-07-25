@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app_ghr')
 
     @section('content')
-<div class="row">
+<div class="row_top">
     <center class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
         <!--<center><img src={{ asset("images/att.png")}} class="att"></center><br>-->
                  <h1 class='label label-primary string balloon1'>For GHR</h1>

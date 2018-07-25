@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
     @section('content')
-<div class="row">
+<div class="row_top">
     <center class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
                  <h1 class='label label-primary string balloon1'>Absent or Late</h1>
                 <div class="panel-body">
@@ -17,10 +17,12 @@
                         {!! form::password('password', ['class' => 'form-control']) !!}
                     </div>
                     
+                    
                     <div>
                     {!! form::select('status', array('3'=>'absent', '2'=>'late')); !!}
-                    </div>    
-                    <br>
+                    </div>
+                    
+                    
                     <div class="form-group">
                     {!! form::label('reason', 'Reason') !!}
                         {!! form::text('reason', old('reason'), ['class' => 'form-control']) !!}

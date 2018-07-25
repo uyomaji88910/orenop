@@ -1,10 +1,14 @@
 @extends('layouts.app')<! edit by tiny  20180709>
 
 @section('content')
+<br>
   <div class="center jumbotron">
         <div class="text-center">
             @if($attend->status == 'Late' or $attend->status == 'Absent')
-                <h1><b>GHRが確認致しますので、10時30分頃に再度ログインしてください。</b></h1>
+                <h2>GHRが確認致しますので、<br><br><b><u>09時30分頃</u></b><br>に再度ログインしてください。</h2>
+                <br>
+                <h4>その際、"Confirm: GHR確認中"となっている場合はメールにて直接GHRにご連絡ください。</h4>
+                
             @elseif($attend->status == 'Attend')
                 <h1>HAVE A NICE DAY❤</h1>
             @endif

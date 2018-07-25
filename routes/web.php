@@ -72,3 +72,8 @@ Route::get('others', function() {
 Route::get('second_login', function() {
     return view('second_login');
 })->name('second.get');
+//help
+Route::get('help', function() {
+    return view('help');
+})->name('help.get');
+

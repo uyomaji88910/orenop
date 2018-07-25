@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_ghr')
 
 @section('content')
 <h1><span class="label label-primary"> Today({{$date}})のリスト</span></h1>
