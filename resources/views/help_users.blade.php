@@ -26,7 +26,8 @@
       @include('commons.navbar')
       
     <left class = 'col-md-offset-0 col-md-12'>
-    <img src="/images/test6.jpg"> 
+    <img src="/images/users1.jpg">
+    <img src="/images/users4.jpg">
     </left>
         <div class="container">
            @include('commons.error_messages')
