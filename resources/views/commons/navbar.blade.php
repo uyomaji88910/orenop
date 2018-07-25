@@ -8,7 +8,7 @@
         @if  (Auth::user()->nickname == 'GHR')
           <a href="{{ route('ghr.absent') }}" class="attendance">List</a>
           <div class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DL<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download<span class="caret"></span></a>
               <ul class="dropdown-menu">
                     <a href="{{ route('ghr.csv') }}">Today</a>
                     <li role="separator" class="divider"></li>
