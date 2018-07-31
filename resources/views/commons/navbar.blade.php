@@ -17,7 +17,7 @@
           </div>
           <a href="{{ route('logout.get') }}">Logout</a>
           <br><br><br>
-          
+
           <br><br><br><br><br><br><br>
           <center><br><br><center class='label label-primary string'>admin</center></center>
         @else
