@@ -4,22 +4,9 @@
         <td class="text-center">{{$list->nickname}}</td>
         <td class="text-center">{{$list->reason}}</td>
         <td class="text-center">{{$list->updated_at}}</td>
-        @isset($list->arrival_time)
-                <td class="text-center">{{$list->arrival_time}}</td>
-                <td>{!! Form::open(['route' => 'ghr.notarrival', 'method' => 'delete']) !!}
-                {!! Form::hidden('id', $list->id) !!}
-                {!! Form::submit('Cancel', ['class' => 'btn btn-warning']) !!}
-                {!! Form::close() !!}</td>
-        @else
-                <td class="text-center">Not arrived</td>
-                <td>{!! Form::open(['route' => 'ghr.arrival']) !!}
-                {!! Form::hidden('id', $list->id) !!}
-                {!! Form::submit('Arrived!', ['class' => 'btn btn-primary']) !!}
-                {!! Form::close() !!}</td>
-        @endisset
         
         @isset($list->confirm)
-                <td>{!! Form::open(['route' => 'ghr.notconfirm', 'method' => 'delete']) !!}
+                <td>Your message has been sent{!! Form::open(['route' => 'ghr.notconfirm', 'method' => 'delete']) !!}
                 {!! Form::hidden('id', $list->id) !!}
                 {!! Form::submit('Cancel', ['class' => 'btn btn-danger']) !!}
                 {!! Form::close() !!}</td>
@@ -29,11 +16,25 @@
                 {!! form::select('confirm', array(
                 'お疲れ様です。ご報告ありがとうございます。出社の際はGHRスタッフデスクにお越しください。'=>'【日本語】お疲れ様です。ご報告ありがとうございます。出社の際はGHRスタッフデスクにお越しください。',
                 'Thank you for letting us know. Please come to the GHR desk when you come to work.'=>'【English】Thank you for letting us know. Please come to the GHR desk when you come to work.   ')); !!}
-                {!! Form::submit('Confirmed!', ['class' => 'btn btn-primary']) !!}
+                <br>
+                {!! Form::submit('Send!', ['class' => 'btn btn-primary']) !!}
                 {!! Form::close() !!}</td>
                  
         @endisset
         
+        @isset($list->arrival_time)
+                <td class="text-center">{{$list->arrival_time}}<br>
+                {!! Form::open(['route' => 'ghr.notarrival', 'method' => 'delete']) !!}
+                {!! Form::hidden('id', $list->id) !!}
+                {!! Form::submit('Cancel', ['class' => 'btn btn-danger']) !!}
+                {!! Form::close() !!}</td>
+        @else
+                <td class="text-center">Not arrived<br>
+                {!! Form::open(['route' => 'ghr.arrival']) !!}
+                {!! Form::hidden('id', $list->id) !!}
+                {!! Form::submit('Arrive!', ['class' => 'btn btn-primary']) !!}
+                {!! Form::close() !!}</td>
+        @endisset
         
         
         </tr>

@@ -19,7 +19,10 @@
                     
                     
                     <div>
-                    {!! form::select('status', array('3'=>'absent', '2'=>'late')); !!}
+                    {!! form::label('status', 'absent') !!}
+                    {!! form::radio('status',3, array('3'=>'absent')); !!}
+                    {!! form::label('status', 'late') !!}
+                    {!! form::radio('status',2, array('2'=>'late')); !!}
                     </div>
                     
                     

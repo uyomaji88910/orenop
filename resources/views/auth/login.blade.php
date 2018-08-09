@@ -39,7 +39,7 @@
                             {!! form::select('status', array('1'=>'Attend')); !!} <!add hidden-form by chee 7/6>
                         </div>
                         <div class="text-center">
-                            <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Submit</button></div>  
+                            <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Attend</button></div>  
                         </div>
                     </form>
                {!! form::close() !!}

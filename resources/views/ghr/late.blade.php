@@ -13,9 +13,8 @@
         <th class="text-center">Nickname</th>
         <th class="text-center">Reason</th>
         <th class="text-center">Report Time</th>
-        <th class="text-center">Arrival Time</th>
-        <th class="text-center"></th>
         <th class="text-center">Confirmation</th>
+        <th class="text-center">Arrival Time</th>
     </tr>
    
      @if (count($lates) > 0)

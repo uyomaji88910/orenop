@@ -51,6 +51,7 @@ class RegisterController extends Controller
 //            'email' => 'required|string|email|max:255|unique:users',
 // ホームに対するものも追加
             'password' => 'required|string|min:6|confirmed',
+            'employee_num' => 'required|integer|unique:users', // need digit9 ex.100013869
         ]);
     }
 
@@ -62,8 +63,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data['employee_num'] = (integer)$data['employee_num']; // string to integer 2018/08/09 Ryo Nakajima 
         return User::create([
             'nickname' => $data['nickname'],
+            'employee_num' => $data['employee_num'],
   //          'email' => $data['email'],
             'team_number' => $data['team_number'],
             'team_class' => $data['team_class'],

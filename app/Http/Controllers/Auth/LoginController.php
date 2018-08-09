@@ -64,6 +64,7 @@ class LoginController extends Controller
         $status=$_REQUEST['status']; 
         $nickname=$_REQUEST['nickname'];
         $exist = $attend->confirm($id, $date);
+        $_REQUEST['status']=(integer)$_REQUEST['status'];
         if($exist == true){
             $user_id= $attend->today_id($id, $date);
             $attend->user_id = \Auth::id(); // user id     

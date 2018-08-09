@@ -13,6 +13,10 @@
                         {!! Form::label('nickname', 'Nickname') !!}
                         {!! Form::text('nickname', old('nickname'), ['class' => 'form-control']) !!} 
                     </div><br>
+                    <div class="form-group">
+                        {!! Form::label('employee_num', 'Employee Number') !!}
+                        {!! Form::number('employee_num', old('employee_num'), ['class' => 'form-control']) !!} 
+                    </div><br>
                 <center><b>Slect your Team</b></center>
     　　　　  　　　 <center>
     　　　　　　       　      <span class="form-group"> <!プルダウンにした>  
