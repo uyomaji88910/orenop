@@ -15,9 +15,10 @@ Route::get('/', function () {
     return view('auth/login');
 });
 */
-
+//Route::group(['middleware' => 'auth_Int_Ext'], function () {
 // logout when the user logged in
 Route::get('/', 'AttendsController@index')->name('index');
+//});
 Route::get('welcome', 'AttendsController@yoroshiku')->name('yoroshiku.get');// signup後遷移する場所
 
 // User registration
@@ -80,3 +81,6 @@ Route::get('help_ghr', 'AttendsController@help_ghr')->name('help_ghr.get');// he
 //    return view('aboutus');
 //})->name('aboutus.get');
 Route::get('aboutus', 'AttendsController@aboutus')->name('aboutus.get');// aboutus
+
+//test
+Route::get('test1', 'AttendsController@test1')->name('test1.get'); // for login internal route

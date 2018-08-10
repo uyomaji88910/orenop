@@ -15,8 +15,27 @@ class AttendsController extends Controller
         if (\Auth::check()){
             return redirect ('logout');
         }
+        
         else{
-            return view ('auth.login');
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            //$test = \Request::ip();
+            $ip_array = array ('133.237.7.64');
+            
+            for ($i = 65; $i <= 95 ; $i++) {
+                $push_array = '133.237.7.' . $i;
+                array_push ( $ip_array ,$push_array );
+            }
+                $judge_ip = in_array($ip, $ip_array);
+                $judge1 = !$judge_ip;
+    
+            if ($judge1){
+                // Add by Ryo Nakajima 
+                return view('auth.login_ext');// (This veiw file is for extarnal)
+                //return '/test1';
+            }
+            else {
+            }
+            return view('auth.login');// (This veiw file is for intarnal)
         }
     }
     // route ~/lists/attend 2018/07/11
@@ -357,6 +376,29 @@ class AttendsController extends Controller
         }
         
         return view('aboutus', [
+            'attend' => $attend,
+        ]);
+    }
+    
+    
+    public function test1()
+    {
+         //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        
+       
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
+        
+        return view('auth.login', [
             'attend' => $attend,
         ]);
     }

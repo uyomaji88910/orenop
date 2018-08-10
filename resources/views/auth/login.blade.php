@@ -43,22 +43,12 @@
                         </div>
                     </form>
                {!! form::close() !!}
-                        <center>
-                        <font color="black">
-                            <span class="links string-login long">
-                                <a class="link underline2" href="{{ route('others.get') }}" style="text-decoration: none;"><h4>Late/Absent</h4></a>
-                            </span><span class="hidden"></span>
-                        </center>
                 </div>
             </div>    
         </body>
     </center>    
 </div>
   <center>
-         <span class="links string-login">
-            <a href="{{ route('second.get') }}" class="link underline"  style="text-decoration: none;" ><h4>Re:Login</h4></a>
-        </span>
- 
         <span class="links string-login">
             <a class="link underline" href="{{ route('ghr.login') }}" style="text-decoration: none;"><h4>For GHR</h4></a>
         </span>
