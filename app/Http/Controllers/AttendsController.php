@@ -402,5 +402,11 @@ class AttendsController extends Controller
             'attend' => $attend,
         ]);
     }
+    
+    public function paid()
+    {
+        
+        return view('auth.paid_holiday');
+    }
 }
 

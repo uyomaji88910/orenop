@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}"> <!-- add by chee 7/4 -->
+        
 
         
         <!--fontawesome-->

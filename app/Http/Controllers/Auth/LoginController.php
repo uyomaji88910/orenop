@@ -65,27 +65,38 @@ class LoginController extends Controller
         $nickname=$_REQUEST['nickname'];
         $exist = $attend->confirm($id, $date);
         $_REQUEST['status']=(integer)$_REQUEST['status'];
-        if($exist == true){
-            $user_id= $attend->today_id($id, $date);
-            $attend->user_id = \Auth::id(); // user id     
-            $text = '/attends/' . $attend->user_id . '/edit/'; // edit byu Ryo Nakajima 2018/07/13
-            return $text;
-            
-        } else if($nickname == 'GHR') {
-            return '/ghr/absent';
-            
         
-        
-        } else{
-            if ($status == 1){
-                $attend->status = 'Attend'; // attend or late or absent
-            }else if($status == 2){
-                $attend->status = 'Late';
+            if($status == 4) {
+                $date = $_REQUEST['date']; // 2018/08/21 Change date today->request day
+                $attend->status = 'Paid Holiday';
+                $attend->created_at = $date; // Date ex. 2018-07-05         
+                $attend->updated_at = $time;// Time ex. 13:05:22 Need to fix!!!!
+                $attend->user_id = \Auth::id(); // user id   
                 $attend->reason = $_REQUEST['reason'];
-            }else if($status == 3){
-                $attend->status = 'Absent';
-                $attend->reason = $_REQUEST['reason'];
-            }
+                $attend->save();
+                return '/logout';
+                
+            } else if($exist == true){
+                $user_id= $attend->today_id($id, $date);
+                $attend->user_id = \Auth::id(); // user id     
+                $text = '/attends/' . $attend->user_id . '/edit/'; // edit byu Ryo Nakajima 2018/07/13
+                return $text;
+                
+            } else if($nickname == 'GHR') {
+                return '/ghr/absent';
+                
+            
+            
+            } else{
+                if ($status == 1){
+                    $attend->status = 'Attend'; // attend or late or absent
+                }else if($status == 2){
+                    $attend->status = 'Late';
+                    $attend->reason = $_REQUEST['reason'];
+                }else if($status == 3){
+                    $attend->status = 'Absent';
+                    $attend->reason = $_REQUEST['reason'];
+                }
             
             $attend->user_id = \Auth::id(); // user id        
             $attend->created_at = $date; // Date ex. 2018-07-05         

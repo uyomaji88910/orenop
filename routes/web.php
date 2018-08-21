@@ -15,12 +15,10 @@ Route::get('/', function () {
     return view('auth/login');
 });
 */
-//Route::group(['middleware' => 'auth_Int_Ext'], function () {
+
 // logout when the user logged in
 Route::get('/', 'AttendsController@index')->name('index');
-//});
 Route::get('welcome', 'AttendsController@yoroshiku')->name('yoroshiku.get');// signup後遷移する場所
-
 // User registration
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
@@ -29,12 +27,13 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::group(['middleware' => 'auth_ip'], function () {
     Route::post('login', 'Auth\LoginController@login')->name('login.post');
 });    
+//有給のルート by Yusuke Kazumi 2018/08/21
+Route::get('paid', 'AttendsController@paid')->name('paid');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 // GHR login
 Route::get('ghr/login', 'GhrController@login')->name('ghr.login');
 Route::post('ghr/login', 'Auth\LoginController@login')->name('ghr_login.post');
 // 
-
 
 //Attend Function 2018/07/05 add by Ryo Nakajima
 Route::group(['middleware' => 'auth'], function () {
@@ -54,7 +53,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('ghr/notattend', 'GhrController@notattend')->name('ghr.notattend');
         Route::get('ghr/attend/download', 'GhrController@csv')->name('ghr.csv');
         Route::get('ghr/attend/download_month', 'GhrController@csv_month')->name('ghr.csv_month');
-        
     });
 });
 

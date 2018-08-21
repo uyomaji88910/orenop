@@ -41,6 +41,7 @@
         <a href="/">Home</a>
         <a href="{{ route('signup.get') }}">Sign Up</a>
         <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
+        <a href="{{ route('paid') }}" class="attendance">Paid Holiday</a>
         <br><br><br>
         <a href="{{ route('aboutus.get') }}">About Orenop</a>
         <div class="dropdown">
