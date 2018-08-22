@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('ghr/confirm', 'GhrController@confirm')->name('ghr.confirm');  //buttin function for confimation
         Route::delete('ghr/confirm', 'GhrController@notconfirm')->name('ghr.notconfirm');  //cancel     
         Route::get('ghr/absent', 'GhrController@absent')->name('ghr.absent');
+        Route::get('ghr/paid', 'GhrController@paid')->name('ghr.paid'); //paid holiday list for GHR
         Route::get('ghr/notattend', 'GhrController@notattend')->name('ghr.notattend');
         Route::get('ghr/attend/download', 'GhrController@csv')->name('ghr.csv');
         Route::get('ghr/attend/download_month', 'GhrController@csv_month')->name('ghr.csv_month');
@@ -61,6 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('lists/late', 'AttendsController@late')->name('lists.late');
     Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
     Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
+    Route::get('lists/paid', 'AttendsController@paidlist')->name('lists.paid');
 // add by Ryo Nakajima 2018/07/06 for late and absent
 
 //欠席遅刻のかたはこちら

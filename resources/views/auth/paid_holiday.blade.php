@@ -36,9 +36,14 @@
                         </div>
                         
                         <div class="form-group">
-                            {!! form::label('date', 'Date') !!}
-                            {!! form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+                            {!! form::label('startdate', 'Start Date') !!}
+                            {!! form::date('startdate', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
                         </div>
+                        <div class="form-group">
+                            {!! form::label('enddate', 'End Date') !!}
+                            {!! form::date('enddate', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+                        </div>
+                        
                         <div class="form-group">
                             {!! form::label('reason', 'Reason') !!}
                             {!! form::text('reason', old('reason'), ['class' => 'form-control']) !!}

@@ -143,6 +143,32 @@ class GhrController extends Controller
      */
     
     
+     public function paid()
+    {
+         //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        
+        //attends function
+        $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'users.team_number', 'users.team_class')
+                 ->where('status','=','Paid Holiday')->where('attends.created_at','=',$date)
+                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
+        $count = $this->counts();
+
+        
+        return view('ghr.paid', [
+              'attends'=>$attends,
+              'count'=>$count,
+              'date'=>$date,
+               ]);
+        
+        
+    }
+    
     public function create()
     {
         //

@@ -59,21 +59,28 @@ class LoginController extends Controller
         $time = date( "H:i:s" , $timestamp ) ;
 
         // add attends table to record
-        $attend = new Attend;
         $id = \Auth::id();
         $status=$_REQUEST['status']; 
         $nickname=$_REQUEST['nickname'];
-        $exist = $attend->confirm($id, $date);
+        $attend1 = new Attend;
+        $exist = $attend1->confirm($id, $date);
         $_REQUEST['status']=(integer)$_REQUEST['status'];
         
             if($status == 4) {
-                $date = $_REQUEST['date']; // 2018/08/21 Change date today->request day
-                $attend->status = 'Paid Holiday';
-                $attend->created_at = $date; // Date ex. 2018-07-05         
-                $attend->updated_at = $time;// Time ex. 13:05:22 Need to fix!!!!
-                $attend->user_id = \Auth::id(); // user id   
-                $attend->reason = $_REQUEST['reason'];
-                $attend->save();
+                $date = $_REQUEST['startdate']; // 2018/08/21 start day Validate
+                $end_date = $_REQUEST['enddate']; // 2018/08/21 end day
+                var_dump($_REQUEST);
+                while (strtotime($date) <= strtotime($end_date)) {
+                    echo "$date\n";
+                    $attend = new Attend;
+                    $attend->status = 'Paid Holiday';
+                    $attend->created_at = $date; // Date ex. 2018-07-05         
+                    $attend->updated_at = $time; 
+                    $attend->user_id = \Auth::id(); // user id   
+                    $attend->reason = $_REQUEST['reason'];
+                    $attend->save(); 
+                    $date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
+	            }
                 return '/logout';
                 
             } else if($exist == true){
@@ -88,6 +95,7 @@ class LoginController extends Controller
             
             
             } else{
+                $attend = new Attend;
                 if ($status == 1){
                     $attend->status = 'Attend'; // attend or late or absent
                 }else if($status == 2){

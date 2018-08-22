@@ -179,6 +179,40 @@ class AttendsController extends Controller
         ]);
         
     }     
+    public function paidlist()
+    {
+         //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        
+        //attends function
+        $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                 ->select('users.nickname','attends.updated_at', 'attends.created_at','users.team_number', 'users.team_class')
+                 ->where('status','=','Paid Holiday')->where('attends.created_at','=',$date)
+                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
+        $count = $this->counts();
+        if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
+    
+
+        // added by Den 07/09/2018
+        //cotroller.phpで指定したやつそのままもってくることができる！！！！！！！by Tiny 20180713 
+        return view('lists.paid', [
+              'attends'=>$attends,
+              'count'=>$count,
+              'attend'=>$attend,
+              'date'=>$date,
+               ]);
+        
+        
+    } 
     
     /**
      * Show the form for creating a new resource.

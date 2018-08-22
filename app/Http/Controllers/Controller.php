@@ -29,6 +29,12 @@ class Controller extends BaseController
                                       ->orderBy('attends.updated_at', 'DESC')->get();
         $count_attend = $attends->count();
         
+        $paid = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                                      ->select('users.nickname','attends.updated_at', 'attends.created_at')
+                                      ->where('status','=','Paid Holiday')->where('attends.created_at','=',$date)
+                                      ->orderBy('attends.updated_at', 'DESC')->get();
+        $count_paid = $paid->count();
+        
          //late function
          $lates = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
@@ -45,7 +51,7 @@ class Controller extends BaseController
          
          $all_user = \DB::table('users')->count();
         
-        $count_notattend = $all_user - $count_attend - $count_late - $count_absent - 1;
+        $count_notattend = $all_user - $count_attend - $count_late - $count_absent - $count_paid - 1;
          
         //notattends list
         /*
@@ -57,6 +63,7 @@ class Controller extends BaseController
         */
         return [
             'count_attend' => $count_attend,
+            'count_paid' => $count_paid,
             'count_late' => $count_late,
             'count_absent' => $count_absent,
             'count_notattend' => $count_notattend,
