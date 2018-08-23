@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1><span class="label label-primary"> Today({{$date}})のリスト</span></h1>
+<h1><span class="label label-primary"> {{$date}}のリスト</span></h1>
 <br>
 @include('lists.listbar')
 
