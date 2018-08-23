@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
+
 <h1><span class="label label-primary"> Today({{$date}})のリスト</span></h1>
 <br>
 @include('lists.listbar')
@@ -19,5 +21,5 @@
      @endif      
 
 </table>
-
+</div>
 @endsection
