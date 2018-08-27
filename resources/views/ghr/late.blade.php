@@ -10,7 +10,7 @@
 <table class="table">
     <tr>
         <th class="text-center">Team</th>
-        <th class="text-center">Nickname</th>
+        <th class="text-center">Name</ths>
         <th class="text-center">Reason</th>
         <th class="text-center">Report Time</th>
         <th class="text-center">Confirmation</th>

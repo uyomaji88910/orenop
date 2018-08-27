@@ -26,7 +26,7 @@
                 <div class='col-xs-offset-0 col-xs-12'>
                      {!! Form::open(['route' => 'login.post']) !!}
                     <div class="form-group">
-                    {!! form::label('nickname', 'NickName') !!}
+                    {!! form::label('nickname', 'Name') !!}
                         {!! form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
                     </div>
 

@@ -4,7 +4,7 @@
  <div class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
 <h1><span class="label label-primary"> Today({{$attend->created_at}}) {{ $user->nickname }} 's Status  </span></h1>
     
-    <h2 class="text-left"><b>Nickname</b> : {{ $user->nickname }}</h2>
+    <h2 class="text-left"><b>Name</b> : {{ $user->nickname }}</h2>
     <h2 class="text-left"><b>Status</b>   : {{ $attend->status }}</h2>
     <h2 class="text-left"><b>Time</b>     : {{ $attend->updated_at }}</h2>
     
