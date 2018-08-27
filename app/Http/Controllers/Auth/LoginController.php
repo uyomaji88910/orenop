@@ -62,27 +62,30 @@ class LoginController extends Controller
         $id = \Auth::id();
         $status=$_REQUEST['status']; 
         $nickname=$_REQUEST['nickname'];
-        $attend1 = new Attend;
-        $exist = $attend1->confirm($id, $date);
+        $attend = new Attend;
+        $exist = $attend->confirm($id, $date);
         $_REQUEST['status']=(integer)$_REQUEST['status'];
         
             if($status == 4) {
                 $date = $_REQUEST['startdate']; // 2018/08/21 start day Validate
                 $end_date = $_REQUEST['enddate']; // 2018/08/21 end day
                 var_dump($_REQUEST);
-                while (strtotime($date) <= strtotime($end_date)) {
-                    echo "$date\n";
-                    $attend = new Attend;
-                    $attend->status = 'Paid Holiday';
-                    $attend->created_at = $date; // Date ex. 2018-07-05         
-                    $attend->updated_at = $time; 
-                    $attend->user_id = \Auth::id(); // user id   
-                    $attend->reason = $_REQUEST['reason'];
-                    $attend->save(); 
+                do {
+                    $exist1 = $attend->confirm($id, $date);
+                    if($exist1 == true){
+                    } else {
+                        $attend1 = new Attend;
+                        $attend1->status = 'Paid Holiday';
+                        $attend1->created_at = $date; // Date ex. 2018-07-05         
+                        $attend1->updated_at = $time; 
+                        $attend1->user_id = \Auth::id(); // user id   
+                        $attend1->reason = $_REQUEST['reason'];
+                        $attend1->save(); 
+                    }
                     $date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
-	            }
+	            } while (strtotime($date) <= strtotime($end_date));
                 //return '/logout';
-                $text = '/attends/' . $attend->user_id; // edit byu Ryo Nakajima 2018/09/10
+                $text = '/attends/' . $id; // edit byu Ryo Nakajima 2018/09/10
                 return $text;
 
             } else if($exist == true){
