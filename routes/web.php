@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 // logout when the user logged in
 Route::get('/', 'AttendsController@index')->name('index');
-Route::get('welcome', 'AttendsController@yoroshiku')->name('yoroshiku.get');// signup後遷移する場所
+Route::get('welcome', 'AttendsController@welcome')->name('welcome.get');// signup後遷移する場所
 // User registration
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
@@ -63,7 +63,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
     Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
     Route::get('lists/paid', 'AttendsController@paidlist')->name('lists.paid');
-// add by Ryo Nakajima 2018/07/06 for late and absent
 
 //欠席遅刻のかたはこちら
 Route::get('others', function() {
@@ -77,9 +76,6 @@ Route::get('second_login', function() {
 Route::get('help_users', 'AttendsController@help_users')->name('help_users.get');// help_users
 Route::get('help_ghr', 'AttendsController@help_ghr')->name('help_ghr.get');// help_users
 //About orenop
-//Route::get('aboutus', function() {
-//    return view('aboutus');
-//})->name('aboutus.get');
 Route::get('aboutus', 'AttendsController@aboutus')->name('aboutus.get');// aboutus
 
 //test

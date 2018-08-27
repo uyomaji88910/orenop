@@ -332,7 +332,7 @@ class AttendsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function yoroshiku()
+    public function welcome()
     {
         //タイムスタンプを取得
         $timestamp = time();
@@ -349,7 +349,7 @@ class AttendsController extends Controller
             $attend = 0;
         }
         
-        return view('attends.yoroshiku', [
+        return view('attends.welcome', [
             'attend' => $attend,
         ]);
     }

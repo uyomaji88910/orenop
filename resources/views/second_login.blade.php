@@ -10,7 +10,7 @@
 
     {!! Form::open(['route' => 'login.post']) !!}
                     <div class="form-group">
-                    {!! form::label('nickname', 'NickName') !!}
+                    {!! form::label('nickname', 'Name') !!}
                         {!! form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
                     </div>
 
