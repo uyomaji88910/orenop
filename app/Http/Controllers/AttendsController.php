@@ -260,11 +260,17 @@ class AttendsController extends Controller
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         
         $attend = Attend::find($today_id);   
-        return view('attends.show', [
-            'attend' => $attend,
-            'paid' => $paid,
-            'user' => $user,
-        ]);
+        
+        if (\Auth::user()->id === $user_id){ // need restrict date or time gate $date == \Attends::->date
+               return view('attends.show', [
+                'attend' => $attend,
+                'paid' => $paid,
+                'user' => $user,
+                ]);
+        } else {
+            return redirect()->back(); // 2018/07/10 edit by Ryo Nakajima //
+        }
+        
     }
     
     /**

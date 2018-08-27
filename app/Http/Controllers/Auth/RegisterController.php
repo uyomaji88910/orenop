@@ -50,7 +50,8 @@ class RegisterController extends Controller
             'nickname' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'employee_num' => 'required|integer|unique:users|digits:9',//min:100000000|max:999999999', // need digit9 ex.100013869
-            'reason' => 'filled|string',
+            //'reason' => 'filled|string',
+            'startdate' => 'date|after:tomorrow',
         ]);
     }
 
