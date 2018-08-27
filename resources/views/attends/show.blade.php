@@ -14,6 +14,23 @@
             @endif
                             <h2>{{$user->nickname}}'s Status</h2>
                 <h2><b>{{$attend->status}}</b></h2>
+                <br>
+                <h2>Your Paid Holiday Infomation</h2>
+                <h3>-------</h3>
+                <table class="table">
+                    <tr>
+                        <th class="text-center">Date</th>
+                    </tr>
+                   
+                     @if (count($paid) > 0)
+                         @foreach ($paid as $paid_unit)
+                            <tr>
+                            <td class= "text-center">{{$paid_unit->created_at}}</td>
+                            </tr>
+                         @endforeach
+                     @endif      
+                
+                </table>
         </div>
   </div>
         {!! link_to_route('attends.edit', 'if you want to update your status, Click Here', ['id' => $attend->id]) !!}

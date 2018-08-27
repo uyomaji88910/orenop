@@ -81,8 +81,10 @@ class LoginController extends Controller
                     $attend->save(); 
                     $date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
 	            }
-                return '/logout';
-                
+                //return '/logout';
+                $text = '/attends/' . $attend->user_id; // edit byu Ryo Nakajima 2018/09/10
+                return $text;
+
             } else if($exist == true){
                 $user_id= $attend->today_id($id, $date);
                 $attend->user_id = \Auth::id(); // user id     

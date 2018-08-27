@@ -254,9 +254,15 @@ class AttendsController extends Controller
         
         $user = User::find($id);
         
+        $paid = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                 ->select('users.nickname','attends.updated_at', 'attends.created_at','users.team_number', 'users.team_class')
+                 ->where('status','=','Paid Holiday')->where('attends.created_at','>',$date)->where('users.nickname','=',$user->nickname)
+                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
+        
         $attend = Attend::find($today_id);   
         return view('attends.show', [
             'attend' => $attend,
+            'paid' => $paid,
             'user' => $user,
         ]);
     }

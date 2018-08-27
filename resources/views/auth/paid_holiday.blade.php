@@ -21,12 +21,12 @@
                 
                 <br>
 
-            <h1 class='label label-primary string balloon1'>Input Your AttendanceTest</h1>
+            <h1 class='label label-primary string balloon1'>Input Your Paid Holiday</h1>
             <div class="panel-body">
                 <div class='col-xs-offset-0 col-xs-12'>
                     {!! Form::open(['route' => 'login.post']) !!}
                         <div class="form-group">
-                            {!! form::label('nickname', 'NickName') !!}
+                            {!! form::label('nickname', 'Name') !!}
                             {!! form::text('nickname', old('nickname'), ['class' => 'form-control']) !!}
                         </div>
     
@@ -53,7 +53,7 @@
                             {!! form::select('status', array('4'=>'Paid')); !!} <!add hidden-form by chee 7/6>
                         </div>
                         <div class="text-center">
-                            <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Attend</button></div>  
+                            <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Submit</button></div>  
                         </div>
                     </form>
                {!! form::close() !!}
