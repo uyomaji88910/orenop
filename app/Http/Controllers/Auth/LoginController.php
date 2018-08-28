@@ -76,7 +76,7 @@ class LoginController extends Controller
                     } else {
                         $attend1 = new Attend;
                         $attend1->status = 'Paid Holiday';
-                        $attSend1->created_at = $date; // Date ex. 2018-07-05         
+                        $attend1->created_at = $date; // Date ex. 2018-07-05         
                         $attend1->updated_at = $time; 
                         $attend1->user_id = \Auth::id(); // user id   
                         $attend1->reason = $_REQUEST['reason'];

@@ -453,7 +453,6 @@ class AttendsController extends Controller
     
     public function paid()
     {
-        
         return view('auth.paid_holiday');
     }
 }

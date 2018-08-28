@@ -16,6 +16,7 @@
               </ul>
           </div>
           <a href="{{ route('logout.get') }}">Logout</a>
+          
           <br><br><br>
 
           <br><br><br><br><br><br><br>
@@ -24,6 +25,7 @@
           <a href="{{ route('attends.edit', [$id]) }}">{{ Auth::user()->nickname }}'s edit</a>
           <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
           <a href="{{ route('logout.get') }}">Logout</a>
+          
           <br><br><br>
           <a href="{{ route('aboutus.get') }}">About Orenop</a>
          <div class="dropdown">
