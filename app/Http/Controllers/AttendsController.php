@@ -259,7 +259,9 @@ class AttendsController extends Controller
                  ->where('status','=','Paid Holiday')->where('attends.created_at','>',$date)->where('users.nickname','=',$user->nickname)
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         
-        $attend = Attend::find($today_id);   
+        $attend = Attend::find($today_id); 
+        $user_id = $attend->user_id;
+        $user = User::find($user_id);
         
         if (\Auth::user()->id === $user_id){ // need restrict date or time gate $date == \Attends::->date
                return view('attends.show', [
