@@ -198,7 +198,7 @@ class AttendsController extends Controller
             $today_id= $this->edit_id();
             $attend = Attend::find($today_id);
         } else {
-            $attend = 0;
+            $attend = 'No Status';
         }
     
 
@@ -258,7 +258,7 @@ class AttendsController extends Controller
         $user_id = $attend->user_id;
         $user = User::find($user_id);
         
-        if (\Auth::user()->id === $id){ // need restrict date or time gate $date == \Attends::->date
+        if (\Auth::user()->id == $id){ // need restrict date or time gate $date == \Attends::->date
                return view('attends.show', [
                 'attend' => $attend,
                 'user' => $user,
@@ -282,7 +282,7 @@ class AttendsController extends Controller
         $user_id = $attend->user_id;
         $user = User::find($user_id);
         
-        if (\Auth::user()->id === $user_id){ // need restrict date or time gate $date == \Attends::->date
+        if (\Auth::user()->id == $user_id){ // need restrict date or time gate $date == \Attends::->date
             return view('attends.edit', [
                 'attend' => $attend,
                 'user' => $user,
@@ -464,12 +464,14 @@ class AttendsController extends Controller
                  ->select('users.nickname','attends.updated_at', 'attends.created_at','users.team_number', 'users.team_class')
                  ->where('status','=','Paid Holiday')->where('attends.created_at','>',$date)->where('users.nickname','=',$user->nickname)
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
-        
-        $attend = Attend::find($today_id); 
-        $user_id = $attend->user_id;
-        $user = User::find($user_id);
-        
-        if (\Auth::user()->id === $id){ // need restrict date or time gate $date == \Attends::->date
+      
+    if (\Auth::check()) {
+            $today_id= $this->edit_id();
+            $attend = Attend::find($today_id);
+        } else {
+            $attend = 0;
+        }
+        if (\Auth::user()->id == $id){ // need restrict date or time gate $date == \Attends::->date
                return view('attends.paidlog', [
                 'attend' => $attend,
                 'paid' => $paid,

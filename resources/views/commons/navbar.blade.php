@@ -37,7 +37,7 @@
               </ul>
           </div>
           <br><br><br><br><br><br><br>
-          <center>Status<br><br><center class='label label-primary string'>{{$attend->status}}</center></center>
+       
         @endif
     @else
         <a href="/">Home</a>
