@@ -37,6 +37,7 @@ Route::post('ghr/login', 'Auth\LoginController@login')->name('ghr_login.post');
 
 //Attend Function 2018/07/05 add by Ryo Nakajima
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('paidlog/{id}', 'AttendsController@paidlog')->name('paidlog');
     Route::resource('attends', 'AttendsController', ['only' => ['show', 'edit']]); // add Ryo Nakajima 2018/07/13
     Route::group(['middleware' => 'auth_ip'], function () {   
         Route::put('attends/{attend}/edit', 'AttendsController@update')->name('attends.update');

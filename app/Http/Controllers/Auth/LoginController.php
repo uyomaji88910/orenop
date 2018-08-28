@@ -85,7 +85,7 @@ class LoginController extends Controller
                     $date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
 	            } while (strtotime($date) <= strtotime($end_date));
                 //return '/logout';
-                $text = '/attends/' . $id; // edit byu Ryo Nakajima 2018/09/10
+                $text = '/paidlog/' . $id; // edit byu Ryo Nakajima 2018/09/10
                 return $text;
 
             } else if($exist == true){

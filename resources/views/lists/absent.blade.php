@@ -7,7 +7,7 @@
 
 
 
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th class="text-center">Team</th>
         <th class="text-center">Name</th>

@@ -254,19 +254,13 @@ class AttendsController extends Controller
         
         $user = User::find($id);
         
-        $paid = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at','users.team_number', 'users.team_class')
-                 ->where('status','=','Paid Holiday')->where('attends.created_at','>',$date)->where('users.nickname','=',$user->nickname)
-                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
-        
         $attend = Attend::find($today_id); 
         $user_id = $attend->user_id;
         $user = User::find($user_id);
         
-        if (\Auth::user()->id === $user_id){ // need restrict date or time gate $date == \Attends::->date
+        if (\Auth::user()->id === $id){ // need restrict date or time gate $date == \Attends::->date
                return view('attends.show', [
                 'attend' => $attend,
-                'paid' => $paid,
                 'user' => $user,
                 ]);
         } else {
@@ -454,6 +448,37 @@ class AttendsController extends Controller
     public function paid()
     {
         return view('auth.paid_holiday');
+    }
+    
+     public function paidlog($id) //$id=userのid
+    {
+        $today_id= $this->edit_id();
+                //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力 //view用のdate()
+        $date = date( "Y-m-d" , $timestamp ) ;
+        
+        $user = User::find($id);
+        
+        $paid = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                 ->select('users.nickname','attends.updated_at', 'attends.created_at','users.team_number', 'users.team_class')
+                 ->where('status','=','Paid Holiday')->where('attends.created_at','>',$date)->where('users.nickname','=',$user->nickname)
+                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
+        
+        $attend = Attend::find($today_id); 
+        $user_id = $attend->user_id;
+        $user = User::find($user_id);
+        
+        if (\Auth::user()->id === $id){ // need restrict date or time gate $date == \Attends::->date
+               return view('attends.paidlog', [
+                'attend' => $attend,
+                'paid' => $paid,
+                'user' => $user,
+                ]);
+        } else {
+            return redirect()->back(); // 2018/07/10 edit by Ryo Nakajima //
+        }
+        
     }
 }
 
