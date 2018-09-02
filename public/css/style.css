@@ -33,14 +33,14 @@ body {
 /*nav-bar*/
 .sidenav {
     height: 100%;
-    width: 200px;
+    width: 0px; /*for the cool nav 200px*/
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: #111;/*for the cool nav #fff*/
     overflow-x: hidden;
-    transition: 0.5s; /*もどしてみたよ edit by tiny*/
+    transition: 0.3s; /*もどしてみたよ edit by tiny*/
     padding-top: 20px;
 }
 .sidenav a {
@@ -57,10 +57,15 @@ body {
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    left: 0px;
+    left: 5px;/*for the cool nav 0px*/
     font-size: 36px;
-    margin-right: 0px;
+    margin-right: 50px;/*for the cool nav 0px*/
 }
+#main { /*for the cool nav add*/
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
 .nav-logo{
     height:120px;
     width:auto;
@@ -96,7 +101,7 @@ body {
 }
 /*login.blade.php*/
 .att{    /*iconimage*/
-    height: 150px;
+    height: 110px;
     width: auto;
     margin-top: 10px;
 }
@@ -437,24 +442,47 @@ a:active.underline {/*クリック中*/
 .ghr {
    background: #9ff781;
 }
-
-.nav
-
+/*Lisのタブ*/
 a:hover.tab-class{
   background-color:#eee; 
   cursor: pointer;
   cursor: hand;
   z-index: 5; 
 }
-a:active.tab-class{
-  background-color:#eee; 
-}
 .tab-class{
   background-color:#fff; 
   border-radius: 5px;
+}
+a:active.tab-class{
+  background-color:#000; 
 }
 span.links{
   color: #000;
 }
 
+.box2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #36383F;/*文字色*/
+    background: #FFF;
+    border: solid 3px #36383F;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    width:150px;
+    height:75px;
+}
+.box2 p {
+    margin:  0; 
+    padding: 0;
+}
+.box2{
+  display: table-cell;
+  vertical-align: middle;
+  padding: 10px;
+}
 
+.boxContainer{
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="row">
     <center class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
@@ -18,9 +17,7 @@
                     </script>
                     <div class="timestrings"><span class="timestring">Hour</span><span class="timestring"> Minute</span><span class="timestring">Second</span></div>
                </body>
-                
                 <br>
-
             <h1 class='label label-primary string balloon1'>Are you absent or late?</h1>
             <div class="panel-body">
                 <div class='col-xs-offset-0 col-xs-12'>

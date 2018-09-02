@@ -4,22 +4,6 @@
 <div class="row">
     <center class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
         <body class="main">
-                <body>
-                    <center><a herf="/"><img src="/images/logo_egg.png" class="att"></a></center>
-                    <h1 id="time"></h1>
-                    <!--<script class="col-xs-offset-6 col-xs-5">-->
-                    <script>
-                        time();
-                        function time(){
-                            var now = new Date();
-                            document . getElementById("time") . innerHTML = now . toLocaleTimeString();
-                        }
-                        setInterval('time()',1000);
-                    </script>
-                    <div class="timestrings"><span class="timestring">Hour</span><span class="timestring"> Minute</span><span class="timestring">Second</span></div>
-               </body>
-                
-                <br>
 
             <h1 class='label label-primary string balloon1'>Input Your Paid Holiday</h1>
             <div class="panel-body">

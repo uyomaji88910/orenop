@@ -1,8 +1,9 @@
 @extends('layouts.app_ghr')
 
 @section('content')
-<h1><span class="label label-primary"> {{$date}}のリスト</span></h1>
-<br>
+<div class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6 col-lg-offset-0 col-lg-12">
+
+<h1><span class="label label-primary">Lates List</span></h1>Today: {{$date}}<br>
 @include('ghr.listbar')
 
 
@@ -22,5 +23,5 @@
      @endif      
 
 </table>
-
+</div>
 @endsection

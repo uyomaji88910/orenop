@@ -24,8 +24,8 @@
                     </div>    
                     <br>
                     
-                    <div class="text-right">
-                    <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Submit</button></div>  
+                    <div class="text-center">
+                    <div class="hint--top" aria-label="css--button primary--border--button radius--button"><button type ="image" name="submit" class="css--button primary--border--button radius--button" alt=" 送信">Login</button></div>  
                     </div>
                     </form>
 

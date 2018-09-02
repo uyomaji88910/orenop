@@ -1,39 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>orenop</title> <!edit by chee 7/4>
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-        <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}"> <!-- add by chee 7/4 -->
-
-        
-        <!--fontawesome-->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400|Roboto+Condensed:300,400" rel="stylesheet">
-
-    </head>
-    <body>
-      @include('commons.navbar')
-      
-    <left class = 'col-md-offset-0 col-md-12'>
-    <img src="/images/aboutus.jpg"> 
-    </left>
-        <div class="container">
-           @include('commons.error_messages')
-           @yield('content')
-        </div>
-      @include('commons.footer')
-    </body>
-</html>
+@extends('layouts.app')
+@section('content')
+<div class="row">
+ <center class="col-xs-offset-0 col-xs-12 col-md-offset-2 col-md-8">
+  <body class="main">
+         <center><img src="/images/egg-white.png" class="att"></center>
+         <h1><center><font color='#fff'><b>About Orenop</b></font></center></h1>
+         <p><h3><b><strong>'Orenop'</strong></b> is a brandnew service that enables you to discover the <b>quickest</b> and <b>simplest</b> way to report your attendance status, which is beneficial both for users and managers!</h3></p>
+  <br>
+         <h1><center><font color='#fff'><b>Why you choose Orenop?</b></font></center></h1>
+         <h3><center><font color='#fff'>for Attendees & Managers</font></center></h3>
+         
+　     <div class="boxContainer">
+         <div class="box2" style="padding:20px;">
+         <center><i class="far fa-check-circle" style="font-size:45px;" color="#4EAFC8"></i></center>         
+           <h2><b>1 Click</b></h2>
+           <h5>to report your Attendance</h5>
+         </div>
+         <div class="box2">
+           <center><i class="far fa-check-circle" style="font-size:45px;" color="#4EAFC8"></i></center>         
+           <h2><b>Easy</b></h2>
+           <h5>to check your Status</h5>
+         </div>
+         <div class="box2">
+           <center><i class="far fa-check-circle" style="font-size:45px;" color="#4EAFC8"></i></center>         
+           <h2><b>Stress-free</b></h2>
+           <h5>when you are in a harry</h5>
+         </div>
+       </div>
+  </body>  
+ </center>
+</div>
+@endsection
 
    

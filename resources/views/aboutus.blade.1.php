@@ -22,21 +22,23 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400|Roboto+Condensed:300,400" rel="stylesheet">
 
     </head>
-    <body>
       @include('commons.navbar')
-     
-    <left class ='col-md-offset-0 col-md-12'>
-    <img src="/images/users1.jpg">
-    <img src="/images/users2.jpg">
-    <img src="/images/users3.jpg">
-    <img src="/images/users4.jpg">
+      @extends('layouts.app')
+      @section('content')
+      <body>
+      <h1><center>About Orenop</center></h1>
+       <left class = 'col-md-offset-0 col-md-12'>
+        
+    
+    <img src="/images/aboutus.jpg"> 
     </left>
         <div class="container">
            @include('commons.error_messages')
            @yield('content')
         </div>
+      </body>
       @include('commons.footer')
-    </body>
+    
 </html>
 
    

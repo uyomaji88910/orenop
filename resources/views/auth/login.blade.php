@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="row">
     <center class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
