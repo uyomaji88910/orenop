@@ -17,16 +17,12 @@ body {
     position: relative;
     color:white;
 }
-.row-eq-height {
-  display: -webkit-flex; /* Safari */
-  display: flex;
-  flex-wrap: wrap;
-}
+
 .row{
     padding-top: 60px;
 }
 .row_top{
-    padding-top: 250px;
+    padding-top: 60px;
 }
 .bkmoji{
     color:black;
