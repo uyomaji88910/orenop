@@ -62,7 +62,7 @@
 
 
 <!-- navbar closure -->
-<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="nav-humberger">&#9776; </span>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="nav-humberger"><i class="fas fa-bars"></i></span>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "215px";

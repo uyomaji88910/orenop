@@ -9,9 +9,10 @@
   <br>
          <h1><center><font color='#fff'><b>Why you choose Orenop?</b></font></center></h1>
          <h3><center><font color='#fff'>for Attendees & Managers</font></center></h3>
-         
-　     <center class="boxContainer">
-         <div class="box2" style="padding:20px;">
+      
+      <center class="frame">   
+　     <div class="boxContainer">
+         <div class="box2">
          <center><i class="far fa-check-circle" style="font-size:45px;" color="#4EAFC8"></i></center>         
            <h2><b>1 Click</b></h2>
            <h5>to report your Attendance</h5>
@@ -25,6 +26,7 @@
            <center><i class="far fa-check-circle" style="font-size:45px;" color="#4EAFC8"></i></center>         
            <h2><b>Stress-free</b></h2>
            <h5>when you are in a harry</h5>
+         </div>
          </div>
        </center>
   </body>  
