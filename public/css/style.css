@@ -17,9 +17,13 @@ body {
     position: relative;
     color:white;
 }
-
+.row-eq-height {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-wrap: wrap;
+}
 .row{
-    padding-top: 100px;
+    padding-top: 60px;
 }
 .row_top{
     padding-top: 250px;
@@ -453,7 +457,7 @@ a:hover.tab-class{
   background-color:#fff; 
   border-radius: 5px;
 }
-a:active.tab-class{
+a:active .tab-col{
   background-color:#000; 
 }
 span.links{

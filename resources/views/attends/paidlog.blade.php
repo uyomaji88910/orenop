@@ -11,12 +11,17 @@
                 <table class="table">
                     <tr>
                         <th class="text-center">Date</th>
+                        <th class="text-center">Delete</th>
                     </tr>
                    
 
                          @foreach ($paid as $paid_unit)
                             <tr>
                             <td class= "text-center">{{$paid_unit->created_at}}</td>
+                            <td>{!! Form::open(['route' => 'paid_del', 'method' => 'delete']) !!}
+                                {!! Form::hidden('id', $paid_unit->id) !!}
+                                {!! Form::submit('Cancel', ['class' => 'btn btn-danger']) !!}
+                                {!! Form::close() !!}</td>
                             </tr>
                          @endforeach
                        

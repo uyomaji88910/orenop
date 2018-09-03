@@ -19,5 +19,5 @@
      @endif      
 
 </table>
-
+</div>
 @endsection

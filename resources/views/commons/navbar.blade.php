@@ -6,16 +6,16 @@
     @if (Auth::check())
      <?php $id = \Auth::user()->id ;?>
         @if  (Auth::user()->nickname == 'GHR')
-          <a href="{{ route('ghr.absent') }}" class="attendance">List</a>
+          <a href="{{ route('ghr.absent') }}" class="attendance"><i class="far fa-list-alt"></i> List</a>
           <div class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-file-download"></i> Download<span class="caret"></span></a>
               <ul class="dropdown-menu">
                     <a href="{{ route('ghr.csv') }}">Today</a>
                     <li role="separator" class="divider"></li>
                     <a href="{{ route('ghr.csv_month') }}">Month</a>
               </ul>
           </div>
-          <a href="{{ route('logout.get') }}">Logout</a>
+          <a href="{{ route('logout.get') }}"><i class="fas fa-power-off"></i> Logout</a>
           
           <br><br><br>
 
@@ -23,14 +23,14 @@
           <center><br><br><center class='label label-primary string'>admin</center></center>
         @else
           <a href="{{ route('attends.edit', [$id]) }}">{{ Auth::user()->nickname }}'s edit</a>
-          <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
-          <a href="{{ route('paidlog', [$id]) }}" class="attendance">PaidHolidayInfo</a>
-          <a href="{{ route('logout.get') }}">Logout</a>
+          <a href="{{ route('lists.notattend') }}" class="attendance"><i class="far fa-list-alt"></i> List</a>
+          <a href="{{ route('paidlog', [$id]) }}" class="attendance"><i class="far fa-calendar-alt"></i> PaidHolidayInfo</a>
+          <a href="{{ route('logout.get') }}"><i class="fas fa-power-off"></i> Logout</a>
           
           <br><br><br>
           <a href="{{ route('aboutus.get') }}">About Orenop</a>
          <div class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-question-circle"></i> Help<span class="caret"></span></a>
               <ul class="dropdown-menu">
                     <a href="{{ route('help_users.get') }}">For Users</a>
                     <li role="separator" class="divider"></li>
@@ -41,14 +41,14 @@
        
         @endif
     @else
-        <a href="/">Home</a>
-        <a href="{{ route('signup.get') }}">Sign Up</a>
-        <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
-        <a href="{{ route('paid') }}" class="attendance">Paid Holiday</a>
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="{{ route('signup.get') }}"><i class="fas fa-user-plus"></i> Signup</a>
+        <a href="{{ route('lists.notattend') }}" class="attendance"><i class="far fa-list-alt"></i> List</a>
+        <a href="{{ route('paid') }}" class="attendance"><i class="far fa-calendar-alt"></i> <font size='5'>PaidHoliday</font></a>
         <br><br><br>
         <a href="{{ route('aboutus.get') }}">About Orenop</a>
         <div class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-question-circle"></i> Help<span class="caret"></span></a>
               <ul class="dropdown-menu">
                     <a href="{{ route('help_users.get') }}">For Users</a>
                     <li role="separator" class="divider"></li>
@@ -65,9 +65,9 @@
 <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="nav-humberger">&#9776; </span>
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "200px";
+    document.getElementById("mySidenav").style.width = "215px";
     
-    document.getElementById("main").style.marginLeft = "200px";
+    document.getElementById("main").style.marginLeft = "215px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 

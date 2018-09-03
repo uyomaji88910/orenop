@@ -482,5 +482,14 @@ class AttendsController extends Controller
         }
         
     }
+    
+    public function paid_del(Request $request)
+    {
+        /*$id = $_REQUEST['id'];
+        $attend = Attend::find($id);
+        $attend ->delete();
+       // $attend -> save();*/
+       return redirect()->back();
+    }
 }
 
