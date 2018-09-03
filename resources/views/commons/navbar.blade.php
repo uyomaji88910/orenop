@@ -24,6 +24,7 @@
         @else
           <a href="{{ route('attends.edit', [$id]) }}">{{ Auth::user()->nickname }}'s edit</a>
           <a href="{{ route('lists.notattend') }}" class="attendance">List</a>
+          <a href="{{ route('paidlog', [$id]) }}" class="attendance">PaidHolidayInfo</a>
           <a href="{{ route('logout.get') }}">Logout</a>
           
           <br><br><br>
