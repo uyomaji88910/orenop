@@ -1,7 +1,7 @@
 <!-- content of navbar -->
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a herf="/"><img src="/images/orenop-toka.png" class="nav-logo"></a>
+  <a herf="/"><img src="/images/orenop-ka.png" class="nav-logo"></a>
             
     @if (Auth::check())
      <?php $id = \Auth::user()->id ;?>

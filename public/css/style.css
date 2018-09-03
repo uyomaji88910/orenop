@@ -38,9 +38,9 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;/*for the cool nav #fff*/
+    background-color: #fff;/*for the cool nav #fff*/
     overflow-x: hidden;
-    transition: 0.3s; /*もどしてみたよ edit by tiny*/
+    transition: 0.1s; /*もどしてみたよ edit by tiny*/
     padding-top: 20px;
 }
 .sidenav a {
