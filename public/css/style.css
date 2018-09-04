@@ -465,10 +465,7 @@ span.links{
   color: #000;
 }
 .frame {
-  border-collapse: separate;
-  border-spacing: 15px 0;
-  display: table;
-  width: 50%;
+ 
 }
 .box2 {
     padding: 0.5em 1em;
@@ -496,4 +493,8 @@ span.links{
   width: 100%;
   display: table;
   table-layout: fixed;
+   border-collapse: separate;
+  border-spacing: 15px 0;
+  display: table;
+  width: 50%;
 }

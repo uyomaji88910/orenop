@@ -461,7 +461,7 @@ class AttendsController extends Controller
         $user = User::find($id);
         
         $paid = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at','users.team_number', 'users.team_class')
+                 ->select('attends.id', 'users.nickname','attends.updated_at', 'attends.created_at','users.team_number', 'users.team_class')
                  ->where('status','=','Paid Holiday')->where('attends.created_at','>',$date)->where('users.nickname','=',$user->nickname)
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
       
@@ -485,10 +485,10 @@ class AttendsController extends Controller
     
     public function paid_del(Request $request)
     {
-        /*$id = $_REQUEST['id'];
+       
+        $id = $_REQUEST['id'];
         $attend = Attend::find($id);
         $attend ->delete();
-       // $attend -> save();*/
        return redirect()->back();
     }
 }

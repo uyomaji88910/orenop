@@ -65,9 +65,9 @@
 <span style="font-size:30px;cursor:pointer" onclick="openNav()" class="nav-humberger"><i class="fas fa-bars"></i></span>
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "215px";
+    document.getElementById("mySidenav").style.width = "230px";
     
-    document.getElementById("main").style.marginLeft = "215px";
+    document.getElementById("main").style.marginLeft = "230px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
