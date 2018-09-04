@@ -1,3 +1,15 @@
+  <div class="tab-select-outer">
+    表示選択：
+   <select name="select" onChange="location.href=value;" id="tab-select">
+      <option value="#"></a></option>
+      <option value="http://orenop.herokuapp.com/lists/absent">Absents</a></option>
+      <option value="http://orenop.herokuapp.com/lists/late">Lates</a></option>
+      <option value="http://orenop.herokuapp.com/lists/notattend">No Status</option>
+      <option value="http://orenop.herokuapp.com/lists/attend">Attends</option>
+      <option value="http://orenop.herokuapp.com/lists/paid">Paid Holiday</option>
+    </select>
+  </div>
+
 <div class="tab-button-outer">
 <ul class="nav nav-tabs" id="tab-button">
  <li role="presentation" class="{{ Request::is('lists/absent') ? 'tab-col' : ''}}" ><a href="{{ route('lists.absent') }}"  class="tab-class">Absents <span class="badge"> {{$count['count_absent']}}</span></a></li>
@@ -8,16 +20,4 @@
 </ul>
 </div>
 
-
-
-  <div class="tab-select-outer">
-    表示選択：
-   <select name="select" onChange="location.href=value;" id="tab-select">
-      <option value="http://orenop.herokuapp.com/lists/absent">Absents</a></option>
-      <option value="http://orenop.herokuapp.com/lists/late">Lates</a></option>
-      <option value="http://orenop.herokuapp.com/lists/notattend">No Status</option>
-      <option value="http://orenop.herokuapp.com/lists/attend">Attends</option>
-      <option value="http://orenop.herokuapp.com/lists/paid">Paid Holiday</option>
-    </select>
-  </div>
 
