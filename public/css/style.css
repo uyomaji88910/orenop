@@ -464,9 +464,7 @@ a:active .tab-col{
 span.links{
   color: #000;
 }
-.frame {
- 
-}
+
 .box2 {
     padding: 0.5em 1em;
     margin: 2em 0;
@@ -493,8 +491,22 @@ span.links{
   width: 100%;
   display: table;
   table-layout: fixed;
-   border-collapse: separate;
+  border-collapse: separate;
   border-spacing: 15px 0;
   display: table;
   width: 50%;
+}
+
+
+.tab-button-outer {
+  display: none;
+}
+
+@media screen and (min-width: 640px) {
+  .tab-button-outer {
+    display: block;
+  }
+  .tab-select-outer {
+    display: none;
+  }
 }

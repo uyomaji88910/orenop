@@ -13,7 +13,7 @@
          
 　     <center class="boxContainer">
          <div class="box2">
-          <center><i class="far fa-check-circle" style="font-size:45px;" color="#4EAFC8"></i></center>         
+          <center><i class="far fa-check-circle" style="font-size:45px;" color="#4EAFC8"></i></center>
            <h2><b>1 Click</b></h2>
            <h5>to report your Attendance</h5>
          </div>
