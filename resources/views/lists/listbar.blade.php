@@ -1,7 +1,7 @@
   <div class="tab-select-outer">
-    表示選択：
+    Select：
    <select name="select" onChange="location.href=value;" id="tab-select">
-      <option value="#"></a></option>
+      <option value="#">---List---</a></option>
       <option value="http://orenop.herokuapp.com/lists/absent">Absents</a></option>
       <option value="http://orenop.herokuapp.com/lists/late">Lates</a></option>
       <option value="http://orenop.herokuapp.com/lists/notattend">No Status</option>
