@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'employee_num' => 'required|integer|unique:users|digits:9',//min:100000000|max:999999999', // need digit9 ex.100013869
             //'reason' => 'filled|string',
             'startdate' => 'date|after:tomorrow',
+            'advanced_field' => 'required|string|max:255',
         ]);
     }
 
@@ -69,6 +70,7 @@ class RegisterController extends Controller
             'employee_num' => $data['employee_num'],
             'team_number' => $data['team_number'],
             'team_class' => $data['team_class'],
+            'advanced_field' => $data['advanced_field'],
             'password' => bcrypt($data['password']),
         ]);
     }

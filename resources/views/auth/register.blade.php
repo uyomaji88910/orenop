@@ -9,17 +9,21 @@
             <div class='col-xs-offset-0 col-xs-12'>
 
                 {!! Form::open(['route' => 'signup.post']) !!}<br>
-                    <div class="form-group">
-                        {!! Form::label('nickname', 'Name') !!}
-                        {!! Form::text('nickname', old('nickname'), ['class' => 'form-control']) !!} 
-                    </div><br>
+                    
                     <div class="form-group">
                         {!! Form::label('employee_num', 'Employee Number') !!}
                         {!! Form::number('employee_num', old('employee_num'), ['class' => 'form-control']) !!} 
                     </div><br>
-                <center><b>Slect your Team</b></center>
-    　　　　  　　　 <center>
-    　　　　　　       　      <span class="form-group"> <!プルダウンにした>  
+                    
+                    <div class="form-group">
+                        {!! Form::label('nickname', 'Name') !!}
+                        {!! Form::text('nickname', old('nickname'), ['class' => 'form-control']) !!} 
+                    </div><br>
+                    
+                <center><b>Slect your Home Team</b></center>
+                
+                    <center>
+    　　　　  　            <span class="form-group"> <!プルダウンにした>  
                             {!! Form::label('team_number', 'number') !!}
                                 {!! Form::select('team_number', array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6', '7'=>'7', '8'=>'8', '9'=>'9', '10'=>'10', '11'=>'11', '12'=>'12', '13'=>'13', '14'=>'14', '15'=>'15')); !!}
                         </span>
@@ -27,6 +31,16 @@
                       　<span class="form-group"> <!プルダウンした>
                             {!! Form::label('team_class', 'class') !!}
                                {!! Form::select('team_class', array('A'=>'A', 'B'=>'B', 'C'=>'C')); !!}
+                        </span>
+                    <center>    
+                
+                <br>
+                
+                <center><b>Slect your Advanced Field</b></center>
+    　　　　  　　　 <center>
+    　　　　　　       　      <span class="form-group"> <!プルダウンにした>  
+                            {!! Form::label('advanced_field', 'field') !!}
+                                {!! Form::select('advanced_field', array('Engineer'=>'Engineer', 'Business'=>'Business')); !!}
                         </span>
                 </center><br>
                     <div class="form-group">
