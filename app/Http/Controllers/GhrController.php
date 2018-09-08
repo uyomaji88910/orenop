@@ -27,8 +27,9 @@ class GhrController extends Controller
         
         //attends function
         $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'users.team_number', 'users.team_class')
+                 ->select('users.employee_num','users.advanced_field','users.nickname','attends.updated_at', 'attends.created_at', 'users.team_number', 'users.team_class')
                  ->where('status','=','Attend')->where('attends.created_at','=',$date)
+                 ->orderBy('users.advanced_field', 'ASC')->orderBy('users.employee_num', 'ASC')
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
 
@@ -53,8 +54,9 @@ class GhrController extends Controller
         
         //late function
         $lates = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-               ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class', 'attends.arrival_time', 'attends.id', 'attends.confirm')
+               ->select('users.employee_num','users.advanced_field','users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class', 'attends.arrival_time', 'attends.id', 'attends.confirm')
                ->where('status','=','Late')->where('attends.created_at','=',$date)
+               ->orderBy('users.advanced_field', 'ASC')->orderBy('users.employee_num', 'ASC')
                ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
  
@@ -80,8 +82,9 @@ class GhrController extends Controller
         
         
         $absents = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class', 'attends.confirm', 'attends.id') //add attends.reason by chee 7/17
+                 ->select('users.employee_num','users.advanced_field','users.nickname','attends.updated_at', 'attends.created_at', 'attends.reason', 'users.team_number', 'users.team_class', 'attends.confirm', 'attends.id') //add attends.reason by chee 7/17
                  ->where('status','=','Absent')->where('attends.created_at','=',$date)
+                 ->orderBy('users.advanced_field', 'ASC')->orderBy('users.employee_num', 'ASC')
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
         
@@ -106,7 +109,7 @@ class GhrController extends Controller
         //notattends list        
         
         $notattends = \DB::table('users')
-                 ->select('users.nickname','users.team_number', 'users.team_class')
+                 ->select('users.employee_num','users.advanced_field','users.nickname','users.team_number', 'users.team_class')
                  ->leftJoin('attends as today', function($query){ //Today listのためのdate()
                     $timestamp = time();
                     $date = date( "Y-m-d" , $timestamp ) ;
@@ -115,6 +118,7 @@ class GhrController extends Controller
                  })
                  ->whereNull('status')
                  ->where('users.nickname', '!=', 'GHR')
+                 ->orderBy('users.advanced_field', 'ASC')->orderBy('users.employee_num', 'ASC')
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
                  ->get();
 
@@ -154,8 +158,9 @@ class GhrController extends Controller
         
         //attends function
         $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                 ->select('users.nickname','attends.updated_at', 'attends.created_at', 'users.team_number', 'users.team_class')
+                 ->select('users.employee_num','users.advanced_field','users.nickname','attends.updated_at', 'attends.created_at', 'users.team_number', 'users.team_class')
                  ->where('status','=','Paid Holiday')->where('attends.created_at','=',$date)
+                 ->orderBy('users.advanced_field', 'ASC')->orderBy('users.employee_num', 'ASC')
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
 

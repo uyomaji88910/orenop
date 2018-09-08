@@ -10,6 +10,8 @@
 
 <table class="table">
     <tr>
+        <th class="text-center">Employee Number</th>
+        <th class="text-center">Advanced Field</th>
         <th class="text-center">Team</th>
         <th class="text-center">Name</th>
     </tr>
