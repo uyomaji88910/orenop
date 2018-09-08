@@ -309,14 +309,25 @@ class GhrController extends Controller
         $handle = fopen($filename, 'w+');
     
         $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                    ->select('attends.created_at', 'attends.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
-                    ->where('attends.created_at','=',$date)->where('users.nickname', '!=', 'GHR')
-                    ->orderBy('attends.status', 'ASC')->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
+                    ->select('users.employee_num', 'attends.created_at', 'attends.updated_at', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
+                    ->where('attends.created_at','=',$date)->where('users.nickname', '!=', 'GHR')->where('attends.status', '!=', 'Attend')
+                    ->orderBy('users.employee_num', 'ASC')->get()->toArray();
+        foreach($td_attends as $row) {
+            if($row->status=='Late'){
+                $row->status = mb_convert_encoding('遅刻', 'SJIS-win', 'UTF-8');
+            }
+            if($row->status=='Absent'){
+                $row->status = mb_convert_encoding('欠席', 'SJIS-win', 'UTF-8');
+            }
+            if($row->status=='Paid Holiday'){
+                $row->status = mb_convert_encoding('有給休暇', 'SJIS-win', 'UTF-8');
+            }
+        }
         
         
         $td_attends_np = \DB::table('users')
                      //->select('a', 'users.nickname','users.team_number', 'users.team_class')
-                     ->select('today.created_at', 'today.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'today.status', 'today.reason', 'today.arrival_time')
+                     ->select('users.employee_num','today.created_at', 'today.updated_at', 'users.nickname', 'today.status', 'today.reason', 'today.arrival_time')
                      ->leftJoin('attends as today', function($query){ //Today listのためのdate()
                         $timestamp = time();
                         $date = date( "Y-m-d" , $timestamp ) ;
@@ -325,7 +336,7 @@ class GhrController extends Controller
                      })
                      ->whereNull('status')
                      ->where('users.nickname', '!=', 'GHR')
-                     ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
+                     ->orderBy('users.employee_num', 'ASC')
                      ->get()->toArray();
                      
                      
@@ -333,22 +344,32 @@ class GhrController extends Controller
                      
         foreach($td_attends_np as $np_row) {
             $np_row->created_at = $date;
-            $np_row->status = 'No Status';
+            $np_row->status = mb_convert_encoding('勤怠不明', 'SJIS-win', 'UTF-8');
         }
         
 
-        $td_attends = array_merge($td_attends, $td_attends_np);
+        $td_attends = array_merge($td_attends, $td_attends_np); // merge 
         
-        $head = array(
+        /*$head = array(
+            'Employee Number',
             'Date',
             'Time',
-            'Team Number',
-            'Team Class',
-            'Nickname',
+            'Name',
             'Status',
             'Reason',
             'Arrival time'
+            );*/  // for English
+            
+        $head = array(
+            mb_convert_encoding('社員番号', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('日時', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('打刻時間', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('名前', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('状況 (遅刻/欠席/有給休暇)', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('遅刻/欠席 理由', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('備考(到着時刻)', 'SJIS-win', 'UTF-8')
             );
+            
         fputcsv($handle, $head);
       
         foreach($td_attends as $row){
@@ -371,23 +392,45 @@ class GhrController extends Controller
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
         $date = date( "Y-m-01" , $timestamp ) ;
+        $date_last = date( "Y-m-31" , $timestamp ) ;
         $filename = "test.csv";
         $handle = fopen($filename, 'w+');
 
         $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                    ->select('attends.created_at', 'attends.updated_at', 'users.team_number', 'users.team_class', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
-                    ->where('attends.created_at','>=',$date)->where('users.nickname', '!=', 'GHR')
-                    ->orderBy('attends.status', 'ASC')->orderBy('attends.created_at', 'ASC')->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
-       
-        $head = array(
+                    ->select('users.employee_num', 'attends.created_at', 'attends.updated_at', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
+                    ->where('attends.created_at','>=',$date)->where('attends.created_at','<=',$date_last)->where('users.nickname', '!=', 'GHR')->where('attends.status', '!=', 'Attend')
+                    ->orderBy('attends.created_at', 'ASC')->orderBy('users.employee_num', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
+           
+        foreach($td_attends as $row) {
+                if($row->status=='Late'){
+                    $row->status = mb_convert_encoding('遅刻', 'SJIS-win', 'UTF-8');
+                }
+                if($row->status=='Absent'){
+                    $row->status = mb_convert_encoding('欠席', 'SJIS-win', 'UTF-8');
+                }
+                if($row->status=='Paid Holiday'){
+                    $row->status = mb_convert_encoding('有給休暇', 'SJIS-win', 'UTF-8');
+                }
+        }
+        /*$head = array(
             'Date',
             'Time',
             'Team Number',
             'Team Class',
-            'Nickname',
+            'Name',
             'Status',
             'Reason',
             'Arrival time'
+            );*/
+            
+        $head = array(
+            mb_convert_encoding('社員番号', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('日時', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('打刻時間', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('名前', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('状況 (遅刻/欠席/有給休暇)', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('遅刻/欠席 理由', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('備考(到着時刻)', 'SJIS-win', 'UTF-8')
             );
         fputcsv($handle, $head);
       
