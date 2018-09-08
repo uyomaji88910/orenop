@@ -23,38 +23,23 @@
           <center><br><br><center class='label label-primary string'>admin</center></center>
         @else
           <a href="{{ route('attends.edit', [$id]) }}">{{ Auth::user()->nickname }}'s edit</a>
-          <a href="{{ route('lists.notattend') }}" class="attendance"><i class="far fa-list-alt"></i> List</a>
-          <a href="{{ route('paidlog', [$id]) }}" class="attendance"><i class="far fa-calendar-alt"></i> PaidHolidayInfo</a>
+          <a href="{{ route('lists.notattend') }}" class="attendance"> List</a>
+          <a href="{{ route('paidlog', [$id]) }}" class="attendance">PaidHolidayInfo</a>
           <a href="{{ route('logout.get') }}"><i class="fas fa-power-off"></i> Logout</a>
           
           <br><br><br>
           <a href="{{ route('aboutus.get') }}">About Orenop</a>
-         <div class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-question-circle"></i> Help<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                    <a href="{{ route('help_users.get') }}">For Users</a>
-                    <li role="separator" class="divider"></li>
-                    <a href="{{ route('help_ghr.get') }}">For GHR</a>
-              </ul>
-          </div>
+ 
           <br><br><br><br><br><br><br>
        
         @endif
     @else
-        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/" id="my-element"><i class="fas fa-home"></i> Home</a>
         <a href="{{ route('signup.get') }}"><i class="fas fa-user-plus"></i> Signup</a>
         <a href="{{ route('lists.notattend') }}" class="attendance"><i class="far fa-list-alt"></i> List</a>
         <a href="{{ route('paid') }}" class="attendance"><i class="far fa-calendar-alt"></i> <font size='5'>PaidHoliday</font></a>
         <br><br><br>
         <a href="{{ route('aboutus.get') }}">About Orenop</a>
-        <div class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-question-circle"></i> Help<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                    <a href="{{ route('help_users.get') }}">For Users</a>
-                    <li role="separator" class="divider"></li>
-                    <a href="{{ route('help_ghr.get') }}">For GHR</a>
-              </ul>
-          </div>
 
     @endif
    

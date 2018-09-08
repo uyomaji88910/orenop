@@ -5,6 +5,7 @@
     <center class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6">
         <body class="main">
                 <body>
+                    <div><h2><font color="#fff">"ピッ"していない人は<big>{{$count['count_notattend']}}</big>人です！！</font></h2></div>
                     <center><a herf="/"><img src="/images/logo_egg.png" class="att"></a></center>
                     <h1 id="time"></h1>
                     <!--<script class="col-xs-offset-6 col-xs-5">-->

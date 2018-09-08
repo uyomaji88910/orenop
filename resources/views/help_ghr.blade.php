@@ -25,7 +25,7 @@
     <body id='ghr'>
       @include('commons.navbar')
     
-    <left class = 'col-md-offset-0 col-md-12'>
+    <left class ='col-md-offset-0 col-md-12'>
     <img src="/images/ghr1.jpg"> 
     <img src="/images/ghr2.jpg"> 
     <img src="/images/ghr3.jpg"> 

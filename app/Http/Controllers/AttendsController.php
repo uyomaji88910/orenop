@@ -27,15 +27,20 @@ class AttendsController extends Controller
             }
                 $judge_ip = in_array($ip, $ip_array);
                 $judge1 = !$judge_ip;
+                $count = $this->counts();
     
             if ($judge1){
                 // Add by Ryo Nakajima 
-                return view('auth.login_ext');// (This veiw file is for extarnal)
+                return view('auth.login_ext', [
+              'count'=>$count,
+               ]);// (This veiw file is for extarnal)
                 //return '/test1';
             }
             else {
             }
-            return view('auth.login');// (This veiw file is for intarnal)
+            return view('auth.login', [
+              'count'=>$count,
+               ]);// (This veiw file is for intarnal)
         }
     }
     // route ~/lists/attend 2018/07/11
@@ -142,7 +147,10 @@ class AttendsController extends Controller
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
         $date = date( "Y-m-d" , $timestamp ) ;
-                  
+        
+        $ASC = 'ASC';
+        $team_number = 'users.team_number';
+        $team_class = 'users.team_class';
         //notattends list        
         
         $notattends = \DB::table('users')
@@ -155,8 +163,24 @@ class AttendsController extends Controller
                  })
                  ->whereNull('status')
                  ->where('users.nickname', '!=', 'GHR')
-                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')
-                 ->get();
+                 ->orderBy($team_number, $ASC)->orderBy($team_class, $ASC)
+                 ->paginate(20);
+                 //なぜか1ページ目しか表示されない。おそらくviewになにかしらの工夫が必要　by Sep 6th 2018のkazumin
+        
+        
+         $notattends2 = \DB::table('users')
+                 ->select('users.nickname', 'users.team_number', 'users.team_class')
+                 ->leftJoin('attends as today', function($query){ //Today listのためのdate()
+                    $timestamp = time();
+                    $date = date( "Y-m-d" , $timestamp ) ;
+                    $query->on('users.id', '=', 'today.user_id')
+                          ->where('today.created_at','=',$date);
+                 })
+                 ->whereNull('status')
+                 ->where('users.nickname', '!=', 'GHR')
+                 ->orderBy($team_number, $ASC)->orderBy($team_class, $ASC)
+                 ->paginate(20);
+
                                             
         
                                   //  "SELECT users.nickname FROM users 
@@ -173,6 +197,7 @@ class AttendsController extends Controller
         }
         return view('lists.notattend', [
             'notattends'=>$notattends,
+            'notattends2'=>$notattends2,
             'count'=>$count,
             'attend'=>$attend,
             'date'=>$date,
