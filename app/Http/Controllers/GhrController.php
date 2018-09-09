@@ -392,13 +392,16 @@ class GhrController extends Controller
         $timestamp = time();
         // date()で日時を出力 //view用のdate()
         $date = date( "Y-m-01" , $timestamp ) ;
-        $date_last = date( "Y-m-31" , $timestamp ) ;
+        $timestamp_next = strtotime('+1 month', $timestamp);
+        $date_next = date( "Y-m-01" , $timestamp_next ) ;
+        
+        
         $filename = "test.csv";
         $handle = fopen($filename, 'w+');
 
         $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                     ->select('users.employee_num', 'attends.created_at', 'attends.updated_at', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
-                    ->where('attends.created_at','>=',$date)->where('attends.created_at','<=',$date_last)->where('users.nickname', '!=', 'GHR')->where('attends.status', '!=', 'Attend')
+                    ->where('attends.created_at','>=',$date)->where('attends.created_at','<',$date_next)->where('users.nickname', '!=', 'GHR')->where('attends.status', '!=', 'Attend')
                     ->orderBy('attends.created_at', 'ASC')->orderBy('users.employee_num', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
            
         foreach($td_attends as $row) {
