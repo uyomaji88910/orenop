@@ -164,7 +164,7 @@ class AttendsController extends Controller
                  ->whereNull('status')
                  ->where('users.nickname', '!=', 'GHR')
                  ->orderBy($team_number, $ASC)->orderBy($team_class, $ASC)
-                 ->paginate(20);
+                 ->get();
                  //なぜか1ページ目しか表示されない。おそらくviewになにかしらの工夫が必要　by Sep 6th 2018のkazumin
         
         
@@ -179,7 +179,7 @@ class AttendsController extends Controller
                  ->whereNull('status')
                  ->where('users.nickname', '!=', 'GHR')
                  ->orderBy($team_number, $ASC)->orderBy($team_class, $ASC)
-                 ->paginate(20);
+                 ->get();
 
                                             
         
