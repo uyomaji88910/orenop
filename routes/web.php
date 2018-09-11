@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     // GHR   ミドルウェアの中のミドルウェアやで！！！！
     Route::group(['middleware' => 'auth_ghr'], function () {
         Route::get('ghr/attend', 'GhrController@attend')->name('ghr.attend');
+        Route::get('ghr/over', 'GhrController@over')->name('ghr.over');
         Route::get('ghr/late', 'GhrController@late')->name('ghr.late');
         Route::post('ghr/late', 'GhrController@arrival')->name('ghr.arrival'); //button function for arrival time
         Route::delete('ghr/late', 'GhrController@notarrival')->name('ghr.notarrival');  //cancel
@@ -65,6 +66,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
     Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
     Route::get('lists/paid', 'AttendsController@paidlist')->name('lists.paid');
+    Route::get('lists/over', 'AttendsController@over')->name('lists.over');
+
 
 //欠席遅刻のかたはこちら
 Route::get('others', function() {

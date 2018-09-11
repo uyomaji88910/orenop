@@ -17,6 +17,7 @@
  <li role="presentation" class="{{ Request::is('ghr/notattend') ? 'tab-col' : '' }}"><a href="{{ route('ghr.notattend') }}" class="tab-class">No Status <span class="badge">{{$count['count_notattend']}}</span></a></li>
  <li role="presentation" class="{{ Request::is('ghr/attend') ? 'tab-col' : '' }}"><a href="{{ route('ghr.attend') }}" class="tab-class"> Attends <span class="badge badge-light"> {{$count['count_attend']}}</span></a></li>
  <li role="presentation" class="{{ Request::is('ghr/paid') ? 'tab-col' : '' }}"><a href="{{ route('ghr.paid') }}" class="tab-class"> Paid Holiday <span class="badge badge-light"> {{$count['count_paid']}}</span></a></li> 
+ <li role="presentation" class="{{ Request::is('ghr/over') ? 'tab-col' : '' }}"><a href="{{ route('ghr.over') }}" class="tab-class"> Over <span class="badge badge-light"> {{$count['count_over']}}</span></a></li>
 </ul>
 </div>
 

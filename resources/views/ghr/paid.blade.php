@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6 col-lg-offset-0 col-lg-12">
-
+<h1><span class="label label-primary">{{$count['count_all']}}</span></h1>
 <h1><span class="label label-primary">Paid Holiday List</span></h1>Today: {{$date}}<br>
 @include('ghr.listbar')
 

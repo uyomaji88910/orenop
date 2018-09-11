@@ -17,6 +17,7 @@
  <li role="presentation"><a href="{{ route('lists.notattend') }}" class="tab-class">No Status <span class="badge"> {{$count['count_notattend']}}</span></a></li>
  <li role="presentation"><a href="{{ route('lists.attend') }}" class="tab-class"> Attends <span class="badge badge-light"> {{$count['count_attend']}}</span></a></li>
  <li role="presentation"><a href="{{ route('lists.paid') }}" class="tab-class"> Paid Holiday <span class="badge badge-light"> {{$count['count_paid']}}</span></a></li> 
+ <li role="presentation"><a href="{{ route('lists.over') }}" class="tab-class"> Over <span class="badge badge-light"> {{$count['count_over']}}</span></a></li> 
 </ul>
 </div>
 

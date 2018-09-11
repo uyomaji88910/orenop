@@ -28,7 +28,7 @@ class GhrController extends Controller
         //attends function
         $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                  ->select('users.employee_num','users.advanced_field','users.nickname','attends.updated_at', 'attends.created_at', 'users.team_number', 'users.team_class')
-                 ->where('status','=','Attend')->where('attends.created_at','=',$date)
+                 ->where('status','=','Attend')->where('attends.created_at','=',$date)->where('attends.updated_at','<=','09:00:00')
                  ->orderBy('users.advanced_field', 'ASC')->orderBy('users.employee_num', 'ASC')
                  ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
         $count = $this->counts();
@@ -166,6 +166,34 @@ class GhrController extends Controller
 
         
         return view('ghr.paid', [
+              'attends'=>$attends,
+              'count'=>$count,
+              'date'=>$date,
+               ]);
+        
+        
+    }
+    
+    
+     public function over()
+    {
+         //タイムスタンプを取得
+        $timestamp = time();
+        // date()で日時を出力
+        $date = date( "Y-m-d" , $timestamp ) ;
+        $time = date( "H:i:s" , $timestamp ) ;
+        
+        
+        //attends function
+        $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                 ->select('users.employee_num','users.advanced_field','users.nickname','attends.updated_at', 'attends.created_at', 'users.team_number', 'users.team_class')
+                 ->where('status','=','Attend')->where('attends.created_at','=',$date)->where('attends.updated_at','>=' , '09:00:00')
+                 ->orderBy('users.advanced_field', 'ASC')->orderBy('users.employee_num', 'ASC')
+                 ->orderBy('users.team_number', 'ASC')->orderBy('users.team_class', 'ASC')->orderBy('attends.updated_at', 'DESC')->get();
+        $count = $this->counts();
+
+        
+        return view('ghr.over', [
               'attends'=>$attends,
               'count'=>$count,
               'date'=>$date,

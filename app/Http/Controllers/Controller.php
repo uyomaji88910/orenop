@@ -23,9 +23,9 @@ class Controller extends BaseController
     
     
         //attends function
-         $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+        $attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
-                                      ->where('status','=','Attend')->where('attends.created_at','=',$date)
+                                      ->where('status','=','Attend')->where('attends.created_at','=',$date)->where('attends.updated_at','<=','09:00:00')
                                       ->orderBy('attends.updated_at', 'DESC')->get();
         $count_attend = $attends->count();
         
@@ -52,6 +52,15 @@ class Controller extends BaseController
          $all_user = \DB::table('users')->count();
         
         $count_notattend = $all_user - $count_attend - $count_late - $count_absent - $count_paid - 1;
+        
+        $over = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
+                                      ->select('users.nickname','attends.updated_at', 'attends.created_at')
+                                      ->where('status','=','Attend')->where('attends.created_at','=',$date)->where('attends.updated_at','>=','09:00:00')
+                                      ->orderBy('attends.updated_at', 'DESC')->get();
+        $count_over = $over->count();
+        
+        $all_members = \DB::table('users')->select('*')->get();
+        $count_all = $all_members->count();
          
         //notattends list
         /*
@@ -67,6 +76,8 @@ class Controller extends BaseController
             'count_late' => $count_late,
             'count_absent' => $count_absent,
             'count_notattend' => $count_notattend,
+            'count_over' => $count_over,
+            'count_all' => $count_all,
             ];
     }
     
