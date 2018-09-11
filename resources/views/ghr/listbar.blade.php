@@ -7,6 +7,7 @@
       <option value="http://orenop.herokuapp.com/ghr/notattend">No Status</option>
       <option value="http://orenop.herokuapp.com/ghr/attend">Attends</option>
       <option value="http://orenop.herokuapp.com/ghr/paid">Paid Holiday</option>
+      <option value="http://orenop.herokuapp.com/ghr/over">Over</option>
     </select>
   </div>
 

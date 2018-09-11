@@ -60,8 +60,8 @@ class Controller extends BaseController
         $count_over = $over->count();
         
         $all_members = \DB::table('users')->select('*')->get();
-        $count_all = $all_members->count();
-         
+        $all = $all_members->count();
+        $count_all = $all -1;
         //notattends list
         /*
         $notattends = \DB::select("SELECT users.nickname FROM users 
