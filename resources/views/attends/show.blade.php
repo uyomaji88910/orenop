@@ -44,7 +44,7 @@
                
                       </div>
                 </div>
-                     <center> {!! link_to_route('index', 'Back to home') !!} </center>
+                     <h1><center> {!! link_to_route('index', 'Back to home') !!} </center></h1>
         <div class="container">
            @include('commons.error_messages')
            @yield('content')

@@ -337,10 +337,14 @@ class GhrController extends Controller
         $handle = fopen($filename, 'w+');
     
         $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                    ->select('users.employee_num', 'attends.created_at', 'attends.updated_at', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
-                    ->where('attends.created_at','=',$date)->where('users.nickname', '!=', 'GHR')->where('attends.status', '!=', 'Attend')
+                    ->select('attends.created_at', 'users.employee_num','users.nickname','attends.status', 'attends.reason', 'attends.updated_at', 'attends.arrival_time')
+                    ->where('attends.created_at','=',$date)->where('users.nickname', '!=', 'GHR')->where('attends.updated_at', '>=', '09:00:00')
                     ->orderBy('users.employee_num', 'ASC')->get()->toArray();
+        
         foreach($td_attends as $row) {
+            if($row->status=='Attend'){
+                $row->status = mb_convert_encoding('遅刻', 'SJIS-win', 'UTF-8');
+            }
             if($row->status=='Late'){
                 $row->status = mb_convert_encoding('遅刻', 'SJIS-win', 'UTF-8');
             }
@@ -355,7 +359,7 @@ class GhrController extends Controller
         
         $td_attends_np = \DB::table('users')
                      //->select('a', 'users.nickname','users.team_number', 'users.team_class')
-                     ->select('users.employee_num','today.created_at', 'today.updated_at', 'users.nickname', 'today.status', 'today.reason', 'today.arrival_time')
+                     ->select('today.created_at','users.employee_num','users.nickname','today.status', 'today.reason', 'today.arrival_time') 
                      ->leftJoin('attends as today', function($query){ //Today listのためのdate()
                         $timestamp = time();
                         $date = date( "Y-m-d" , $timestamp ) ;
@@ -379,27 +383,27 @@ class GhrController extends Controller
         $td_attends = array_merge($td_attends, $td_attends_np); // merge 
         
         /*$head = array(
-            'Employee Number',
             'Date',
-            'Time',
+            'Employee Number',
             'Name',
             'Status',
             'Reason',
+            'Time',
             'Arrival time'
             );*/  // for English
             
         $head = array(
-            mb_convert_encoding('社員番号', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('日時', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('打刻時間', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('名前', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('状況 (遅刻/欠席/有給休暇)', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('遅刻/欠席 理由', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Date', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Employee ID', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Name', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Type', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Reason', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Time', 'SJIS-win', 'UTF-8'),
             mb_convert_encoding('備考(到着時刻)', 'SJIS-win', 'UTF-8')
             );
             
         fputcsv($handle, $head);
-      
+        
         foreach($td_attends as $row){
             $row->reason = mb_convert_encoding($row->reason, 'SJIS-win', 'UTF-8');
             $row->nickname = mb_convert_encoding($row->nickname, 'SJIS-win', 'UTF-8');
@@ -428,11 +432,14 @@ class GhrController extends Controller
         $handle = fopen($filename, 'w+');
 
         $td_attends = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
-                    ->select('users.employee_num', 'attends.created_at', 'attends.updated_at', 'users.nickname', 'attends.status', 'attends.reason', 'attends.arrival_time')
-                    ->where('attends.created_at','>=',$date)->where('attends.created_at','<',$date_next)->where('users.nickname', '!=', 'GHR')->where('attends.status', '!=', 'Attend')
+                    ->select('attends.created_at', 'users.employee_num','users.nickname','attends.status', 'attends.reason', 'attends.arrival_time')
+                    ->where('attends.created_at','>=',$date)->where('attends.created_at','<',$date_next)->where('users.nickname', '!=', 'GHR')->where('attends.updated_at', '>=', '09:00:00')
                     ->orderBy('attends.created_at', 'ASC')->orderBy('users.employee_num', 'ASC')->orderBy('attends.updated_at', 'DESC')->get()->toArray();
-           
+
         foreach($td_attends as $row) {
+                if($row->status=='Attend'){
+                    $row->status = mb_convert_encoding('遅刻', 'SJIS-win', 'UTF-8');
+                }
                 if($row->status=='Late'){
                     $row->status = mb_convert_encoding('遅刻', 'SJIS-win', 'UTF-8');
                 }
@@ -445,22 +452,21 @@ class GhrController extends Controller
         }
         /*$head = array(
             'Date',
-            'Time',
-            'Team Number',
-            'Team Class',
+            'Employee Number',
             'Name',
             'Status',
             'Reason',
+            'Time',
             'Arrival time'
             );*/
             
         $head = array(
-            mb_convert_encoding('社員番号', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('日時', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('打刻時間', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('名前', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('状況 (遅刻/欠席/有給休暇)', 'SJIS-win', 'UTF-8'),
-            mb_convert_encoding('遅刻/欠席 理由', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Date', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Employee ID', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Name', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Type', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Reason', 'SJIS-win', 'UTF-8'),
+            mb_convert_encoding('Time', 'SJIS-win', 'UTF-8'),
             mb_convert_encoding('備考(到着時刻)', 'SJIS-win', 'UTF-8')
             );
         fputcsv($handle, $head);

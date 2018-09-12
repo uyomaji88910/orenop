@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-xs-offset-0 col-xs-12 col-md-offset-3 col-md-6 col-lg-offset-0 col-lg-12">
 
-<h1><span class="label label-primary">Attends List</span></h1>Today: {{$date}}
+<h1><span class="label label-primary">Over 9 O'clock List</span></h1>Today: {{$date}}
 <br>
 @include('lists.listbar')
 
