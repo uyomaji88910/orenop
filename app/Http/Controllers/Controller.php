@@ -51,7 +51,6 @@ class Controller extends BaseController
          
          $all_user = \DB::table('users')->count();
         
-        $count_notattend = $all_user - $count_attend - $count_late - $count_absent - $count_paid - 1;
         
         $over = \DB::table('users')->join('attends', 'users.id', '=', 'attends.user_id')
                                       ->select('users.nickname','attends.updated_at', 'attends.created_at')
@@ -62,7 +61,12 @@ class Controller extends BaseController
         $all_members = \DB::table('users')->select('*')->get();
         $all = $all_members->count();
         $count_all = $all -1;
+        
+        
         //notattends list
+        
+        $count_notattend = $all_user - $count_attend - $count_late - $count_absent - $count_paid -$count_over - 1;
+        
         /*
         $notattends = \DB::select("SELECT users.nickname FROM users 
                                     LEFT JOIN (SELECT user_id, status, created_at 
