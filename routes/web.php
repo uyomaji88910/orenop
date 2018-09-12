@@ -37,6 +37,14 @@ Route::post('ghr/login', 'Auth\LoginController@login')->name('ghr_login.post');
 
 //Attend Function 2018/07/05 add by Ryo Nakajima
 Route::group(['middleware' => 'auth'], function () {
+       // list 
+    Route::get('lists/attend', 'AttendsController@attend')->name('lists.attend');
+    Route::get('lists/late', 'AttendsController@late')->name('lists.late');
+    Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
+    Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
+    Route::get('lists/paid', 'AttendsController@paidlist')->name('lists.paid');
+    Route::get('lists/over', 'AttendsController@over')->name('lists.over');
+    // paid log
     Route::get('paidlog/{id}', 'AttendsController@paidlog')->name('paidlog');
     Route::delete('paidlog', 'AttendsController@paid_del')->name('paid_del');  //cancel
     Route::resource('attends', 'AttendsController', ['only' => ['show', 'edit']]); // add Ryo Nakajima 2018/07/13
@@ -60,13 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
-   // list 
-    Route::get('lists/attend', 'AttendsController@attend')->name('lists.attend');
-    Route::get('lists/late', 'AttendsController@late')->name('lists.late');
-    Route::get('lists/absent', 'AttendsController@absent')->name('lists.absent');
-    Route::get('lists/notattend', 'AttendsController@notattend')->name('lists.notattend');
-    Route::get('lists/paid', 'AttendsController@paidlist')->name('lists.paid');
-    Route::get('lists/over', 'AttendsController@over')->name('lists.over');
+
 
 
 //欠席遅刻のかたはこちら

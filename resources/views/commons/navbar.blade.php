@@ -36,7 +36,7 @@
     @else
         <a href="/" id="my-element"><i class="fas fa-home"></i> Home</a>
         <a href="{{ route('signup.get') }}"><i class="fas fa-user-plus"></i> Signup</a>
-        <a href="{{ route('lists.notattend') }}" class="attendance"><i class="far fa-list-alt"></i> List</a>
+        <!--<a href="{{ route('lists.notattend') }}" class="attendance"><i class="far fa-list-alt"></i> List</a>-->
         <a href="{{ route('paid') }}" class="attendance"><i class="far fa-calendar-alt"></i> <font size='5'>PaidHoliday</font></a>
         <br><br><br>
         <a href="{{ route('aboutus.get') }}">About Orenop</a>
